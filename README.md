@@ -104,7 +104,7 @@ git commit -m '<commit message>'
 To push to the remote repo:
 
 ```
-git push origin <repo name (the branch you were working on)>
+git push origin <branch name>
 ```
 
 To pull from the remote repo run:
@@ -137,10 +137,10 @@ Tickets will be assigned to people individually so don't start working on one if
 Tickets will be continuously added as it is always better to split larger problems into smaller parts. Each ticket will ideally have an intuitive name and a detailed descriptions stating where the code should be and what it should do.
 
 - Brainstorm - Anyone can create tickets in here of ideas they have
-- Backlog - Where we put tickets that we might implement if we have time but arent totally necessary
+- Backlog - Where we put tickets that we might implement if we have time but aren't totally necessary
 - Main Tickets - Here are the important tickets we need to complete for our game to function
 - In Review - When you create a PR on your task
-- Complete - Sweet, Sweet victory
+- Complete - Sweet, sweet victory
 - Milestones - These aren't to be touched, they are there to make it easier to create tickets which will be completed
 
 To keep the tickets more organised the type of ticket will be grouped by colour:
