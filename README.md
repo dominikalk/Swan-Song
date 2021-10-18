@@ -60,7 +60,7 @@ Checkout means moving from one branch to another:
 git checkout <branch name>
 ```
 
-... would switch branch to the name specified
+... would switch branch to the name specified.
 Make sure all changes are staging (commited) if switching branch.
 
 To create a new branch use the -b tag:
