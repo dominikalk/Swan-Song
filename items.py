@@ -1,11 +1,13 @@
-"""This script contains variables for all of the items in the game"""
+'''
+This script contains variables for all of the items in the game.
 
-# item_<item name> = {
-#     "id": "<item id>",
+Structure of an item:
 
-#     "name": "<item name>",
+item_<item name> = {
+    "id": "<item id>",
 
-#     "description":
-#     """<item description>"""
-# }
+    "name": "<item name>",
 
+    "description": """<item description>"""
+}
+'''

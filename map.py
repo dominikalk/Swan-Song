@@ -1,17 +1,18 @@
+'''This file contains a dictionary containing all the rooms in the game.
+Structure of a room:
+
+room_<room name> = {
+    "name": "<room name long form>",
+
+    "description": """<room description>""",
+
+    "exits": {"<direction>": "<next room>"},
+
+    "items": [<list of ITEM VARIABLES>]
+ }
+'''
+
 from items import *
-
-#   ROOM TEMPLATE
-#   room name in the form room_<room name>
-# room_<room name> = {
-#     "name": "<room name long form>",
-
-#     "description":
-#     """<room description>""",
-
-#     "exits": {"<direction>": "<next room>"},
-
-#     "items": [<list of ITEM VARIABLES>]
-# }
 
 room_demo = {
     "name": "demo",
