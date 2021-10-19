@@ -11,7 +11,7 @@ This text based game is going to be made within a group for a cardiff university
 ## Contributors
 
 - Dominik Alkhovik
-- --person 2--
+- Suet Wing Wong
 - --person 3--
 - --person 4--
 - --person 5--
