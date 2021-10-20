@@ -2,13 +2,21 @@
 Structure of a room:
 
 room_<room name> = {
+    "id": "<room name short form>"
+
     "name": "<room name long form>",
 
     "description": """<room description>""",
 
-    "exits": {"<direction>": "<next room>"},
-
     "items": [<list of ITEM VARIABLES>]
+
+    "exits": {
+        "<direction>" = {
+            "room": "<next room>",
+            "time": "<time used to move>",
+            "locked": <boolean>  (default to false)
+        }
+    },
  }
 '''
 
@@ -17,12 +25,11 @@ from items import *
 room_demo = {
     "name": "demo",
 
-    "description":
-    """demo description""",
+    "description": """demo description""",
+    
+    "items": [],
 
     "exits": {},
-
-    "items": []
 }
 
 rooms = {

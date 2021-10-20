@@ -136,18 +136,20 @@ We are using Trello to manage tasks in the form of tickets. There are also colum
 Tickets will be assigned to people individually so don't start working on one if someone else is working on it.
 Tickets will be continuously added as it is always better to split larger problems into smaller parts. Each ticket will ideally have an intuitive name and a detailed descriptions stating where the code should be and what it should do.
 
-- Brainstorm - Anyone can create tickets in here of ideas they have
-- Backlog - Where we put tickets that we might implement if we have time but aren't totally necessary
-- Main Tickets - Here are the important tickets we need to complete for our game to function
-- In Review - When you create a PR on your task
-- Complete - Sweet, sweet victory
-- Milestones - These aren't to be touched, they are there to make it easier to create tickets which will be completed
+- **Brainstorm** - Anyone can create tickets in here of ideas they have
+- **Backlog** - Where we put tickets that we might implement if we have time but aren't totally necessary
+- **On Hold** - Tickets that cannot be completed yet because they are waiting for others to be completed
+- **Main Tickets** - Here are the important tickets we need to complete for our game to function
+- **In Progress** - Tickets that are currently being worked on
+- **In Review** - When you create a PR on your task
+- **Complete** - Sweet, sweet victory
+- **Milestones** - These aren't to be touched, they are there to make it easier to create tickets which will be completed
 
 To keep the tickets more organised the type of ticket will be grouped by colour:
 
-- Purple - Dev based tickets
-- Green - Story based tickets
-- Blue - Presentation based tickets
+- **Purple** - Dev based tickets
+- **Green** - Story based tickets
+- **Blue** - Presentation based tickets
 
 Communication is key so make sure to message people for help or information as much as you need, and the same goes for helping others.
 
