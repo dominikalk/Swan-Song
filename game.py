@@ -9,6 +9,8 @@ from items import *
 from gameparser import *
 from helpers import *
 
+time_used = 0
+time_left = 30
 
 def menu(exits, room_items, inv_items):
     """This function, given a dictionary of possible exits from a room, and a list
