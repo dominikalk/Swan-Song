@@ -286,3 +286,10 @@ def move(exits, direction):
 
     # Next room to go to
     return rooms[exits[direction]]
+
+
+def format_time(time):
+    minutes = int(time //60)
+    seconds = int(time % 60)
+    time = f'{minutes}:{seconds:02}'
+    return time
