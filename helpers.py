@@ -295,7 +295,7 @@ def format_time(time):
     return time
 
 
-def format_value(value)
+def format_value(value):
     numstring = str(value)
     stringplace = 0
     final_string = ""
