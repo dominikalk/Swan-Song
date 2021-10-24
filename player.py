@@ -10,4 +10,4 @@ inventory = [
 ]
 
 # Start game at the reception
-current_room = rooms["demo"]
+current_room = rooms["lobby"]

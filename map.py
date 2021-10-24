@@ -27,9 +27,9 @@ room_lobby = {
 
     "name": "the lobby of the bank",
 
-    "description": """""",
+    "description": """The lobby description""",
     
-    "items": [],
+    "items": [item_demo],
 
     "exits": {
         'north': {
@@ -150,5 +150,9 @@ room_ceo = {
 rooms = {
     #   VARIABLE NAME TEMPLATE
     # "<room name>": <VARIABLE OF ROOM>,
-    "demo": room_lobby
+    "lobby": room_lobby,
+    'tellers': room_tellers,
+    'office': room_office,
+    'security': room_security,
+    'ceo': room_ceo
 }

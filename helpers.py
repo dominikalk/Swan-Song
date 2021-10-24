@@ -135,7 +135,8 @@ def exit_leads_to(exits, direction):
     >>> exit_leads_to(rooms["Tutor"]["exits"], "west")
     'Reception'
     """
-    return rooms[exits[direction]]["name"]
+
+    return exits[direction]["room"]
 
 
 def print_exit(direction, leads_to):
@@ -224,8 +225,12 @@ def execute_go(direction):
 
     if(not (direction in current_room['exits'])):
         return print('You cannot go there.')
+    
+    print(current_room)
 
     current_room = move(current_room['exits'], direction)
+
+    print(current_room)
 
     print(f'You are in {current_room["name"]}.')
 
@@ -285,7 +290,7 @@ def move(exits, direction):
     """
 
     # Next room to go to
-    return rooms[exits[direction]]
+    return rooms[exits[direction]['room']]
 
 
 def format_time(time):
