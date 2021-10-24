@@ -12,6 +12,7 @@ from helpers import *
 time_used = 0
 time_left = 30
 
+
 def menu(exits, room_items, inv_items):
     """This function, given a dictionary of possible exits from a room, and a list
     of items found in the room and carried by the player, prints the menu of
@@ -30,6 +31,64 @@ def menu(exits, room_items, inv_items):
     normalised_user_input = normalise_input(user_input)
 
     return normalised_user_input
+
+
+def execute_go(direction):
+    """This function, given the direction (e.g. "south") updates the current room
+    to reflect the movement of the player if the direction is a valid exit
+    (and prints the name of the room into which the player is
+    moving). Otherwise, it prints "You cannot go there."
+    """
+
+    global current_room
+
+    if(not (direction in current_room['exits'])):
+        return print('You cannot go there.')
+
+    current_room = move(current_room['exits'], direction)
+
+    return print(f'You are in {current_room["name"]}.')
+
+
+def execute_take(item_id):
+    """This function takes an item_id as an argument and moves this item from the
+    list of items in the current room to the player's inventory. However, if
+    there is no such item in the room, this function prints
+    "You cannot take that."
+    """
+
+    selected_item = None
+
+    for item in current_room['items']:
+        if(item['id'] == item_id):
+            selected_item = item
+            break
+
+    if(selected_item == None):
+        return print('You cannot take that.')
+
+    inventory.append(selected_item)
+    current_room['items'].remove(selected_item)
+
+
+def execute_drop(item_id):
+    """This function takes an item_id as an argument and moves this item from the
+    player's inventory to list of items in the current room. However, if there is
+    no such item in the inventory, this function prints "You cannot drop that."
+    """
+
+    selected_item = None
+
+    for item in inventory:
+        if(item['id'] == item_id):
+            selected_item = item
+            break
+
+    if(selected_item == None):
+        return print('You cannot drop that.')
+
+    current_room['items'].append(selected_item)
+    inventory.remove(selected_item)
 
 
 def execute_command(command):

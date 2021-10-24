@@ -3,8 +3,6 @@ This helpers folder will contain a lot of the subroutines that we dont want in o
 as it would clutter them. We might make more helper files if this one gets too large.
 """
 
-
-from player import *
 from map import rooms
 
 
@@ -191,7 +189,7 @@ def print_menu(exits, room_items, inv_items):
     # Iterate over available take actions
     for item in inv_items:
         # Print the exit name and where it leads to
-        print(f'DROP {item["id"].upper()} to drop your {item["name"]}.')
+        print(f'DROP {item["id"].upper()} to drop {item["name"]}.')
 
     print("What do you want to do?\n")
 
@@ -214,69 +212,6 @@ def is_valid_exit(exits, chosen_exit):
     return chosen_exit in exits
 
 
-def execute_go(direction):
-    """This function, given the direction (e.g. "south") updates the current room
-    to reflect the movement of the player if the direction is a valid exit
-    (and prints the name of the room into which the player is
-    moving). Otherwise, it prints "You cannot go there."
-    """
-
-    global current_room
-
-    if(not (direction in current_room['exits'])):
-        return print('You cannot go there.')
-    
-    print(current_room)
-
-    current_room = move(current_room['exits'], direction)
-
-    print(current_room)
-
-    print(f'You are in {current_room["name"]}.')
-
-
-def execute_take(item_id):
-    """This function takes an item_id as an argument and moves this item from the
-    list of items in the current room to the player's inventory. However, if
-    there is no such item in the room, this function prints
-    "You cannot take that."
-    """
-
-    global inventory
-    selected_item = None
-
-    for item in current_room['items']:
-        if(item['id'] == item_id):
-            selected_item = item
-            break
-
-    if(selected_item == None):
-        return print('You cannot take that.')
-
-    inventory.append(selected_item)
-    current_room['items'].remove(selected_item)
-
-
-def execute_drop(item_id):
-    """This function takes an item_id as an argument and moves this item from the
-    player's inventory to list of items in the current room. However, if there is
-    no such item in the inventory, this function prints "You cannot drop that."
-    """
-
-    selected_item = None
-
-    for item in inventory:
-        if(item['id'] == item_id):
-            selected_item = item
-            break
-
-    if(selected_item == None):
-        return print('You cannot drop that.')
-
-    current_room['items'].append(selected_item)
-    inventory.remove(selected_item)
-
-
 def move(exits, direction):
     """This function returns the room into which the player will move if, from a
     dictionary "exits" of avaiable exits, they choose to move towards the exit
@@ -294,7 +229,7 @@ def move(exits, direction):
 
 
 def format_time(time):
-    minutes = int(time //60)
+    minutes = int(time // 60)
     seconds = int(time % 60)
     time = f'{minutes}:{seconds:02}'
     return time
