@@ -289,7 +289,7 @@ def move(exits, direction):
 
 
 def format_time(time):
-    minutes = int(time //60)
+    minutes = int(time // 60)
     seconds = int(time % 60)
     time = f'{minutes}:{seconds:02}'
     return time
@@ -303,9 +303,8 @@ def format_value(value):
     for char in numstring[::-1]:
         stringplace = stringplace + 1
         final_string = char + final_string
-        if stringplace == 3:
-            final_string = "," + final_string
-            stringplace = 0
+        if stringplace % 3 == 0 and stringplace != 0:
+            if stringplace != len(numstring):
+                final_string = "," + final_string
     final_string = "$" + final_string
     return final_string
-
