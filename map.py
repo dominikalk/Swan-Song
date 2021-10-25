@@ -4,6 +4,8 @@ Structure of a room:
 room_<room name> = {
     "id": "<room name short form>"
 
+    "floor": "<floor name>",
+
     "name": "<room name long form>",
 
     "description": """<room description>""",
@@ -29,7 +31,8 @@ from items import *
 
 stairs_ground = {
     "id": "stairs-ground",
-    "name": "the ground floor stairs",
+    'floor': 'the ground floor',
+    "name": "the stairs",
     "description": """The ground floor stairs description""",
     "items": [],
     "exits": {
@@ -53,7 +56,8 @@ stairs_ground = {
 
 stairs_basement = {
     "id": "stairs-basement",
-    "name": "the basement floor stairs",
+    'floor': 'the basement',
+    "name": "the stairs",
     "description": """The basement floor stairs description""",
     "items": [],
     "exits": {
@@ -82,7 +86,8 @@ stairs_basement = {
 
 stairs_roof = {
     "id": "stairs-roof",
-    "name": "the roof stairs",
+    'floor': 'the roof',
+    "name": "the stairs",
     "description": """The roof stairs description""",
     "items": [],
     "exits": {
@@ -92,7 +97,7 @@ stairs_roof = {
             'locked': False
         },
         'east': {
-            'room': 'roof',
+            'room': 'helipad',
             'time': 0,
             'locked': False
         },
@@ -103,6 +108,7 @@ stairs_roof = {
 
 room_depository = {
     "id": "depository",
+    'floor': 'the basement',
     "name": "the depository of the bank",
     "description": """The depository description""",
     "items": [],
@@ -127,6 +133,7 @@ room_depository = {
 
 room_server = {
     "id": "server",
+    'floor': 'the basement',
     "name": "the server room of the bank",
     "description": """The server room description""",
     "items": [],
@@ -146,6 +153,7 @@ room_server = {
 
 room_armoury = {
     "id": "armoury",
+    'floor': 'the basement',
     "name": "the armoury of the bank",
     "description": """The armoury description""",
     "items": [],
@@ -165,6 +173,7 @@ room_armoury = {
 
 room_cargo = {
     "id": "cargo",
+    'floor': 'the basement',
     "name": "the cargo loading bay of the bank",
     "description": """The cargo loading bay description""",
     "items": [],
@@ -189,6 +198,7 @@ room_cargo = {
 
 room_vault = {
     "id": "vault",
+    'floor': 'the basement',
     "name": "the vault of the bank",
     "description": """The vault description""",
     "items": [],
@@ -203,6 +213,7 @@ room_vault = {
 
 room_electrical = {
     "id": "electrical",
+    'floor': 'the basement',
     "name": "the electrical room of the bank",
     "description": """The electrical room description""",
     "items": [],
@@ -224,6 +235,7 @@ room_electrical = {
 
 room_lobby = {
     "id": "lobby",
+    'floor': 'the ground floor',
     "name": "the lobby of the bank",
     "description": """The lobby description""",
     "items": [item_demo],
@@ -243,6 +255,7 @@ room_lobby = {
 
 room_tellers = {
     "id": "tellers",
+    'floor': 'the ground floor',
     "name": "the tellers of the bank",
     "description": """The tellers description""",
     "items": [],
@@ -262,6 +275,7 @@ room_tellers = {
 
 room_office = {
     "id": "office",
+    'floor': 'the ground floor',
     "name": "the offices",
     "description": """The offices description""",
     "items": [],
@@ -286,6 +300,7 @@ room_office = {
 
 room_security = {
     "id": "security",
+    'floor': 'the ground floor',
     "name": "the security room",
     "description": """The security description""",
     "items": [],
@@ -313,8 +328,29 @@ room_security = {
     },
 }
 
+room_trading = {
+    "id": "trading",
+    'floor': 'the ground floor',
+    "name": "the trading room",
+    "description": """The trading room description""",
+    "items": [],
+    "exits": {
+        'south': {
+            'room': 'security',
+            'time': 0,
+            'locked': False
+        },
+        'east': {
+            'room': 'office',
+            'time': 0,
+            'locked': False
+        },
+    },
+}
+
 room_ceo = {
     "id": "ceo",
+    'floor': 'the ground floor',
     "name": "the CEO's office",
     "description": """The ceo's office description""",
     "items": [],
@@ -329,10 +365,11 @@ room_ceo = {
 
 # --------- Roof ----------------------
 
-room_roof = {
-    "id": "roof",
-    "name": "the roof",
-    "description": """The roof description""",
+room_helipad = {
+    "id": "helipad",
+    'floor': 'the roof',
+    "name": "the helipad",
+    "description": """The helipad description""",
     "items": [],
     "exits": {
         'west': {
@@ -363,7 +400,8 @@ rooms = {
     'office': room_office,
     'security': room_security,
     'ceo': room_ceo,
+    'trading': room_trading,
 
     # Roof
-    'roof': room_roof
+    'helipad': room_helipad
 }
