@@ -48,6 +48,10 @@ def execute_go(direction):
     if(not (direction in current_room['exits'])):
         return print('You cannot go there.')
 
+    if rooms[current_room['exits'][direction]['room']]['locked']:
+        return print("You can't access that room because it is locked.")
+
+
     exit_time = current_room['exits'][direction]['time']
     time_used += exit_time
     time_left -= exit_time
@@ -96,6 +100,56 @@ def execute_drop(item_id):
     inventory.remove(selected_item)
 
 
+def execute_unlock(room_id, exits):
+    """This function takes a room id as an argument and checks if the entrance can be unlocked. 
+    If it can then it will be unlocked.
+    """
+
+    room_exists = False
+    is_direction = False
+
+    if room_id in rooms:
+        room_exists = True
+
+    if room_id in exits:
+        room_exists = True
+        is_direction = True
+
+    if not room_exists:
+        return print("That room doesn't exits.")
+
+    is_valid_room = False
+
+    for exit in exits:
+        if is_direction:
+            if exit == room_id:
+                is_valid_room = True
+                break
+        else:
+            if exits[exit]['room'] == room_id:
+                is_valid_room = True
+                break
+
+    if not is_valid_room:
+        return print('You cannot unlock that room from there.')
+
+    room = None
+    if not is_direction:
+        room = rooms[room_id]
+    else:
+        room = rooms[exits[room_id]['room']]
+
+    if room['locked'] == False:
+        return print(f'{room["name"].title()} is already unlocked.')
+
+    for item in room['required_items']:
+        if not (item in inventory):
+            return print(f'You cannot unlock that room without {item["name"]}.')
+
+    room['locked'] = False
+    print(f'{room["name"].title()} is unlocked.')
+
+
 def execute_command(command):
     """This function takes a command (a list of words as returned by
     normalise_input) and, depending on the type of action (the first word of
@@ -123,6 +177,12 @@ def execute_command(command):
             execute_drop(command[1])
         else:
             print("Drop what?")
+
+    elif command[0] == "unlock":
+        if len(command) > 1:
+            execute_unlock(command[1], current_room['exits'])
+        else:
+            print("Unlock what room?")
 
     else:
         print("This makes no sense.")
