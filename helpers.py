@@ -233,3 +233,18 @@ def format_time(time):
     seconds = int(time % 60)
     time = f'{minutes}:{seconds:02}'
     return time
+
+
+def format_value(value):
+    numstring = str(value)
+    stringplace = 0
+    final_string = ""
+
+    for char in numstring[::-1]:
+        stringplace = stringplace + 1
+        final_string = char + final_string
+        if stringplace % 3 == 0 and stringplace != 0:
+            if stringplace != len(numstring):
+                final_string = "," + final_string
+    final_string = "$" + final_string
+    return final_string
