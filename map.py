@@ -38,17 +38,17 @@ stairs_ground = {
     "exits": {
         'up': {
             'room': 'stairs-roof',
-            'time': 0,
+            'time': 10,
             'locked': False
         },
         'down': {
             'room': 'stairs-basement',
-            'time': 0,
+            'time': 10,
             'locked': False
         },
         'east': {
             'room': 'security',
-            'time': 0,
+            'time': 10,
             'locked': False
         }
     },
@@ -63,22 +63,22 @@ stairs_basement = {
     "exits": {
         'up': {
             'room': 'stairs-ground',
-            'time': 0,
+            'time': 10,
             'locked': False
         },
         'east': {
             'room': 'cargo',
-            'time': 0,
+            'time': 10,
             'locked': False
         },
         'north': {
             'room': 'depository',
-            'time': 0,
+            'time': 10,
             'locked': False
         },
         'south': {
             'room': 'server',
-            'time': 0,
+            'time': 10,
             'locked': False
         }
     },
@@ -93,12 +93,12 @@ stairs_roof = {
     "exits": {
         'down': {
             'room': 'stairs-ground',
-            'time': 0,
+            'time': 10,
             'locked': False
         },
         'east': {
             'room': 'helipad',
-            'time': 0,
+            'time': 10,
             'locked': False
         },
     },
@@ -115,17 +115,17 @@ room_depository = {
     "exits": {
         'west': {
             'room': 'stairs-basement',
-            'time': 0,
+            'time': 10,
             'locked': False
         },
         'east': {
             'room': 'armoury',
-            'time': 0,
+            'time': 10,
             'locked': False
         },
         'north': {
             'room': 'vault',
-            'time': 0,
+            'time': 10,
             'locked': False
         }
     },
@@ -140,12 +140,12 @@ room_server = {
     "exits": {
         'west': {
             'room': 'stairs-basement',
-            'time': 0,
+            'time': 10,
             'locked': False
         },
         'east': {
             'room': 'electrical',
-            'time': 0,
+            'time': 10,
             'locked': False
         }
     },
@@ -160,12 +160,12 @@ room_armoury = {
     "exits": {
         'west': {
             'room': 'depository',
-            'time': 0,
+            'time': 10,
             'locked': False
         },
         'south': {
             'room': 'cargo',
-            'time': 0,
+            'time': 10,
             'locked': False
         }
     },
@@ -180,17 +180,17 @@ room_cargo = {
     "exits": {
         'west': {
             'room': 'stairs-basement',
-            'time': 0,
+            'time': 10,
             'locked': False
         },
         'south': {
             'room': 'electrical',
-            'time': 0,
+            'time': 10,
             'locked': False
         },
         'north': {
             'room': 'armoury',
-            'time': 0,
+            'time': 10,
             'locked': False
         },
     },
@@ -205,7 +205,7 @@ room_vault = {
     "exits": {
         'south': {
             'room': 'depository',
-            'time': 0,
+            'time': 10,
             'locked': False
         },
     },
@@ -220,12 +220,12 @@ room_electrical = {
     "exits": {
         'west': {
             'room': 'server',
-            'time': 0,
+            'time': 10,
             'locked': False
         },
         'north': {
             'room': 'cargo',
-            'time': 0,
+            'time': 10,
             'locked': False
         }
     },
@@ -242,12 +242,12 @@ room_lobby = {
     "exits": {
         'north': {
             'room': 'tellers',
-            'time': 0,
+            'time': 10,
             'locked': False
         },
         'east': {
             'room': 'office',
-            'time': 0,
+            'time': 10,
             'locked': False
         }
     },
@@ -262,12 +262,12 @@ room_tellers = {
     "exits": {
         'south': {
             'room': 'lobby',
-            'time': 0,
+            'time': 10,
             'locked': False
         },
         'north': {
             'room': 'security',
-            'time': 0,
+            'time': 10,
             'locked': False
         }
     },
@@ -282,17 +282,17 @@ room_office = {
     "exits": {
         'south': {
             'room': 'lobby',
-            'time': 0,
+            'time': 10,
             'locked': False
         },
         'west': {
             'room': 'security',
-            'time': 0,
+            'time': 10,
             'locked': False
         },
         'north': {
             'room': 'trading',
-            'time': 0,
+            'time': 10,
             'locked': False
         }
     },
@@ -307,22 +307,22 @@ room_security = {
     "exits": {
         'east': {
             'room': 'office',
-            'time': 0,
+            'time': 10,
             'locked': False
         },
         'south': {
             'room': 'tellers',
-            'time': 0,
+            'time': 10,
             'locked': False
         },
         'west': {
             'room': 'stairs-ground',
-            'time': 0,
+            'time': 10,
             'locked': False
         },
         'north': {
             'room': 'trading',
-            'time': 0,
+            'time': 10,
             'locked': False
         }
     },
@@ -337,12 +337,12 @@ room_trading = {
     "exits": {
         'south': {
             'room': 'security',
-            'time': 0,
+            'time': 10,
             'locked': False
         },
         'east': {
             'room': 'office',
-            'time': 0,
+            'time': 10,
             'locked': False
         },
     },
@@ -357,7 +357,7 @@ room_ceo = {
     "exits": {
         'south': {
             'room': 'trading',
-            'time': 0,
+            'time': 10,
             'locked': False
         },
     },
@@ -374,7 +374,7 @@ room_helipad = {
     "exits": {
         'west': {
             'room': 'stairs-roof',
-            'time': 0,
+            'time': 10,
             'locked': False
         },
     },
