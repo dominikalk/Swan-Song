@@ -407,3 +407,33 @@ rooms = {
     # Roof
     'helipad': room_helipad
 }
+
+
+map_design = {
+'the roof':
+'''
+|------------------|
+|                  |
+|     Roof map     |
+|                  |
+|------------------|
+'''
+,
+'the ground floor':
+'''
+|------------------|
+|                  |
+| ground floor map |
+|                  |
+|------------------|
+'''
+,
+'the basement':
+'''
+|------------------|
+|                  |
+|   basement map   |
+|                  |
+|------------------|
+'''
+}

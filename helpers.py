@@ -257,3 +257,13 @@ def calculate_value(item_list):
         item_value = item["value"]
         total_value = total_value + int(item_value)
     return total_value
+
+
+def display_map(current_room):
+    floor = current_room['floor']
+    if floor == 'the basement':
+        print(map_design['the basement'])
+    elif floor == 'the ground floor':
+        print(map_design['the ground floor'])
+    elif floor == 'the roof':
+        print(map_design['the roof'])
