@@ -19,15 +19,13 @@ def list_of_items(items):
     'money, a student handbook, laptop'
     """
 
-    items_list = ''
-
-    for i, item in enumerate(items):
-        if(i == 0):
-            items_list += item['name']
-        else:
-            items_list += f', {item["name"]}'
-
-    return items_list
+    list_of_items = []
+    for i in items:
+        items = i["name"]
+        list_of_items.append(str(items))
+    list_of_items.insert(-1, ' and') 
+    items = ', '.join(list_of_items[:-2]) + ' '.join(list_of_items[-2:])
+    return items
 
 
 def print_room_items(room):
