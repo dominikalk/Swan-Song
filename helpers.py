@@ -251,6 +251,13 @@ def format_price(value):
     return final_string
 
 
+def print_time(time_used, time_left):
+    time_used_formatted = format_time(time_used)
+    time_left_formatted = format_time(time_left)
+    print(f"You have been in the heist for {time_used_formatted} seconds.")
+    print(f"You have {time_left_formatted} seconds until SWAT storm the bank.")
+
+
 def calculate_value(item_list):
     total_value = 0
     for item in item_list:
