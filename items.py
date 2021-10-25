@@ -18,7 +18,7 @@ item_<item name> = {
 
 item_demo = {
     "id": "demo",
-    "name": "demo name",
+    "name": "the demo",
     "description": """description"""
 }
 
