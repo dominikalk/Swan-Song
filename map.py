@@ -69,12 +69,12 @@ stairs_basement = {
             'room': 'stairs-ground',
             'time': 10,
         },
-        'east': {
-            'room': 'cargo',
-            'time': 10,
-        },
         'north': {
             'room': 'depository',
+            'time': 10,
+        },
+        'east': {
+            'room': 'cargo',
             'time': 10,
         },
         'south': {
@@ -115,18 +115,18 @@ room_depository = {
     "required_items": [],
     "locked": False,
     "exits": {
-        'west': {
-            'room': 'stairs-basement',
+        'north': {
+            'room': 'vault',
             'time': 10,
         },
         'east': {
             'room': 'armoury',
             'time': 10,
         },
-        'north': {
-            'room': 'vault',
+        'west': {
+            'room': 'stairs-basement',
             'time': 10,
-        }
+        },
     },
 }
 
@@ -139,14 +139,14 @@ room_server = {
     "required_items": [],
     "locked": False,
     "exits": {
+        'east': {
+            'room': 'electrical',
+            'time': 10,
+        },
         'west': {
             'room': 'stairs-basement',
             'time': 10,
         },
-        'east': {
-            'room': 'electrical',
-            'time': 10,
-        }
     },
 }
 
@@ -159,14 +159,14 @@ room_armoury = {
     "required_items": [],
     "locked": False,
     "exits": {
+        'south': {
+            'room': 'cargo',
+            'time': 10,
+        },
         'west': {
             'room': 'depository',
             'time': 10,
         },
-        'south': {
-            'room': 'cargo',
-            'time': 10,
-        }
     },
 }
 
@@ -179,16 +179,16 @@ room_cargo = {
     "required_items": [],
     "locked": False,
     "exits": {
-        'west': {
-            'room': 'stairs-basement',
+        'north': {
+            'room': 'armoury',
             'time': 10,
         },
         'south': {
             'room': 'electrical',
             'time': 10,
         },
-        'north': {
-            'room': 'armoury',
+        'west': {
+            'room': 'stairs-basement',
             'time': 10,
         },
     },
@@ -219,14 +219,14 @@ room_electrical = {
     "required_items": [],
     "locked": False,
     "exits": {
-        'west': {
-            'room': 'server',
-            'time': 10,
-        },
         'north': {
             'room': 'cargo',
             'time': 10,
         }
+        'west': {
+            'room': 'server',
+            'time': 10,
+        },
     },
 }
 
@@ -248,7 +248,7 @@ room_lobby = {
         'east': {
             'room': 'offices',
             'time': 10,
-        }
+        },
     },
 }
 
@@ -261,14 +261,14 @@ room_tellers = {
     "required_items": [],
     "locked": False,
     "exits": {
+        'north': {
+            'room': 'security',
+            'time': 10,
+        },
         'south': {
             'room': 'lobby',
             'time': 10,
         },
-        'north': {
-            'room': 'security',
-            'time': 10,
-        }
     },
 }
 
@@ -281,6 +281,10 @@ room_offices = {
     "required_items": [],
     "locked": False,
     "exits": {
+        'north': {
+            'room': 'trading',
+            'time': 10,
+        },
         'south': {
             'room': 'lobby',
             'time': 10,
@@ -289,10 +293,6 @@ room_offices = {
             'room': 'security',
             'time': 10,
         },
-        'north': {
-            'room': 'trading',
-            'time': 10,
-        }
     },
 }
 
@@ -305,6 +305,10 @@ room_security = {
     "required_items": [],
     "locked": False,
     "exits": {
+        'north': {
+            'room': 'trading',
+            'time': 10,
+        },
         'east': {
             'room': 'offices',
             'time': 10,
@@ -317,10 +321,6 @@ room_security = {
             'room': 'stairs-ground',
             'time': 10,
         },
-        'north': {
-            'room': 'trading',
-            'time': 10,
-        }
     },
 }
 
@@ -333,18 +333,18 @@ room_trading = {
     "required_items": [],
     "locked": False,
     "exits": {
-        'south': {
-            'room': 'security',
+        'north': {
+            'room': 'ceo',
             'time': 10,
         },
         'east': {
             'room': 'offices',
             'time': 10,
         },
-        'north': {
-            'room': 'ceo',
+        'south': {
+            'room': 'security',
             'time': 10,
-        }
+        },
     },
 }
 
