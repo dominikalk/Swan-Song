@@ -9,8 +9,9 @@ from items import *
 from gameparser import *
 from helpers import *
 
+# Time is measured in seconds
 time_used = 0
-time_left = 30
+time_left = 1800  # 30 minutes but overall time available may change due to negotiations
 
 
 def menu(exits, room_items, inv_items):
@@ -41,9 +42,15 @@ def execute_go(direction):
     """
 
     global current_room
+    global time_used
+    global time_left
 
     if(not (direction in current_room['exits'])):
         return print('You cannot go there.')
+
+    exit_time = current_room['exits'][direction]['time']
+    time_used += exit_time
+    time_left -= exit_time
 
     current_room = move(current_room['exits'], direction)
 
@@ -126,6 +133,11 @@ def main():
 
     # Main game loop
     while True:
+        if(time_left <= 0):
+            print('TODO: You ran out of time and SWAT stormed the bank!')
+            # TODO: print user score and tier
+            break
+
         # Display game status (room description, inventory etc.)
         print_room(current_room)
         print_inventory_items(inventory)
