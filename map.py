@@ -10,13 +10,16 @@ room_<room name> = {
 
     "description": """<room description>""",
 
-    "items": [<list of ITEM VARIABLES>]
+    "items": [<list of ITEM VARIABLES>],
+
+    "required_items": [<list of ITEM VARIABLES>], (items needed to unlock or access a room)
+
+    "locked": <boolean>  (default to false)
 
     "exits": {
         "<direction>" = {
             "room": "<next room>",
             "time": "<time used to move>",
-            "locked": <boolean>  (default to false)
         }
     },
  }
@@ -35,21 +38,20 @@ stairs_ground = {
     "name": "the stairs",
     "description": """The ground floor stairs description""",
     "items": [],
+    "required_items": [],
+    "locked": False,
     "exits": {
         'up': {
             'room': 'stairs-roof',
             'time': 10,
-            'locked': False
         },
         'down': {
             'room': 'stairs-basement',
             'time': 10,
-            'locked': False
         },
         'east': {
             'room': 'security',
             'time': 10,
-            'locked': False
         }
     },
 }
@@ -60,26 +62,24 @@ stairs_basement = {
     "name": "the stairs",
     "description": """The basement floor stairs description""",
     "items": [],
+    "required_items": [],
+    "locked": False,
     "exits": {
         'up': {
             'room': 'stairs-ground',
             'time': 10,
-            'locked': False
         },
         'east': {
             'room': 'cargo',
             'time': 10,
-            'locked': False
         },
         'north': {
             'room': 'depository',
             'time': 10,
-            'locked': False
         },
         'south': {
             'room': 'server',
             'time': 10,
-            'locked': False
         }
     },
 }
@@ -90,16 +90,16 @@ stairs_roof = {
     "name": "the stairs",
     "description": """The roof stairs description""",
     "items": [],
+    "required_items": [],
+    "locked": False,
     "exits": {
         'down': {
             'room': 'stairs-ground',
             'time': 10,
-            'locked': False
         },
         'east': {
             'room': 'helipad',
             'time': 10,
-            'locked': False
         },
     },
 }
@@ -112,21 +112,20 @@ room_depository = {
     "name": "the depository of the bank",
     "description": """The depository description""",
     "items": [],
+    "required_items": [],
+    "locked": False,
     "exits": {
         'west': {
             'room': 'stairs-basement',
             'time': 10,
-            'locked': False
         },
         'east': {
             'room': 'armoury',
             'time': 10,
-            'locked': False
         },
         'north': {
             'room': 'vault',
             'time': 10,
-            'locked': False
         }
     },
 }
@@ -137,16 +136,16 @@ room_server = {
     "name": "the server room of the bank",
     "description": """The server room description""",
     "items": [],
+    "required_items": [],
+    "locked": False,
     "exits": {
         'west': {
             'room': 'stairs-basement',
             'time': 10,
-            'locked': False
         },
         'east': {
             'room': 'electrical',
             'time': 10,
-            'locked': False
         }
     },
 }
@@ -157,16 +156,16 @@ room_armoury = {
     "name": "the armoury of the bank",
     "description": """The armoury description""",
     "items": [],
+    "required_items": [],
+    "locked": False,
     "exits": {
         'west': {
             'room': 'depository',
             'time': 10,
-            'locked': False
         },
         'south': {
             'room': 'cargo',
             'time': 10,
-            'locked': False
         }
     },
 }
@@ -177,21 +176,20 @@ room_cargo = {
     "name": "the cargo loading bay of the bank",
     "description": """The cargo loading bay description""",
     "items": [],
+    "required_items": [],
+    "locked": False,
     "exits": {
         'west': {
             'room': 'stairs-basement',
             'time': 10,
-            'locked': False
         },
         'south': {
             'room': 'electrical',
             'time': 10,
-            'locked': False
         },
         'north': {
             'room': 'armoury',
             'time': 10,
-            'locked': False
         },
     },
 }
@@ -202,11 +200,12 @@ room_vault = {
     "name": "the vault of the bank",
     "description": """The vault description""",
     "items": [],
+    "required_items": [],
+    "locked": False,
     "exits": {
         'south': {
             'room': 'depository',
             'time': 10,
-            'locked': False
         },
     },
 }
@@ -217,16 +216,16 @@ room_electrical = {
     "name": "the electrical room of the bank",
     "description": """The electrical room description""",
     "items": [],
+    "required_items": [],
+    "locked": False,
     "exits": {
         'west': {
             'room': 'server',
             'time': 10,
-            'locked': False
         },
         'north': {
             'room': 'cargo',
             'time': 10,
-            'locked': False
         }
     },
 }
@@ -239,16 +238,16 @@ room_lobby = {
     "name": "the lobby of the bank",
     "description": """The lobby description""",
     "items": [item_demo],
+    "required_items": [],
+    "locked": False,
     "exits": {
         'north': {
             'room': 'tellers',
             'time': 10,
-            'locked': False
         },
         'east': {
-            'room': 'office',
+            'room': 'offices',
             'time': 10,
-            'locked': False
         }
     },
 }
@@ -259,41 +258,40 @@ room_tellers = {
     "name": "the tellers of the bank",
     "description": """The tellers description""",
     "items": [],
+    "required_items": [],
+    "locked": False,
     "exits": {
         'south': {
             'room': 'lobby',
             'time': 10,
-            'locked': False
         },
         'north': {
             'room': 'security',
             'time': 10,
-            'locked': False
         }
     },
 }
 
-room_office = {
-    "id": "office",
+room_offices = {
+    "id": "offices",
     'floor': 'the ground floor',
     "name": "the offices",
     "description": """The offices description""",
     "items": [],
+    "required_items": [],
+    "locked": False,
     "exits": {
         'south': {
             'room': 'lobby',
             'time': 10,
-            'locked': False
         },
         'west': {
             'room': 'security',
             'time': 10,
-            'locked': False
         },
         'north': {
             'room': 'trading',
             'time': 10,
-            'locked': False
         }
     },
 }
@@ -304,26 +302,24 @@ room_security = {
     "name": "the security room",
     "description": """The security description""",
     "items": [],
+    "required_items": [],
+    "locked": False,
     "exits": {
         'east': {
-            'room': 'office',
+            'room': 'offices',
             'time': 10,
-            'locked': False
         },
         'south': {
             'room': 'tellers',
             'time': 10,
-            'locked': False
         },
         'west': {
             'room': 'stairs-ground',
             'time': 10,
-            'locked': False
         },
         'north': {
             'room': 'trading',
             'time': 10,
-            'locked': False
         }
     },
 }
@@ -334,17 +330,21 @@ room_trading = {
     "name": "the trading room",
     "description": """The trading room description""",
     "items": [],
+    "required_items": [],
+    "locked": False,
     "exits": {
         'south': {
             'room': 'security',
             'time': 10,
-            'locked': False
         },
         'east': {
-            'room': 'office',
+            'room': 'offices',
             'time': 10,
-            'locked': False
         },
+        'north': {
+            'room': 'ceo',
+            'time': 10,
+        }
     },
 }
 
@@ -352,13 +352,14 @@ room_ceo = {
     "id": "ceo",
     'floor': 'the ground floor',
     "name": "the CEO's office",
-    "description": """The ceo's office description""",
+    "description": """The CEO's office description""",
     "items": [],
+    "required_items": [item_demo],
+    "locked": True,
     "exits": {
         'south': {
             'room': 'trading',
             'time': 10,
-            'locked': False
         },
     },
 }
@@ -371,11 +372,12 @@ room_helipad = {
     "name": "the helipad",
     "description": """The helipad description""",
     "items": [],
+    "required_items": [],
+    "locked": False,
     "exits": {
         'west': {
             'room': 'stairs-roof',
             'time': 10,
-            'locked': False
         },
     },
 }
@@ -397,7 +399,7 @@ rooms = {
     # Ground Floor
     'lobby': room_lobby,
     'tellers': room_tellers,
-    'office': room_office,
+    'offices': room_offices,
     'security': room_security,
     'ceo': room_ceo,
     'trading': room_trading,
