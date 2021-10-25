@@ -112,6 +112,7 @@ def print_room(room):
     """
     # Display room name
     print()
+    print(room["floor"].title())
     print(room["name"].upper())
     print()
     # Display room description
@@ -134,7 +135,7 @@ def exit_leads_to(exits, direction):
     'Reception'
     """
 
-    return exits[direction]["room"]
+    return rooms[exits[direction]["room"]]['name']
 
 
 def print_exit(direction, leads_to):
@@ -235,7 +236,7 @@ def format_time(time):
     return time
 
 
-def format_value(value):
+def format_price(value):
     numstring = str(value)
     stringplace = 0
     final_string = ""

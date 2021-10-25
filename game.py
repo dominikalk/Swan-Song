@@ -47,8 +47,6 @@ def execute_go(direction):
 
     current_room = move(current_room['exits'], direction)
 
-    return print(f'You are in {current_room["name"]}.')
-
 
 def execute_take(item_id):
     """This function takes an item_id as an argument and moves this item from the
