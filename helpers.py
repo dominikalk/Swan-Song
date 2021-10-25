@@ -3,7 +3,7 @@ This helpers folder will contain a lot of the subroutines that we dont want in o
 as it would clutter them. We might make more helper files if this one gets too large.
 """
 
-from map import rooms
+from map import rooms, map_design
 
 
 def list_of_items(items):
@@ -261,9 +261,4 @@ def calculate_value(item_list):
 
 def display_map(current_room):
     floor = current_room['floor']
-    if floor == 'the basement':
-        print(map_design['the basement'])
-    elif floor == 'the ground floor':
-        print(map_design['the ground floor'])
-    elif floor == 'the roof':
-        print(map_design['the roof'])
+    print(map_design[floor])
