@@ -3,7 +3,7 @@ This helpers folder will contain a lot of the subroutines that we dont want in o
 as it would clutter them. We might make more helper files if this one gets too large.
 """
 
-from map import rooms
+from map import rooms, map_design
 
 
 def list_of_items(items):
@@ -256,3 +256,16 @@ def print_time(time_used, time_left):
     time_left_formatted = format_time(time_left)
     print(f"You have been in the heist for {time_used_formatted} seconds.")
     print(f"You have {time_left_formatted} seconds until SWAT storm the bank.")
+
+
+def calculate_value(item_list):
+    total_value = 0
+    for item in item_list:
+        item_value = item["value"]
+        total_value = total_value + int(item_value)
+    return total_value
+
+
+def display_map(current_room):
+    floor = current_room['floor']
+    print(map_design[floor])
