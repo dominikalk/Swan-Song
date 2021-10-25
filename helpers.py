@@ -249,3 +249,11 @@ def format_price(value):
                 final_string = "," + final_string
     final_string = "$" + final_string
     return final_string
+
+
+def calculate_value(item_list):
+    total_value = 0
+    for item in item_list:
+        item_value = item["value"]
+        total_value = total_value + int(item_value)
+    return total_value
