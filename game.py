@@ -13,6 +13,11 @@ from helpers import *
 time_used = 0
 time_left = 1800  # 30 minutes but overall time available may change due to negotiations
 
+# Either the variable of the room it is planted in or None
+bomb_plant_location = None
+
+has_died = False
+
 
 def menu(exits, room_items, inv_items):
     """This function, given a dictionary of possible exits from a room, and a list
@@ -64,6 +69,7 @@ def execute_take(item_id):
     there is no such item in the room, this function prints
     "You cannot take that."
     """
+    global bomb_plant_location
 
     selected_item = None
 
@@ -74,6 +80,11 @@ def execute_take(item_id):
 
     if(selected_item == None):
         return print('You cannot take that.')
+
+    # If taking the bomb change the name
+    if selected_item['id'] == 'bomb':
+        selected_item['name'] = 'the bomb'
+        bomb_plant_location = None
 
     inventory.append(selected_item)
     current_room['items'].remove(selected_item)
@@ -100,7 +111,7 @@ def execute_drop(item_id):
 
 
 def execute_unlock(room_id, exits):
-    """This function takes a room id as an argument and checks if the entrance can be unlocked. 
+    """This function takes a room id as an argument and checks if the entrance can be unlocked.
     If it can then it will be unlocked.
     """
 
@@ -149,6 +160,54 @@ def execute_unlock(room_id, exits):
     print(f'{capitalise_sentence(room["name"])} is unlocked.')
 
 
+def execute_plant(item_id):
+    global bomb_plant_location
+
+    if item_id != 'bomb':
+        return print("You can't plant that.")
+
+    item = items[item_id]
+
+    if not (item in inventory):
+        return print("You don't have that.")
+
+    item['name'] = 'the planted bomb'
+    bomb_plant_location = current_room
+    inventory.remove(item)
+    current_room['items'].append(item)
+    print(
+        f'The bomb is planted in {capitalise_sentence(current_room["name"])}.')
+
+
+def execute_detonate(item_id):
+    global bomb_plant_location
+    global has_died
+
+    if item_id != 'bomb':
+        return print("You can't detonate that.")
+
+    if bomb_plant_location == None:
+        return print("The bomb is not planted.")
+
+    if current_room == bomb_plant_location:
+        has_died = True
+        return print('You detonated the bomb in the same room as yourself and got blown up.')
+
+    end_words = ''
+
+    if bomb_plant_location == rooms['armoury']:
+        end_words = 'and opened up a hole in the wall'
+    else:
+        end_words = 'and did nothing'
+
+    bomb_plant_location['items'].remove(items[item_id])
+
+    print(
+        f'The bomb has been detonated in {capitalise_sentence(bomb_plant_location["name"])} {end_words}.')
+
+    bomb_plant_location = None
+
+
 def execute_command(command):
     """This function takes a command (a list of words as returned by
     normalise_input) and, depending on the type of action (the first word of
@@ -182,6 +241,18 @@ def execute_command(command):
             execute_unlock(command[1], current_room['exits'])
         else:
             print("Unlock what room?")
+
+    elif command[0] == "plant":
+        if len(command) > 1:
+            execute_plant(command[1])
+        else:
+            print("Plant what?")
+
+    elif command[0] == "detonate":
+        if len(command) > 1:
+            execute_detonate(command[1])
+        else:
+            print("Detonate what?")
 
     else:
         print("This makes no sense.")
@@ -229,6 +300,10 @@ def main():
 
         # Execute the player's command
         execute_command(command)
+
+        if has_died:
+            # TODO: print user score and tier
+            break
 
 
 # Are we being run as a script? If so, run main().
