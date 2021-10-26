@@ -222,7 +222,7 @@ room_electrical = {
         'north': {
             'room': 'cargo',
             'time': 10,
-        }
+        },
         'west': {
             'room': 'server',
             'time': 10,
