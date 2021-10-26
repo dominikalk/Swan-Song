@@ -190,6 +190,29 @@ def execute_command(command):
 # This is the entry point of our program
 def main():
 
+    # TODO: main menu screen
+    print('MAIN MENU SCREEN')
+
+    while True:
+        # TODO: main menu options
+        print('MAIN MENU OPTIONS')
+        menu_input = str(input())
+        if menu_input.lower().strip() == 'p':
+            break
+        elif menu_input.lower().strip() == 'h':
+            # TODO: help screen
+            print('HELP SCREEN')
+        elif menu_input.lower().strip() == 'l':
+            # TODO: leaderboard screen
+            print('LEADREBOARD SCREEN')
+        elif menu_input.lower().strip() == 'q':
+            return
+        else:
+            pass
+
+    # TODO: intro text
+    print('GAME INTRO TEXT')
+
     # Main game loop
     while True:
         if(time_left <= 0):
