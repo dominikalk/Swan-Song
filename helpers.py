@@ -44,6 +44,7 @@ def list_of_items(items):
     else:
         return items
 
+
 def print_room_items(room):
     """This function takes a room as an input and nicely displays a list of items
     found in this room (followed by a blank line). If there are no items in
