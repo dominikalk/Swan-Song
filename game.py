@@ -51,7 +51,6 @@ def execute_go(direction):
     if rooms[current_room['exits'][direction]['room']]['locked']:
         return print("You can't access that room because it is locked.")
 
-
     exit_time = current_room['exits'][direction]['time']
     time_used += exit_time
     time_left -= exit_time
@@ -140,14 +139,14 @@ def execute_unlock(room_id, exits):
         room = rooms[exits[room_id]['room']]
 
     if room['locked'] == False:
-        return print(f'{room["name"].title()} is already unlocked.')
+        return print(f'{capitalise_sentence(room["name"])} is already unlocked.')
 
     for item in room['required_items']:
         if not (item in inventory):
             return print(f'You cannot unlock that room without {item["name"]}.')
 
     room['locked'] = False
-    print(f'{room["name"].title()} is unlocked.')
+    print(f'{capitalise_sentence(room["name"])} is unlocked.')
 
 
 def execute_command(command):
