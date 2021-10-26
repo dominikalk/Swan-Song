@@ -9,10 +9,13 @@ from map import rooms, map_design
 def capitalise_sentence(string):
     string_list = string.split()
     string = ""
-    for x in string_list:
+    for i, x in enumerate(string_list):
         if x.upper() != x:
             x = x[0].upper() + x[1:]
-        string = string + x + " "
+        if i == len(string_list) - 1:
+            string += x
+        else:
+            string += x + " "
     return string
 
 
@@ -33,7 +36,7 @@ def list_of_items(items):
     for i in items:
         items = i["name"]
         list_of_items.append(str(items))
-    list_of_items.insert(-1, ' and') 
+    list_of_items.insert(-1, ' and')
     items = ', '.join(list_of_items[:-2]) + ' '.join(list_of_items[-2:])
     return items
 

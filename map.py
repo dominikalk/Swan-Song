@@ -237,7 +237,7 @@ room_lobby = {
     'floor': 'the ground floor',
     "name": "the lobby of the bank",
     "description": """The lobby description""",
-    "items": [item_demo],
+    "items": [item_demo, item_bomb],
     "required_items": [],
     "locked": False,
     "exits": {
