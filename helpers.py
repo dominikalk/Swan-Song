@@ -6,6 +6,16 @@ as it would clutter them. We might make more helper files if this one gets too l
 from map import rooms, map_design
 
 
+def capitalise_sentence(string):
+    string_list = string.split()
+    string = ""
+    for x in string_list:
+        if x.upper() != x:
+            x = x[0].upper() + x[1:]
+        string = string + x + " "
+    return string
+
+
 def list_of_items(items):
     """This function takes a list of items (see items.py for the definition) and
     returns a comma-separated list of item names (as a string). For example:
@@ -112,7 +122,7 @@ def print_room(room):
     """
     # Display room name
     print()
-    print(room["floor"].title())
+    print(capitalise_sentence(room["floor"]))
     print(room["name"].upper())
     print()
     # Display room description
@@ -269,15 +279,3 @@ def calculate_value(item_list):
 def display_map(current_room):
     floor = current_room['floor']
     print(map_design[floor])
-
-def CapitaliseFirst(string):
-    string_list = string.split()
-    string = ""
-    print(string_list)
-    for x in string_list:
-        if x.upper() != x:
-            x = x[0].upper()+ x[1:]
-        string = string + x + " "
-    return string
-
-    
