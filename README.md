@@ -13,7 +13,7 @@ This text based game is going to be made within a group for a cardiff university
 - Dominik Alkhovik
 - Suet Wing Wong
 - Tomos Jones
-- --person 4--
+- Thomas White
 - --person 5--
 - --person 6--
 - --person 7--
