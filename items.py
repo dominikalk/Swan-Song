@@ -23,8 +23,16 @@ item_demo = {
 }
 
 
+item_bomb = {
+    "id": "bomb",
+    "name": "the bomb",
+    "description": """Bomb description"""
+}
+
+
 items = {
     #   VARIABLE NAME TEMPLATE
     # "<item name>": <VARIABLE OF ITEM>,
-    "demo": item_demo
+    "demo": item_demo,
+    "bomb": item_bomb,
 }
