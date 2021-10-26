@@ -14,7 +14,7 @@ This text based game is going to be made within a group for a cardiff university
 - Suet Wing Wong
 - Tomos Jones
 - Thomas White
-- --person 5--
+- Kaviya Sundarapalan
 - --person 6--
 - --person 7--
 - --person 8--
