@@ -201,8 +201,6 @@ def main():
         print_room(current_room)
         print_inventory_items(inventory)
 
-        display_map(current_room)
-
         # Show the menu with possible actions and ask the player
         command = menu(current_room["exits"], current_room["items"], inventory)
 
