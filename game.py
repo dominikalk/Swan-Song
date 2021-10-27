@@ -315,16 +315,19 @@ def print_main_menu():
                         """)
 
 
+def main_menu_options():
+    print(f"{Fore.GREEN}Play (P)   {Fore.RED}Help (H)   {Fore.YELLOW}Leaderboard (L)   {Fore.BLUE}Quit (Q)")
+    message = "What would you like to do now?"
+    typewriter(message)
+
+
 # This is the entry point of our program
 def main():
 
     print_main_menu()
 
     while True:
-        # TODO: main menu options
-        print(f"{Fore.GREEN}Play (P)   {Fore.RED}Help (H)   {Fore.YELLOW}Leaderboard (L)   {Fore.BLUE}Quit (Q)")
-        message = "What would you like to do now?"
-        typewriter(message)
+        main_menu_options()
         menu_input = str(input("\n> "))
         if menu_input.lower().strip() == 'p':
             break
