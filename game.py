@@ -291,7 +291,7 @@ def main():
 
     while True:
         # TODO: main menu options
-        print('\nMAIN MENU OPTIONS\n')
+        print('\nMAIN MENU OPTIONS (Play (P), Help(H), Leader Board(L), Quit(Q))\n')
         menu_input = str(input("> "))
         if menu_input.lower().strip() == 'p':
             break
@@ -299,7 +299,7 @@ def main():
             print_helpers()
         elif menu_input.lower().strip() == 'l':
             # TODO: leaderboard screen
-            print('\nLEADREBOARD SCREEN')
+            print('\nLEADER BOARD SCREEN')
         elif menu_input.lower().strip() == 'q':
             return
         else:
