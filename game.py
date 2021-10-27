@@ -276,12 +276,36 @@ def execute_command(command):
         else:
             print("Detonate what?")
 
-    elif command[0] == "h" or command[0] == "help":
-        print_helpers()
+    else:
+        readers_tag(command)
+
+def readers_tag(command):
+    '''A list of extra commands the user can enter to help with
+    playing the game. The command carried on from execute_command is carried
+    onto as an argument to readers_tag.'''
+
+    if command[0] == "help" or command[0] == "h":
+        print_helpers() # work on this part
+
+    elif command[0] == "time" or command[0] == "t":
+        print_time(time_used, time_left)
+
+    elif command[0] == "map" or command[0] == "m":
+        display_map(current_room)
+    
+    elif command[0] == "inventory" or command[0] == "i":
+        print_inventory_items(inventory)
+
+    elif command[0] == "actions" or command[0] == "action" or command[0] == "a":
+        #add the function for actions here once created
+        pass
+
+    elif command[0] == "scores" or command[0] == "score" or command[0] == "s":
+        #change to the function for score once created
+        pass
 
     else:
-        print("This makes no sense.")
-
+        print("This makes no sense")
 
 # This is the entry point of our program
 def main():
