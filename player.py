@@ -6,8 +6,11 @@ from items import *
 from map import rooms
 
 inventory = [
-    # list of player INVENTORY ITEMS
+    item_key_ceo,
+    item_bomb,
+    item_key_van,
+    item_key_helicopter
 ]
 
-# Start game at the reception
+# Start game at the lobby
 current_room = rooms["lobby"]
