@@ -8,6 +8,10 @@ from player import *
 from items import *
 from gameparser import *
 from helpers import *
+import sys, time, os
+import colorama # pip install colorama
+from colorama import Fore, Back, Style # Fore = foreground, Back = background
+colorama.init(autoreset=True) #  autoreset=True, rest colour of the text everytime for 1 line
 
 # Time is measured in seconds
 time_used = 0
@@ -283,16 +287,45 @@ def execute_command(command):
         print("This makes no sense.")
 
 
+def typewriter(message):
+    for char in message:
+        sys.stdout.write(char) # print the msg
+        sys.stdout.flush() # display the msg
+        if char != "\n": 
+            time.sleep(0.1) 
+        else:
+            time.sleep(0.5) # pulse when new line
+
+def print_main_menu():
+
+    print("""\
+
+          /$$$$$$                                           /$$$$$$                               
+         /$$__  $$                                         /$$__  $$                              
+        | $$  \__/ /$$  /$$  /$$  /$$$$$$  /$$$$$$$       | $$  \__/  /$$$$$$  /$$$$$$$   /$$$$$$ 
+        |  $$$$$$ | $$ | $$ | $$ |____  $$| $$__  $$      |  $$$$$$  /$$__  $$| $$__  $$ /$$__  $$
+         \____  $$| $$ | $$ | $$  /$$$$$$$| $$  \ $$       \____  $$| $$  \ $$| $$  \ $$| $$  \ $$
+         /$$  \ $$| $$ | $$ | $$ /$$__  $$| $$  | $$       /$$  \ $$| $$  | $$| $$  | $$| $$  | $$
+        |  $$$$$$/|  $$$$$/$$$$/|  $$$$$$$| $$  | $$      |  $$$$$$/|  $$$$$$/| $$  | $$|  $$$$$$$
+         \______/  \_____/\___/  \_______/|__/  |__/       \______/  \______/ |__/  |__/ \____  $$
+                                                                                         /$$  \ $$
+                                                                                        |  $$$$$$/
+                                                                                         \______/ 
+
+                        """)
+
+
 # This is the entry point of our program
 def main():
 
-    # TODO: main menu screen
-    print('\nMAIN MENU SCREEN')
+    print_main_menu()
 
     while True:
         # TODO: main menu options
-        print('\nMAIN MENU OPTIONS (Play (P), Help(H), Leader Board(L), Quit(Q))\n')
-        menu_input = str(input("> "))
+        print(f"{Fore.GREEN}Play (P)   {Fore.RED}Help (H)   {Fore.YELLOW}Leaderboard (L)   {Fore.BLUE}Quit (Q)")
+        message = "What would you like to do now?"
+        typewriter(message)
+        menu_input = input("\n> ")
         if menu_input.lower().strip() == 'p':
             break
         elif menu_input.lower().strip() == 'h':
