@@ -278,19 +278,25 @@ def calculate_value(item_list):
 
 
 def calculate_tier(total_value):
-    if total_value > 1000000:
+    if total_value >= 1000000:
         return int(1)
-    elif total_value > 500000:
-        return int(2)                                                                                               
+    elif total_value >= 500000:
+        return int(2) 
+    elif total_value >= 250000:
+        return int(3) 
+    elif total_value >= 125000:
+        return int(4)   
+    elif total_value >= 62500:
+        return int(5)                                                                                                  
     else:
-        return int(3)
+        return int(6)
 
 
 def display_score():
     total_value = calculate_value(item_list) 
     tier = calculate_tier(total_value)
-    print("So far in the heist you have stolen $", total_value)
-    print("If you escape with these stolen items, this would be a Tier", tier, "robbery.")
+    print(f"So far in the heist you have stolen ${total_value}")
+    print(f"If you escape with these stolen items, this would be a Tier {tier} robbery.")
     
 
 def display_map(current_room):
