@@ -123,7 +123,7 @@ room_depository = {
             'room': 'armoury',
             'time': 10,
         },
-        'west': {
+        'south': {
             'room': 'stairs-basement',
             'time': 10,
         },
@@ -143,7 +143,7 @@ room_server = {
             'room': 'electrical',
             'time': 10,
         },
-        'west': {
+        'north': {
             'room': 'stairs-basement',
             'time': 10,
         },
@@ -443,8 +443,8 @@ exit_helicopter = {
 
 rooms = {
     # Stairs
-    'stairs-ground': stairs_ground,
     'stairs-basement': stairs_basement,
+    'stairs-ground': stairs_ground,
     'stairs-roof': stairs_roof,
 
     # Basement
@@ -478,83 +478,70 @@ rooms = {
 map_design = {
     'the roof':
     '''
-ROOF
-
-
-     
-            |----------|
-            |          |
-|-----|     |          |
-| SR  |-----|    H     |
-|-----|     |          |
-            |          |
-            |----------|
-
-            
-STAIRS_ROOF  = SR
-HELIPAD      = H
+             THE ROOF 
+             --------
+                 ___________            
+     _____      |           |
+    |     |     |           |
+    |  S  |_____|  HELIPAD  |
+    |_____|     |           |
+                |___________|
+    
+           -----------
+           STAIRS  = S
 ''',
     'the ground floor':
     '''
-         THE GROUND FLOOR
-         ----------------
-            _________    
-           |         | 
-           |   CEO   |
-           |_________|
-                |     
-      __________|__________
-     |                     |
-     |       TRADING       |___ 
-     |_____________________|   |
-                |            __|__
-    _____    ___|________   |     |
-   |     |  |            |  |  O  |
-   |  S  |__|  SECURITY  |__|  F  |
-   |_____|  |____________|  |  I  |
-                  |         |  C  |   
-              ____|_____    |  E  |   
-             | TELLERS  |   |  S  |   
-             |__________|   |_____|   
-                  |            |_____
-    ______        |         ______   |  
-   |      |_______|________|      |  |
-   |                              |__|
-   |            LOBBY             |
-   |______________________________|
-                  |
-              FRONT EXIT
-            --------------
-            STAIRS   =   S
+          THE GROUND FLOOR
+          ----------------
+             _________    
+            |         | 
+            |   CEO   |
+            |_________|  
+       __________|__________
+      |                     |
+      |       TRADING       |___ 
+      |_____________________|   |
+                 |            __|__
+     _____    ___|________   |     |
+    |     |  |            |  |  O  |
+    |  S  |__|  SECURITY  |__|  F  |
+    |_____|  |____________|  |  I  |
+                   |         |  C  |   
+               ____|_____    |  E  |   
+              | TELLERS  |   |  S  |   
+              |__________|   |_____|   
+                   |            |_____
+     ______        |         ______   |  
+    |      |_______|________|      |  |
+    |                              |__|
+    |            LOBBY             |
+    |______________________________|
+                   |
+               FRONT EXIT
+             --------------
+             STAIRS   =   S
 ''',
     'the basement':
     '''
-BASEMENT
-
-            |-------| 
-            |   v   | 
-            |-------| |-------|
-            |       | |   A   |
-       |----| DEPO  |-|-------|
-       |    |       |     |
-       |    |-------| |-------|
-    |-----|           |       |
-    |  SB |-----------|  CL   |
-    |-----|           |       |
-       |              |-------|
-       |                  |
-       |  |----| |----|   |
-       |  |    | |    |   |
-       |--|  S |-|  E |----
-          |    | |    |
-          |----| |----|
-
-STAIRS_BASEMENT = SB
-SERVER          = S
-ELECTRICAL      = E
-CARGO           = CL
-ARMOURY         = A
-DEPOSITORY      = DEPO
-VAULT           = V
+            THE BASEMENT
+            ------------
+     ___________       _________
+    |   VAULT   |     |         |
+    |___________|   __| ARMOURY |
+    |           |__|  |_________|
+    | DEPOSITORY|  ________|____
+    |___________| |             |
+     __|__     ___|    CARGO    |
+    |     |   |   |_____________|
+    |  S  |___|            |
+    |_____|                |
+     __|_____     _________|____   
+    |        |   |              |
+    | SERVER |___|  ELECTRICAL  |
+    |________|   |______________|
+    
+            ----------
+            STAIRS = S
 '''
 }
