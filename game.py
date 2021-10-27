@@ -276,6 +276,9 @@ def execute_command(command):
         else:
             print("Detonate what?")
 
+    elif command[0] == "h" or command[0] == "help":
+        print_helpers()
+
     else:
         print("This makes no sense.")
 
@@ -284,27 +287,26 @@ def execute_command(command):
 def main():
 
     # TODO: main menu screen
-    print('MAIN MENU SCREEN')
+    print('\nMAIN MENU SCREEN')
 
     while True:
         # TODO: main menu options
-        print('MAIN MENU OPTIONS')
-        menu_input = str(input())
+        print('\nMAIN MENU OPTIONS (Play (P), Help(H), Leader Board(L), Quit(Q))\n')
+        menu_input = str(input("> "))
         if menu_input.lower().strip() == 'p':
             break
         elif menu_input.lower().strip() == 'h':
-            # TODO: help screen
-            print('HELP SCREEN')
+            print_helpers()
         elif menu_input.lower().strip() == 'l':
             # TODO: leaderboard screen
-            print('LEADREBOARD SCREEN')
+            print('\nLEADER BOARD SCREEN')
         elif menu_input.lower().strip() == 'q':
             return
         else:
             pass
 
     # TODO: intro text
-    print('GAME INTRO TEXT')
+    print('\nGAME INTRO TEXT')
 
     # Main game loop
     while True:
