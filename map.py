@@ -191,7 +191,23 @@ room_cargo = {
             'room': 'stairs-basement',
             'time': 10,
         },
+        'van': {
+            'room': 'van',
+            'time': 0,
+        },
     },
+}
+
+# Exit: Vehicle
+exit_van = {
+    "id": "van",
+    'floor': 'the basement',
+    "name": "the armoured van",
+    "description": """The armoured van description""",
+    "items": [],
+    "required_items": [item_key_van],
+    "locked": True,
+    "exits": {}
 }
 
 room_vault = {
@@ -230,14 +246,37 @@ room_electrical = {
     },
 }
 
+# Secret Room
+exit_sewage = {
+    "id": "sewage",
+    'floor': 'the basement',
+    "name": "the sewage tunnel",
+    "description": """Sewage tunnel description and escape outro""",
+    "items": [],
+    "required_items": [],
+    "locked": False,
+    "exits": {},
+}
+
 # --------- Ground Floor ----------------------
+
+exit_front = {
+    "id": "exit",
+    'floor': 'the ground floor',
+    "name": "the front exit",
+    "description": """The front exit description""",
+    "items": [],
+    "required_items": [],
+    "locked": False,
+    "exits": {},
+}
 
 room_lobby = {
     "id": "lobby",
     'floor': 'the ground floor',
     "name": "the lobby of the bank",
     "description": """The lobby description""",
-    "items": [item_demo],
+    "items": [],
     "required_items": [],
     "locked": False,
     "exits": {
@@ -248,6 +287,10 @@ room_lobby = {
         'east': {
             'room': 'offices',
             'time': 10,
+        },
+        'south': {
+            'room': 'exit',
+            'time': 0,
         },
     },
 }
@@ -354,7 +397,7 @@ room_ceo = {
     "name": "the CEO's office",
     "description": """The CEO's office description""",
     "items": [],
-    "required_items": [item_demo],
+    "required_items": [item_key_ceo],
     "locked": True,
     "exits": {
         'south': {
@@ -379,7 +422,23 @@ room_helipad = {
             'room': 'stairs-roof',
             'time': 10,
         },
+        'helicopter': {
+            'room': 'helicopter',
+            'time': 0,
+        }
     },
+}
+
+# Exit: Vehicle
+exit_helicopter = {
+    "id": "helicopter",
+    'floor': 'the roof',
+    "name": "the helicopter",
+    "description": """The helicopter description""",
+    "items": [],
+    "required_items": [item_key_helicopter],
+    "locked": True,
+    "exits": {}
 }
 
 rooms = {
@@ -395,6 +454,9 @@ rooms = {
     'armoury': room_armoury,
     'depository': room_depository,
     'vault': room_vault,
+    # Exit: Secret Room, Vehicle
+    'sewage': exit_sewage,
+    'van': exit_van,
 
     # Ground Floor
     'lobby': room_lobby,
@@ -403,9 +465,13 @@ rooms = {
     'security': room_security,
     'ceo': room_ceo,
     'trading': room_trading,
+    # Exit
+    'exit': exit_front,
 
     # Roof
-    'helipad': room_helipad
+    'helipad': room_helipad,
+    # Exit: Vehicle
+    'helicopter': exit_helicopter
 }
 
 
@@ -431,6 +497,7 @@ STAIRS  = S
     'the ground floor':
     '''
          THE GROUND FLOOR
+         ----------------
             _________    
            |         | 
            |   CEO   |
@@ -455,7 +522,9 @@ STAIRS  = S
    |                              |__|
    |            LOBBY             |
    |______________________________|
-
+                  |
+              FRONT EXIT
+            --------------
             STAIRS   =   S
 ''',
     'the basement':

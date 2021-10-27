@@ -16,15 +16,36 @@ item_<item name> = {
 }
 '''
 
-item_demo = {
-    "id": "demo",
-    "name": "the demo",
-    "description": """description"""
+item_key_ceo = {
+    "id": "ceo-key",
+    "name": "the CEO's office key",
+    "description": """ceo key description"""
+}
+
+item_key_van = {
+    "id": "van-key",
+    "name": "the armoured van's key",
+    "description": """armoured van's key description"""
+}
+
+item_key_helicopter = {
+    "id": "helicopter-key",
+    "name": "the helicopter's key",
+    "description": """helicopter's key description"""
+}
+
+item_bomb = {
+    "id": "bomb",
+    "name": "the bomb",
+    "description": """Bomb description"""
 }
 
 
 items = {
     #   VARIABLE NAME TEMPLATE
     # "<item name>": <VARIABLE OF ITEM>,
-    "demo": item_demo
+    "ceo-key": item_key_ceo,
+    "van-key": item_key_van,
+    "helicopter-key": item_key_helicopter,
+    "bomb": item_bomb,
 }

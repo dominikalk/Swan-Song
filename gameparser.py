@@ -13,7 +13,8 @@ skip_words = ['a', 'about', 'all', 'an', 'another', 'any', 'around', 'at',
               'of', 'off', 'oh', 'on', 'please', 'small', 'some', 'soon',
               'that', 'the', 'then', 'this', 'those', 'through', 'till', 'to',
               'towards', 'until', 'us', 'want', 'we', 'what', 'when', 'why',
-              'wish', 'with', 'would']
+              'wish', 'with', 'would', 'armoured']
+# Added armoured for the armoured van so the output of 'armoured van' is just 'van'
 
 
 def filter_words(words, skip_words):
@@ -61,7 +62,7 @@ def remove_punct(text):
     """
     no_punct = ""
     for char in text:
-        if not (char in string.punctuation):
+        if not (char in string.punctuation) or char == '-':
             no_punct = no_punct + char
 
     return no_punct

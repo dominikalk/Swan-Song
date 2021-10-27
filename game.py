@@ -13,6 +13,11 @@ from helpers import *
 time_used = 0
 time_left = 1800  # 30 minutes but overall time available may change due to negotiations
 
+# Either the variable of the room it is planted in or None
+bomb_plant_location = None
+
+game_ended = False
+
 
 def menu(exits, room_items, inv_items):
     """This function, given a dictionary of possible exits from a room, and a list
@@ -34,7 +39,7 @@ def menu(exits, room_items, inv_items):
     return normalised_user_input
 
 
-def execute_go(direction):
+def execute_go(direction, isGo):
     """This function, given the direction (e.g. "south") updates the current room
     to reflect the movement of the player if the direction is a valid exit
     (and prints the name of the room into which the player is
@@ -44,18 +49,25 @@ def execute_go(direction):
     global current_room
     global time_used
     global time_left
+    global game_ended
 
     if(not (direction in current_room['exits'])):
-        return print('You cannot go there.')
+        return print(f"You cannot {'go there' if isGo else 'enter that'}.")
 
     if rooms[current_room['exits'][direction]['room']]['locked']:
-        return print("You can't access that room because it is locked.")
+        return print(f"You can't access that{' room' if isGo else ''} because it is locked.")
 
     exit_time = current_room['exits'][direction]['time']
     time_used += exit_time
     time_left -= exit_time
 
     current_room = move(current_room['exits'], direction)
+
+    escape_rooms = [rooms['sewage'], rooms['exit'],
+                    rooms['van'], rooms['helicopter']]
+    if current_room in escape_rooms:
+        print_room(current_room)
+        game_ended = True
 
 
 def execute_take(item_id):
@@ -64,6 +76,7 @@ def execute_take(item_id):
     there is no such item in the room, this function prints
     "You cannot take that."
     """
+    global bomb_plant_location
 
     selected_item = None
 
@@ -74,6 +87,11 @@ def execute_take(item_id):
 
     if(selected_item == None):
         return print('You cannot take that.')
+
+    # If taking the bomb change the name
+    if selected_item['id'] == 'bomb':
+        selected_item['name'] = 'the bomb'
+        bomb_plant_location = None
 
     inventory.append(selected_item)
     current_room['items'].remove(selected_item)
@@ -100,7 +118,7 @@ def execute_drop(item_id):
 
 
 def execute_unlock(room_id, exits):
-    """This function takes a room id as an argument and checks if the entrance can be unlocked. 
+    """This function takes a room id as an argument and checks if the entrance can be unlocked.
     If it can then it will be unlocked.
     """
 
@@ -115,7 +133,7 @@ def execute_unlock(room_id, exits):
         is_direction = True
 
     if not room_exists:
-        return print("That room doesn't exits.")
+        return print("That place doesn't exits.")
 
     is_valid_room = False
 
@@ -130,7 +148,7 @@ def execute_unlock(room_id, exits):
                 break
 
     if not is_valid_room:
-        return print('You cannot unlock that room from there.')
+        return print('You cannot unlock that place from there.')
 
     room = None
     if not is_direction:
@@ -143,10 +161,70 @@ def execute_unlock(room_id, exits):
 
     for item in room['required_items']:
         if not (item in inventory):
-            return print(f'You cannot unlock that room without {item["name"]}.')
+            return print(f'You cannot unlock that place without {item["name"]}.')
 
     room['locked'] = False
     print(f'{capitalise_sentence(room["name"])} is unlocked.')
+
+
+def execute_plant(item_id):
+    global bomb_plant_location
+    global time_used
+    global time_left
+
+    if item_id != 'bomb':
+        return print("You can't plant that.")
+
+    item = items[item_id]
+
+    if not (item in inventory):
+        return print("You don't have that.")
+
+    item['name'] = 'the planted bomb'
+    bomb_plant_location = current_room
+    inventory.remove(item)
+    current_room['items'].append(item)
+
+    # Implement time used to plant bomb
+    time_used += 30
+    time_left -= 30
+
+    print(
+        f'The bomb is planted in {capitalise_sentence(current_room["name"])}.')
+
+
+def execute_detonate(item_id):
+    global bomb_plant_location
+    global game_ended
+
+    if item_id != 'bomb':
+        return print("You can't detonate that.")
+
+    if bomb_plant_location == None:
+        return print("The bomb is not planted.")
+
+    if current_room == bomb_plant_location:
+        game_ended = True
+        return print('You detonated the bomb in the same room as yourself and got blown up.')
+
+    end_words = ''
+
+    if bomb_plant_location == rooms['armoury']:
+        end_words = 'and opened up a hole in the wall to the east'
+        new_exit = {
+            'room': 'sewage',
+            'time': 0,
+        }
+        rooms['armoury']['exits']['east'] = new_exit
+    else:
+        end_words = 'and did nothing'
+
+    bomb_plant_location['items'].remove(items[item_id])
+
+    print(
+        f'The bomb has been detonated in {capitalise_sentence(bomb_plant_location["name"])} {end_words}.')
+
+    bomb_plant_location = None
 
 
 def execute_command(command):
@@ -159,11 +237,14 @@ def execute_command(command):
     if 0 == len(command):
         return
 
-    if command[0] == "go":
+    if command[0] == "go" or command[0] == "enter":
         if len(command) > 1:
-            execute_go(command[1])
+            execute_go(command[1], command[0] == "go")
         else:
-            print("Go where?")
+            if command[0] == "go":
+                print("Go where?")
+            else:
+                print("Enter what?")
 
     elif command[0] == "take":
         if len(command) > 1:
@@ -182,6 +263,18 @@ def execute_command(command):
             execute_unlock(command[1], current_room['exits'])
         else:
             print("Unlock what room?")
+
+    elif command[0] == "plant":
+        if len(command) > 1:
+            execute_plant(command[1])
+        else:
+            print("Plant what?")
+
+    elif command[0] == "detonate":
+        if len(command) > 1:
+            execute_detonate(command[1])
+        else:
+            print("Detonate what?")
 
     else:
         print("This makes no sense.")
@@ -229,6 +322,10 @@ def main():
 
         # Execute the player's command
         execute_command(command)
+
+        if game_ended:
+            # TODO: print user score and tier
+            break
 
 
 # Are we being run as a script? If so, run main().
