@@ -36,9 +36,16 @@ def list_of_items(items):
     for i in items:
         items = i["name"]
         list_of_items.append(str(items))
-    list_of_items.insert(-1, ' and')
-    items = ', '.join(list_of_items[:-2]) + ' '.join(list_of_items[-2:])
-    return items
+        item_num = len(list_of_items)
+    if item_num > 2:
+        list_of_items.insert(-1, ' and') 
+        items = ', '.join(list_of_items[:-2]) + ' '.join(list_of_items[-2:])
+        return items 
+    elif item_num == 2:
+        items = " and ".join(list_of_items)
+        return items
+    else:
+        return items
 
 
 def print_room_items(room):
