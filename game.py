@@ -276,12 +276,6 @@ def execute_command(command):
         else:
             print("Detonate what?")
 
-    # elif command[0] == "enter":
-    #     if len(command) > 1:
-    #         execute_enter(command[1])
-    #     else:
-    #         print("Enter what?")
-
     else:
         print("This makes no sense.")
 
