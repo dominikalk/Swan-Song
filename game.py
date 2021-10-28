@@ -110,8 +110,8 @@ def execute_take(item_id):
         return print('You cannot take that.')
 
     # If taking the bomb change the name
-    if selected_item['id'] == 'bomb':
-        selected_item['name'] = 'the bomb'
+    if selected_item['id'] == 'dynamite':
+        selected_item['name'] = 'dynamite'
         bomb_plant_location = None
 
     inventory.append(selected_item)
@@ -193,7 +193,7 @@ def execute_plant(item_id):
     global time_used
     global time_left
 
-    if item_id != 'bomb':
+    if item_id != 'dynamite':
         return print("You can't plant that.")
 
     item = items[item_id]
@@ -201,7 +201,7 @@ def execute_plant(item_id):
     if not (item in inventory):
         return print("You don't have that.")
 
-    item['name'] = 'the planted bomb'
+    item['name'] = 'planted dynamite'
     bomb_plant_location = current_room
     inventory.remove(item)
     current_room['items'].append(item)
@@ -211,22 +211,22 @@ def execute_plant(item_id):
     time_left -= 30
 
     print(
-        f'The bomb is planted in {capitalise_sentence(current_room["name"])}. Get somewhere safe!')
+        f'The dynamite is planted in {capitalise_sentence(current_room["name"])}. Get somewhere safe!')
 
 
 def execute_detonate(item_id):
     global bomb_plant_location
     global game_ended
 
-    if item_id != 'bomb':
+    if item_id != 'dynamite':
         return print("You can't detonate that.")
 
     if bomb_plant_location == None:
-        return print("The bomb is not planted.")
+        return print("The dynamite is not planted.")
 
     if current_room == bomb_plant_location:
         game_ended = True
-        return print('You detonated the bomb in the same room as yourself and got blown up.')
+        return print('You detonated the dynamite in the same room as yourself and got blown up.')
 
     end_words = ''
 
@@ -256,7 +256,7 @@ def execute_detonate(item_id):
     bomb_plant_location['items'].remove(items[item_id])
 
     print(
-        f'The bomb has been detonated in {capitalise_sentence(bomb_plant_location["name"])} {end_words}.')
+        f'The dynamite has been detonated in {capitalise_sentence(bomb_plant_location["name"])} {end_words}.')
 
     bomb_plant_location = None
 
