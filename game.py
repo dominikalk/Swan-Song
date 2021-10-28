@@ -114,8 +114,10 @@ def execute_take(item_id):
         selected_item['name'] = 'dynamite'
         bomb_plant_location = None
 
-    inventory.append(selected_item)
+    inventory.insert(0, selected_item)
     current_room['items'].remove(selected_item)
+
+    print_item(selected_item)
 
 
 def execute_drop(item_id):
@@ -365,7 +367,7 @@ def print_main_menu():
 
 def main_menu_options():
     print(
-        "\n\033[92mPlay (P)\n\033[94mLeader board (L)\n\033[93mHelp (H)\n\033[91mQuit (Q)\033[0m")
+        "\n\033[92mPlay (P)\n\033[96mLeader board (L)\n\033[93mHelp (H)\n\033[91mQuit (Q)\033[0m")
 
 
 # This is the entry point of our program

@@ -215,7 +215,7 @@ item_dynamite = {
 item_machine_gun = {
     "id": "gun",
     "name": "a machine gun",
-    "description": """S military grade mp5 with a holographic sight with sling. """,
+    "description": """A military grade mp5 with a holographic sight with sling. """,
     "value": 85000,
 }
 
