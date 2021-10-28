@@ -4,6 +4,8 @@ as it would clutter them. We might make more helper files if this one gets too l
 """
 
 from map import rooms, map_design
+import os
+os.system("color")
 
 
 def capitalise_sentence(string):
@@ -297,26 +299,27 @@ def calculate_tier(total_value):
 
 
 def color_code(tier):
-    if tier == 1: # purple
-        return "\33[95m"
-    elif tier == 2: # blue
-        return "\33[96m"
-    elif tier == 3: # yellow
-        return "\33[93m"
-    elif tier == 4: # grey
-        return "\33[90m"
-    elif tier == 5: # green
-        return "\33[92m"
-    else: # white
-        return "\33[97m"
+    if tier == 1:  # purple
+        return "\033[95m"
+    elif tier == 2:  # blue
+        return "\033[96m"
+    elif tier == 3:  # yellow
+        return "\033[93m"
+    elif tier == 4:  # grey
+        return "\033[37m"
+    elif tier == 5:  # red / brown
+        return "\033[91m"
+    else:  # white
+        return "\033[97m"
 
 
 def display_score(item_list):
     total_value = calculate_value(item_list)
     tier = calculate_tier(total_value)
     color = color_code(tier)
-    print(f"So far in the heist you have stolen ${total_value}.")
-    print(f"If you escape with these stolen items, this would be a {color}Tier {tier} robbery\x1b[0m.")
+    print(f"So far in the heist you have stolen {format_price(total_value)}.")
+    print(
+        f"If you escape with these stolen items, this would be a {color}TIER {tier} ROBBERY\033[0m")
 
 
 def display_map(current_room):
