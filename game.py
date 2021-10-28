@@ -8,10 +8,10 @@ from player import *
 from items import *
 from gameparser import *
 from helpers import *
-import sys, time, os
-import colorama # pip install colorama
-from colorama import Fore, Back, Style # Fore = foreground, Back = background
-colorama.init(autoreset=True) #  autoreset=True, rest colour of the text everytime for 1 line
+import sys
+import time
+import os
+os.system("color")
 
 # Time is measured in seconds
 time_used = 0
@@ -289,37 +289,37 @@ def execute_command(command):
 
 def typewriter(message):
     for char in message:
-        sys.stdout.write(char) # print the msg
-        sys.stdout.flush() # display the msg
-        if char != "\n": 
-            time.sleep(0.1) 
+        sys.stdout.write(char)  # print the msg
+        sys.stdout.flush()  # display the msg
+        if char != "\n":
+            time.sleep(0.05)
         else:
-            time.sleep(0.5) # pulse when new line
+            time.sleep(0.5)  # pulse when new line
+
 
 def print_main_menu():
 
     print("""\
 
-          /$$$$$$                                           /$$$$$$                               
-         /$$__  $$                                         /$$__  $$                              
-        | $$  \__/ /$$  /$$  /$$  /$$$$$$  /$$$$$$$       | $$  \__/  /$$$$$$  /$$$$$$$   /$$$$$$ 
-        |  $$$$$$ | $$ | $$ | $$ |____  $$| $$__  $$      |  $$$$$$  /$$__  $$| $$__  $$ /$$__  $$
-         \____  $$| $$ | $$ | $$  /$$$$$$$| $$  \ $$       \____  $$| $$  \ $$| $$  \ $$| $$  \ $$
-         /$$  \ $$| $$ | $$ | $$ /$$__  $$| $$  | $$       /$$  \ $$| $$  | $$| $$  | $$| $$  | $$
-        |  $$$$$$/|  $$$$$/$$$$/|  $$$$$$$| $$  | $$      |  $$$$$$/|  $$$$$$/| $$  | $$|  $$$$$$$
-         \______/  \_____/\___/  \_______/|__/  |__/       \______/  \______/ |__/  |__/ \____  $$
-                                                                                         /$$  \ $$
-                                                                                        |  $$$$$$/
-                                                                                         \______/ 
-
-                        """)
+  /$$$$$$                                           /$$$$$$                               
+ /$$__  $$                                         /$$__  $$                              
+| $$  \__/ /$$  /$$  /$$  /$$$$$$  /$$$$$$$       | $$  \__/  /$$$$$$  /$$$$$$$   /$$$$$$ 
+|  $$$$$$ | $$ | $$ | $$ |____  $$| $$__  $$      |  $$$$$$  /$$__  $$| $$__  $$ /$$__  $$
+ \____  $$| $$ | $$ | $$  /$$$$$$$| $$  \ $$       \____  $$| $$  \ $$| $$  \ $$| $$  \ $$
+ /$$  \ $$| $$ | $$ | $$ /$$__  $$| $$  | $$       /$$  \ $$| $$  | $$| $$  | $$| $$  | $$
+|  $$$$$$/|  $$$$$/$$$$/|  $$$$$$$| $$  | $$      |  $$$$$$/|  $$$$$$/| $$  | $$|  $$$$$$$
+ \______/  \_____/\___/  \_______/|__/  |__/       \______/  \______/ |__/  |__/ \____  $$
+                                                                                 /$$  \ $$
+                                                                                |  $$$$$$/
+                                                                                 \______/ 
+""")
     message = "Welcome to Swan Song!\nThe objective? Well that’s simple: steal as much as you can and escape before SWAT storm the bank.\nDo you have what it takes to get out!\n"
     typewriter(message)
 
 
 def main_menu_options():
-        print(f"{Fore.GREEN}Play (P)   {Fore.RED}Help (H)   {Fore.YELLOW}Leaderboard (L)   {Fore.BLUE}Quit (Q)")
-        print("What would you like to do now?")
+    print(
+        "\n\033[92mPlay (P)\n\033[94mLeader board (L)\n\033[93mHelp (H)\n\033[91mQuit (Q)\033[0m")
 
 
 # This is the entry point of our program
