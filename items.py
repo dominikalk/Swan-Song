@@ -16,11 +16,7 @@ item_<item name> = {
 }
 '''
 
-item_key_ceo = {
-    "id": "ceo-key",
-    "name": "the CEO's office key",
-    "description": """ceo key description"""
-}
+
 
 item_key_van = {
     "id": "van-key",
@@ -57,7 +53,7 @@ item_newspaper = {
 }
 
 item_hostage_car_keys = {
-    "id": "hostage car keys",
+    "id": "car-keys",
 
     "name": "Hostage Car Keys",
 
@@ -107,7 +103,7 @@ item_sculpture = {
 
 
 item_10k_dollars = {
-    "id": "$10,000",
+    "id": "10k",
 
     "name": "$10,000 Cash",
 
@@ -171,7 +167,7 @@ item_toolbox = {
 }
 
 item_bolt_cutters = {
-    "id": "bolt cutters",
+    "id": "bolt-cutters",
 
     "name": "Bolt Cutters",
 
@@ -199,7 +195,7 @@ item_bleach = {
 
 
 item_10_dollars = {
-    "id": "$10",
+    "id": "10-dollars",
 
     "name": "$10 Cash",
 
@@ -218,7 +214,7 @@ item_10_dollars = {
 
 
 item_cctv_footage = {
-    "id": "cctv footage",
+    "id": "cctv-footage",
 
     "name": "CCTV Camera Footage",
 
@@ -230,17 +226,6 @@ item_cctv_footage = {
 }
 
 
-item_electrical_room_key = {
-    "id": "electrical room key",
-
-    "name":  "Electrical Room Key",
-
-    "description": """A blue key with a tag on it that reads ‘electrical room’ clearly left behind by the maintenance staff. """,
-
-    "value": 7,
-
-
-}
 
 
 ########room_trading########################
@@ -261,7 +246,7 @@ item_laptop = {
 
 
 item_1k_dollars = {
-    "id": "$1000",
+    "id": "1k",
 
     "name": "$1000 Cash",
 
@@ -279,7 +264,7 @@ item_1k_dollars = {
 
 
 item_depository_keys = {
-    "id": "depository keys",
+    "id": "depository-keys",
 
     "name": "Depository keys",
 
@@ -292,7 +277,7 @@ item_depository_keys = {
 
 
 item_5k_dollars = {
-    "id": "$5,000",
+    "id": "5k",
 
     "name": "$5,000 Cash",
 
@@ -304,7 +289,7 @@ item_5k_dollars = {
 
 
 item_opal_necklace = {
-    "id": "opal necklace",
+    "id": "necklace",
 
     "name": "Opal necklace",
 
@@ -320,21 +305,9 @@ item_opal_necklace = {
 
 
 
-item_security_id_card = {
-    "id": "security id card",
-
-    "name": "Security ID Card",
-
-    "description": """A security card with the CEO’s name and photo on it with the words ‘security clearance LEVEL 5’. """,
-
-    "value": 10,
-
-
-}
-
 
 item_helicopter_key = {
-    "id": "helicopter key",
+    "id": "helicopter-key",
 
     "name": "Helicopter Key",
 
@@ -346,20 +319,20 @@ item_helicopter_key = {
 
 
 item_100k_dollars = {
-    "id": "$100,000",
+    "id": "100k",
 
     "name": "$100,000 Cash",
 
     "description": """A huge sum of cash that appears to all belong to the CEO. """,
 
-    "value": 100,000,
+    "value": 100000,
 
 
 }
 
 
 item_golden_watch = {
-    "id": "golden watch",
+    "id": "watch",
 
     "name": "Golden Watch",
 
@@ -390,7 +363,7 @@ item_painting = {
 
 
 item_armoury_key = {
-    "id": "armoury key",
+    "id": "armoury-key",
 
     "name": "Armoury Key",
 
@@ -403,7 +376,7 @@ item_armoury_key = {
 
 
 item_ceo_office_keys = {
-    "id": "ceo office keys",
+    "id": "ceo-office-keys",
 
     "name":  "CEO's Office Keys",
 
@@ -416,7 +389,7 @@ item_ceo_office_keys = {
 
 
 item_iphone_13 = {
-    "id": "iphone 13",
+    "id": "phone",
 
     "name": "iPhone 13 pro max",
 
@@ -430,7 +403,7 @@ item_iphone_13 = {
 #######################room_armoury###################
 
 item_bullet_proof_vest = {
-    "id": "bullet proof vest",
+    "id": "vest",
 
     "name": "Bullet Proof Vest",
 
@@ -457,7 +430,7 @@ item_dynamite = {
 
 
 item_machine_gun = {
-    "id": "machine gun",
+    "id": "gun",
 
     "name": "Machine Gun",
 
@@ -481,7 +454,7 @@ item_jackhammer = {
 }
 
 item_cutting_torch = {
-    "id": "cutting torch",
+    "id": "cutting-torch",
 
     "name": "Cutting Torch",
 
@@ -498,7 +471,7 @@ item_cutting_torch = {
 
 
 item_electrical_generator = {
-    "id": "electrical generator",
+    "id": "generator",
 
     "name": "Electrical Generator",
 
@@ -516,7 +489,7 @@ item_electrical_generator = {
 
 
 item_1000k_dollars = {
-    "id": "$1,000,000",
+    "id": "1000k",
 
     "name": "$1,000,000 Cash",
 
@@ -528,7 +501,7 @@ item_1000k_dollars = {
 }
 
 item_gold_bricks = {
-    "id": "gold bricks",
+    "id": "gold",
 
     "name": "Gold Bricks",
 
@@ -605,44 +578,38 @@ item_jewelry = {
 items = {
     #   VARIABLE NAME TEMPLATE
     # "<item name>": <VARIABLE OF ITEM>,
-    "ceo-key": item_key_ceo,
-    "van-key": item_key_van,
-    "helicopter-key": item_key_helicopter,
-    "bomb": item_bomb,
     "newspaper": item_newspaper,
-    "hostage car keys": item_hostage_car_keys,
+    "car-keys": item_hostage_car_keys,
     "map": item_map,
     "sculpture": item_sculpture,
-    "$10,000": item_10k_dollars,
+    "10k": item_10k_dollars,
     "crystal": item_crystal,
     "rope": item_rope,
     "toolbox": item_toolbox,
-    "bolt cutters": item_bolt_cutters,
+    "bolt-cutters": item_bolt_cutters,
     "bleach": item_bleach,
-    "$10": item_10_dollars,
-    "cctv footage": item_cctv_footage,
-    "electrical room key": item_electrical_room_key,
+    "10-dollars": item_10_dollars,
+    "cctv-footage": item_cctv_footage,
     "laptop": item_laptop,
-    "$1000": item_1k_dollars,
-    "depository keys": item_depository_keys,
-    "$5,000": item_5k_dollars,
-    "opal necklace": item_opal_necklace,
-    "security id card": item_security_id_card,
-    "helicopter key": item_helicopter_key,
-    "$100,000": item_100k_dollars,
-    "golden watch": item_golden_watch,
+    "1k": item_1k_dollars,
+    "depository-keys": item_depository_keys,
+    "5k": item_5k_dollars,
+    "necklace": item_opal_necklace,
+    "helicopter-key": item_helicopter_key,
+    "100k": item_100k_dollars,
+    "watch": item_golden_watch,
     "painting": item_painting,
-    "armoury key": item_armoury_key,
-    "ceo office keys": item_ceo_office_keys,
-    "iphone 13": item_iphone_13,
-    "bullet proof vest": item_bullet_proof_vest,
+    "armoury-key": item_armoury_key,
+    "ceo-office-keys": item_ceo_office_keys,
+    "phone": item_iphone_13,
+    "vest": item_bullet_proof_vest,
     "dynamite": item_dynamite,
-    "machine gun": item_machine_gun,
+    "gun": item_machine_gun,
     "jackhammer": item_jackhammer,
-    "cutting torch": item_cutting_torch,
-    "electrical generator": item_electrical_generator,
-    "$1,000,000": item_1000k_dollars,
-    "gold bricks": item_gold_bricks,
+    "cutting-torch": item_cutting_torch,
+    "generator": item_electrical_generator,
+    "$1000k": item_1000k_dollars,
+    "gold": item_gold_bricks,
     "watches": item_watches,
     "bonds": item_bonds,
     "artifacts": item_artifacts,
