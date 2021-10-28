@@ -34,11 +34,17 @@ def list_of_items(items):
 
     list_of_items = []
     for i in items:
-        items = i["name"]
-        list_of_items.append(str(items))
-    list_of_items.insert(-1, ' and')
-    items = ', '.join(list_of_items[:-2]) + ' '.join(list_of_items[-2:])
-    return items
+        list_of_items.append(f'{i["name"]} ({i["id"].upper()})')
+        item_num = len(list_of_items)
+    if item_num > 2:
+        list_of_items.insert(-1, ' and')
+        items = ', '.join(list_of_items[:-2]) + ' '.join(list_of_items[-2:])
+        return items
+    elif item_num == 2:
+        items = " and ".join(list_of_items)
+        return items
+    else:
+        return f'{items[0]["name"]} ({items[0]["id"].upper()})'
 
 
 def print_room_items(room):
@@ -59,7 +65,7 @@ def print_room_items(room):
     """
 
     if(len(room['items']) == 0):
-        return
+        return print('There is nothing in this room.\n')
 
     print(f'There is {list_of_items(room["items"])} here.\n')
 
@@ -74,7 +80,7 @@ def print_inventory_items(items):
     """
 
     if(len(items) == 0):
-        return
+        return print('There is nothing in your inventory.\n')
 
     print(f'You have {list_of_items(items)}.\n')
 
@@ -302,3 +308,25 @@ def display_score():
 def display_map(current_room):
     floor = current_room['floor']
     print(map_design[floor])
+
+
+def print_helpers():
+    print(
+        '''
+The objective? Well that’s simple: steal as much as you can and escape before SWAT storm the bank. Do you have what it takes to get out?
+Possible commands:
+
+-   Go
+-   Enter
+-   Take
+-   Drop
+-   Unlock
+-   Plant
+-   Detonate
+
+h, help: bring up this screen to help you
+c, commands: shows you a more in depth list of things you can do in a room.
+i, inventory: shows a list of the items in your inventory
+m, map: brings up the map of the floor that you are currently on
+t, time: shows you how much time you what spent in the heist and how long till SWAT storm you
+s, score: shows you how much value your inventory is currently and the tier robbery you will have if you escape''')
