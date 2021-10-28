@@ -59,7 +59,7 @@ def execute_go(direction, isGo):
 
     can_exit = False
 
-    if current_room['id'] == 'vault' and exit == 'up' and not(item_rope in inventory):
+    if current_room['id'] == 'vault' and direction == 'up' and not(item_rope in inventory):
         return print("You can't go up because you don't have rope.")
 
     if (current_room['id'] == 'ceo' and rooms[exit['room']]['id'] == 'vault') or (current_room['id'] == 'vault' and rooms[exit['room']]['id'] == 'ceo'):
@@ -204,7 +204,7 @@ def execute_plant(item_id):
     time_left -= 30
 
     print(
-        f'The bomb is planted in {capitalise_sentence(current_room["name"])}.')
+        f'The bomb is planted in {capitalise_sentence(current_room["name"])}. Get somewhere safe!')
 
 
 def execute_detonate(item_id):
