@@ -40,6 +40,13 @@ def menu():
     return normalised_user_input
 
 
+def display_map(current_room):
+    if not(item_map in inventory):
+        return print("You do not have the map in your inventory so you cannot look at it.")
+    floor = current_room['floor']
+    print(map_design[floor])
+
+
 def execute_go(direction, isGo):
     """This function, given the direction (e.g. "south") updates the current room
     to reflect the movement of the player if the direction is a valid exit

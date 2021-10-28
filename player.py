@@ -8,4 +8,4 @@ from map import rooms
 inventory = []
 
 # Start game at the lobby
-current_room = rooms["trading"]
+current_room = rooms["lobby"]

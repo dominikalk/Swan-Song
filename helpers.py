@@ -317,11 +317,6 @@ def display_score(item_list):
         f"If you escape with these stolen items, this would be a Tier {tier} robbery.")
 
 
-def display_map(current_room):
-    floor = current_room['floor']
-    print(map_design[floor])
-
-
 def print_helpers():
     print(
         '''

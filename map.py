@@ -111,9 +111,9 @@ room_depository = {
     'floor': 'the basement',
     "name": "the depository of the bank",
     "description": """The depository description""",
-    "items": [],
-    "required_items": [],
-    "locked": False,
+    "items": [item_watches, item_bonds, item_artifacts, item_jewelry],
+    "required_items": [item_depository_keys],
+    "locked": True,
     "exits": {
         'north': {
             'room': 'vault',
@@ -135,7 +135,7 @@ room_server = {
     'floor': 'the basement',
     "name": "the server room of the bank",
     "description": """The server room description""",
-    "items": [],
+    "items": [item_cctv_footage],
     "required_items": [],
     "locked": False,
     "exits": {
@@ -155,9 +155,9 @@ room_armoury = {
     'floor': 'the basement',
     "name": "the armoury of the bank",
     "description": """The armoury description""",
-    "items": [],
-    "required_items": [],
-    "locked": False,
+    "items": [item_bullet_proof_vest, item_dynamite, item_machine_gun, item_jackhammer, item_cutting_torch],
+    "required_items": [item_armoury_key],
+    "locked": True,
     "exits": {
         'south': {
             'room': 'cargo',
@@ -175,7 +175,7 @@ room_cargo = {
     'floor': 'the basement',
     "name": "the cargo loading bay of the bank",
     "description": """The cargo loading bay description""",
-    "items": [],
+    "items": [item_rope, item_toolbox, item_bolt_cutters, item_bleach, item_10_dollars],
     "required_items": [],
     "locked": False,
     "exits": {
@@ -215,9 +215,9 @@ room_vault = {
     'floor': 'the basement',
     "name": "the vault of the bank",
     "description": """The vault description""",
-    "items": [],
+    "items": [item_1million_dollars, item_gold_bricks],
     "required_items": [],
-    "locked": False,
+    "locked": True,
     "exits": {
         'south': {
             'room': 'depository',
@@ -231,7 +231,7 @@ room_electrical = {
     'floor': 'the basement',
     "name": "the electrical room of the bank",
     "description": """The electrical room description""",
-    "items": [],
+    "items": [item_electrical_generator],
     "required_items": [],
     "locked": False,
     "exits": {
@@ -276,7 +276,7 @@ room_lobby = {
     'floor': 'the ground floor',
     "name": "the lobby of the bank",
     "description": """The lobby description""",
-    "items": [],
+    "items": [item_newspaper, item_van_keys, item_map, item_sculpture],
     "required_items": [],
     "locked": False,
     "exits": {
@@ -300,7 +300,7 @@ room_tellers = {
     'floor': 'the ground floor',
     "name": "the tellers of the bank",
     "description": """The tellers description""",
-    "items": [],
+    "items": [item_10k_dollars, item_crystal],
     "required_items": [],
     "locked": False,
     "exits": {
@@ -320,7 +320,7 @@ room_offices = {
     'floor': 'the ground floor',
     "name": "the offices",
     "description": """The offices description""",
-    "items": [],
+    "items": [item_5k_dollars, item_opal_necklace],
     "required_items": [],
     "locked": False,
     "exits": {
@@ -344,7 +344,7 @@ room_security = {
     'floor': 'the ground floor',
     "name": "the security room",
     "description": """The security description""",
-    "items": [],
+    "items": [item_iphone_13, item_ceo_office_keys, item_armoury_key],
     "required_items": [],
     "locked": False,
     "exits": {
@@ -372,7 +372,7 @@ room_trading = {
     'floor': 'the ground floor',
     "name": "the trading room",
     "description": """The trading room description""",
-    "items": [],
+    "items": [item_laptop, item_1k_dollars],
     "required_items": [],
     "locked": False,
     "exits": {
@@ -396,7 +396,7 @@ room_ceo = {
     'floor': 'the ground floor',
     "name": "the CEO's office",
     "description": """The CEO's office description""",
-    "items": [],
+    "items": [item_helicopter_key, item_100k_dollars, item_golden_watch, item_painting],
     "required_items": [item_ceo_office_keys],
     "locked": True,
     "exits": {
