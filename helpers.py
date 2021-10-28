@@ -137,7 +137,8 @@ def print_room(room):
     print()
 
     # Display items in the room
-    print_room_items(room)
+    if len(room['exits']) != 0:
+        print_room_items(room)
 
 
 def exit_leads_to(exits, direction):
