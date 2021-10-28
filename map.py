@@ -51,7 +51,7 @@ stairs_ground = {
         },
         'east': {
             'room': 'security',
-            'time': 10,
+            'time': 5,
         }
     },
 }
@@ -71,15 +71,15 @@ stairs_basement = {
         },
         'north': {
             'room': 'depository',
-            'time': 10,
+            'time': 5,
         },
         'east': {
             'room': 'cargo',
-            'time': 10,
+            'time': 15,
         },
         'south': {
             'room': 'server',
-            'time': 10,
+            'time': 5,
         }
     },
 }
@@ -117,7 +117,7 @@ room_depository = {
     "exits": {
         'north': {
             'room': 'vault',
-            'time': 10,
+            'time': 5,
         },
         'east': {
             'room': 'armoury',
@@ -125,7 +125,7 @@ room_depository = {
         },
         'south': {
             'room': 'stairs-basement',
-            'time': 10,
+            'time': 5,
         },
     },
 }
@@ -141,11 +141,11 @@ room_server = {
     "exits": {
         'east': {
             'room': 'electrical',
-            'time': 10,
+            'time': 5,
         },
         'north': {
             'room': 'stairs-basement',
-            'time': 10,
+            'time': 5,
         },
     },
 }
@@ -161,7 +161,7 @@ room_armoury = {
     "exits": {
         'south': {
             'room': 'cargo',
-            'time': 10,
+            'time': 5,
         },
         'west': {
             'room': 'depository',
@@ -181,7 +181,7 @@ room_cargo = {
     "exits": {
         'north': {
             'room': 'armoury',
-            'time': 10,
+            'time': 5,
         },
         'south': {
             'room': 'electrical',
@@ -189,7 +189,7 @@ room_cargo = {
         },
         'west': {
             'room': 'stairs-basement',
-            'time': 10,
+            'time': 15,
         },
         'van': {
             'room': 'van',
@@ -221,7 +221,7 @@ room_vault = {
     "exits": {
         'south': {
             'room': 'depository',
-            'time': 10,
+            'time': 5,
         },
     },
 }
@@ -241,7 +241,7 @@ room_electrical = {
         },
         'west': {
             'room': 'server',
-            'time': 10,
+            'time': 5,
         },
     },
 }
@@ -282,11 +282,11 @@ room_lobby = {
     "exits": {
         'north': {
             'room': 'tellers',
-            'time': 10,
+            'time': 5,
         },
         'east': {
             'room': 'offices',
-            'time': 10,
+            'time': 15,
         },
         'south': {
             'room': 'exit',
@@ -306,11 +306,11 @@ room_tellers = {
     "exits": {
         'north': {
             'room': 'security',
-            'time': 10,
+            'time': 5,
         },
         'south': {
             'room': 'lobby',
-            'time': 10,
+            'time': 5,
         },
     },
 }
@@ -330,11 +330,11 @@ room_offices = {
         },
         'south': {
             'room': 'lobby',
-            'time': 10,
+            'time': 15,
         },
         'west': {
             'room': 'security',
-            'time': 10,
+            'time': 5,
         },
     },
 }
@@ -350,19 +350,19 @@ room_security = {
     "exits": {
         'north': {
             'room': 'trading',
-            'time': 10,
+            'time': 5,
         },
         'east': {
             'room': 'offices',
-            'time': 10,
+            'time': 5,
         },
         'south': {
             'room': 'tellers',
-            'time': 10,
+            'time': 5,
         },
         'west': {
             'room': 'stairs-ground',
-            'time': 10,
+            'time': 5,
         },
     },
 }
@@ -378,7 +378,7 @@ room_trading = {
     "exits": {
         'north': {
             'room': 'ceo',
-            'time': 10,
+            'time': 5,
         },
         'east': {
             'room': 'offices',
@@ -386,7 +386,7 @@ room_trading = {
         },
         'south': {
             'room': 'security',
-            'time': 10,
+            'time': 5,
         },
     },
 }
@@ -402,7 +402,7 @@ room_ceo = {
     "exits": {
         'south': {
             'room': 'trading',
-            'time': 10,
+            'time': 5,
         },
     },
 }
@@ -503,8 +503,8 @@ map_design = {
       |       TRADING       |___ 
       |_____________________|   |
                  |            __|__
-     _____    ___|________   |     |
-    |     |  |            |  |  O  |
+     _____    ___|________   |  O  |
+    |     |  |            |  |  F  |
     |  S  |__|  SECURITY  |__|  F  |
     |_____|  |____________|  |  I  |
                    |         |  C  |   
