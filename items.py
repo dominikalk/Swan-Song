@@ -608,7 +608,7 @@ items = {
     "jackhammer": item_jackhammer,
     "cutting-torch": item_cutting_torch,
     "generator": item_electrical_generator,
-    "$1000k": item_1000k_dollars,
+    "1000k": item_1000k_dollars,
     "gold": item_gold_bricks,
     "watches": item_watches,
     "bonds": item_bonds,
