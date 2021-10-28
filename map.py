@@ -175,7 +175,7 @@ room_cargo = {
     'floor': 'the basement',
     "name": "the cargo loading bay of the bank",
     "description": """The cargo loading bay description""",
-    "items": [item_rope, item_bleach, item_10_dollars],
+    "items": [item_rope, item_bleach, item_10_dollars, item_van_keys],
     "required_items": [],
     "locked": False,
     "exits": {
@@ -276,7 +276,7 @@ room_lobby = {
     'floor': 'the ground floor',
     "name": "the lobby of the bank",
     "description": """The lobby description""",
-    "items": [item_newspaper, item_van_keys, item_map, item_sculpture],
+    "items": [item_newspaper, item_map, item_sculpture],
     "required_items": [],
     "locked": False,
     "exits": {
