@@ -110,12 +110,14 @@ def execute_take(item_id):
         return print('You cannot take that.')
 
     # If taking the bomb change the name
-    if selected_item['id'] == 'bomb':
-        selected_item['name'] = 'the bomb'
+    if selected_item['id'] == 'dynamite':
+        selected_item['name'] = 'dynamite'
         bomb_plant_location = None
 
-    inventory.append(selected_item)
+    inventory.insert(0, selected_item)
     current_room['items'].remove(selected_item)
+
+    print_item(selected_item)
 
 
 def execute_drop(item_id):
@@ -193,7 +195,7 @@ def execute_plant(item_id):
     global time_used
     global time_left
 
-    if item_id != 'bomb':
+    if item_id != 'dynamite':
         return print("You can't plant that.")
 
     item = items[item_id]
@@ -201,7 +203,7 @@ def execute_plant(item_id):
     if not (item in inventory):
         return print("You don't have that.")
 
-    item['name'] = 'the planted bomb'
+    item['name'] = 'planted dynamite'
     bomb_plant_location = current_room
     inventory.remove(item)
     current_room['items'].append(item)
@@ -211,22 +213,22 @@ def execute_plant(item_id):
     time_left -= 30
 
     print(
-        f'The bomb is planted in {capitalise_sentence(current_room["name"])}. Get somewhere safe!')
+        f'The dynamite is planted in {capitalise_sentence(current_room["name"])}. Get somewhere safe!')
 
 
 def execute_detonate(item_id):
     global bomb_plant_location
     global game_ended
 
-    if item_id != 'bomb':
+    if item_id != 'dynamite':
         return print("You can't detonate that.")
 
     if bomb_plant_location == None:
-        return print("The bomb is not planted.")
+        return print("The dynamite is not planted.")
 
     if current_room == bomb_plant_location:
         game_ended = True
-        return print('You detonated the bomb in the same room as yourself and got blown up.')
+        return print('You detonated the dynamite in the same room as yourself and got blown up.')
 
     end_words = ''
 
@@ -256,7 +258,7 @@ def execute_detonate(item_id):
     bomb_plant_location['items'].remove(items[item_id])
 
     print(
-        f'The bomb has been detonated in {capitalise_sentence(bomb_plant_location["name"])} {end_words}.')
+        f'The dynamite has been detonated in {capitalise_sentence(bomb_plant_location["name"])} {end_words}.')
 
     bomb_plant_location = None
 
@@ -365,7 +367,7 @@ def print_main_menu():
 
 def main_menu_options():
     print(
-        "\n\033[92mPlay (P)\n\033[94mLeader board (L)\n\033[93mHelp (H)\n\033[91mQuit (Q)\033[0m")
+        "\n\033[92mPlay (P)\n\033[96mLeader board (L)\n\033[93mHelp (H)\n\033[91mQuit (Q)\033[0m")
 
 
 # This is the entry point of our program

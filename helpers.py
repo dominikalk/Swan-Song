@@ -145,12 +145,9 @@ def print_room(room):
 
 def print_item(items):
     # Display items name
-    print()
-    print(items["name"].upper())
-    print()
+    print(f'You took {items["name"]}')
     # Display items description
     print(items["description"])
-    print()
     value = items["value"]
     print(f"This item is worth: {format_price(value)}")
 
@@ -286,8 +283,8 @@ def format_price(value):
 def print_time(time_used, time_left):
     time_used_formatted = format_time(time_used)
     time_left_formatted = format_time(time_left)
-    print(f"You have been in the heist for {time_used_formatted} seconds.")
-    print(f"You have {time_left_formatted} seconds until SWAT storm the bank.")
+    print(f"You have been in the heist for {time_used_formatted} minutes.")
+    print(f"You have {time_left_formatted} minutes until SWAT storm the bank.")
 
 
 def calculate_value(item_list):
