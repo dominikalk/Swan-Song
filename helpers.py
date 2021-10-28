@@ -83,9 +83,9 @@ def print_inventory_items(items):
     """
 
     if(len(items) == 0):
-        return print('There is nothing in your inventory.\n')
+        return print('There is nothing in your inventory.')
 
-    print(f'You have {list_of_items(items)}.\n')
+    print(f'You have {list_of_items(items)}.')
 
 
 def print_room(room):
@@ -298,13 +298,13 @@ def calculate_value(item_list):
 
 # Total Value of all the items is $2,733,564
 def calculate_tier(total_value):
-    if total_value >= 1000000:
+    if total_value >= 2000000:
         return int(1)
-    elif total_value >= 500000:
+    elif total_value >= 1000000:
         return int(2)
-    elif total_value >= 250000:
+    elif total_value >= 500000:
         return int(3)
-    elif total_value >= 125000:
+    elif total_value >= 250000:
         return int(4)
     else:
         return int(5)
@@ -338,6 +338,23 @@ def print_tier(tier):
         return tier_5_ascii()
     else:
         pass
+
+
+def print_ending_score(item_list, win):
+    score = calculate_value(item_list)
+    tier = calculate_tier(score)
+    color = color_code(tier)
+    if win:
+        print_tier(tier)
+        print(f"You stole a total sum of {format_price(score)}")
+        print(
+            'Play again to try to get more money and a better tier. Can you get to Tier 1?')
+    else:
+        print(f"You stole a total sum of {format_price(score)}")
+        print(
+            f'If you had escaped with your money this would have been a {color}TIER {tier} ROBBERY\033[0m.')
+        print(
+            'Play again to try to get more money and a better tier. Can you get to Tier 1?')
 
 
 def display_score(item_list):

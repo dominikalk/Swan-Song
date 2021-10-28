@@ -486,7 +486,7 @@ the helicopter, and the armoured van. Once you commit to escaping you cannot go 
         if(time_left <= 0):
             swat_ascii()
             print_ending('time')
-            # TODO: print user score and tier
+            print_ending_score(inventory, False)
             break
 
         # Display game status (room description, inventory etc.)
@@ -518,12 +518,12 @@ Exiting out this way would be suicide without a weapon and personal protection.'
                 else:
                     print('This makes no sence.')
             if give_up:
-                # TODO: print user score and tier
                 print_ending('stuck')
+                print_ending_score(inventory, False)
                 break
 
         if game_ended:
-            # TODO: print user score and tier
+            print_ending_score(inventory, True)
             break
 
 
