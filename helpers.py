@@ -296,12 +296,27 @@ def calculate_tier(total_value):
         return int(5)
 
 
+def color_code(tier):
+    if tier == 1: # purple
+        return "\33[95m"
+    elif tier == 2: # blue
+        return "\33[96m"
+    elif tier == 3: # yellow
+        return "\33[93m"
+    elif tier == 4: # grey
+        return "\33[90m"
+    elif tier == 5: # green
+        return "\33[92m"
+    else: # white
+        return "\33[97m"
+
+
 def display_score(item_list):
     total_value = calculate_value(item_list)
     tier = calculate_tier(total_value)
+    color = color_code(tier)
     print(f"So far in the heist you have stolen ${total_value}.")
-    print(
-        f"If you escape with these stolen items, this would be a Tier {tier} robbery.")
+    print(f"If you escape with these stolen items, this would be a {color}Tier {tier} robbery\x1b[0m.")
 
 
 def display_map(current_room):
