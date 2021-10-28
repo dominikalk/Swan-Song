@@ -140,6 +140,18 @@ def print_room(room):
     print_room_items(room)
 
 
+def print_item(items):
+    # Display room name
+    print()
+    print(items["name"].upper())
+    print()
+    # Display room description
+    print(items["description"])
+    print()
+    value = items["value"]
+    print(f"This item worth: ${value}")
+
+
 def exit_leads_to(exits, direction):
     """This function takes a dictionary of exits and a direction (a particular
     exit taken from this dictionary). It returns the name of the room into which
