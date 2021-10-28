@@ -34,8 +34,7 @@ def list_of_items(items):
 
     list_of_items = []
     for i in items:
-        items = i["name"]
-        list_of_items.append(str(items))
+        list_of_items.append(f'{i["name"]} ({i["id"].upper()})')
         item_num = len(list_of_items)
     if item_num > 2:
         list_of_items.insert(-1, ' and')
@@ -45,7 +44,7 @@ def list_of_items(items):
         items = " and ".join(list_of_items)
         return items
     else:
-        return items
+        return f'{items[0]["name"]} ({items[0]["id"].upper()})'
 
 
 def print_room_items(room):
@@ -66,7 +65,7 @@ def print_room_items(room):
     """
 
     if(len(room['items']) == 0):
-        return
+        return print('There is nothing in this room.\n')
 
     print(f'There is {list_of_items(room["items"])} here.\n')
 
@@ -81,7 +80,7 @@ def print_inventory_items(items):
     """
 
     if(len(items) == 0):
-        return
+        return print('There is nothing in your inventory.\n')
 
     print(f'You have {list_of_items(items)}.\n')
 
@@ -284,6 +283,27 @@ def calculate_value(item_list):
     return total_value
 
 
+def calculate_tier(total_value):
+    if total_value >= 1000000:
+        return int(1)
+    elif total_value >= 500000:
+        return int(2)
+    elif total_value >= 250000:
+        return int(3)
+    elif total_value >= 125000:
+        return int(4)
+    else:
+        return int(5)
+
+
+def display_score(item_list):
+    total_value = calculate_value(item_list)
+    tier = calculate_tier(total_value)
+    print(f"So far in the heist you have stolen ${total_value}.")
+    print(
+        f"If you escape with these stolen items, this would be a Tier {tier} robbery.")
+
+
 def display_map(current_room):
     floor = current_room['floor']
     print(map_design[floor])
@@ -292,8 +312,8 @@ def display_map(current_room):
 def print_helpers():
     print(
         '''
-The aim is to get as much money as possible and escape the bank before SWAT storm it.
-Possible actions on rooms or objects include:
+The objective? Well that’s simple: steal as much as you can and escape before SWAT storm the bank. Do you have what it takes to get out?
+Possible commands:
 
 -   Go
 -   Enter
@@ -304,9 +324,8 @@ Possible actions on rooms or objects include:
 -   Detonate
 
 h, help: bring up this screen to help you
-a, actions: shows you a more in depth list of things you can do in a room.
+c, commands: shows you a more in depth list of things you can do in a room.
 i, inventory: shows a list of the items in your inventory
 m, map: brings up the map of the floor that you are currently on
 t, time: shows you how much time you what spent in the heist and how long till SWAT storm you
-s, score: shows you how much value your inventory is currently and the tier robbery you will have if you escape'''
-    )
+s, score: shows you how much value your inventory is currently and the tier robbery you will have if you escape''')
