@@ -313,12 +313,13 @@ def print_main_menu():
                                                                                          \______/ 
 
                         """)
+    message = "Welcome to Swan Song!\nThe objective? Well that’s simple: steal as much as you can and escape before SWAT storm the bank.\nDo you have what it takes to get out!\n"
+    typewriter(message)
 
 
 def main_menu_options():
-    print(f"{Fore.GREEN}Play (P)   {Fore.RED}Help (H)   {Fore.YELLOW}Leaderboard (L)   {Fore.BLUE}Quit (Q)")
-    message = "What would you like to do now?"
-    typewriter(message)
+        print(f"{Fore.GREEN}Play (P)   {Fore.RED}Help (H)   {Fore.YELLOW}Leaderboard (L)   {Fore.BLUE}Quit (Q)")
+        print("What would you like to do now?")
 
 
 # This is the entry point of our program
