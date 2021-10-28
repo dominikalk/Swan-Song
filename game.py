@@ -303,11 +303,27 @@ def execute_command(command):
         else:
             print("Detonate what?")
 
-    elif command[0] == "h" or command[0] == "help":
+    elif command[0] == "help" or command[0] == "h":
         print_helpers()
 
+    elif command[0] == "time" or command[0] == "t":
+        print_time(time_used, time_left)
+
+    elif command[0] == "map" or command[0] == "m":
+        display_map(current_room)
+
+    elif command[0] == "inventory" or command[0] == "i":
+        print_inventory_items(inventory)
+
+    elif command[0] == "commands" or command[0] == "command" or command[0] == "a":
+        # add the function for actions here once created
+        pass
+
+    elif command[0] == "scores" or command[0] == "score" or command[0] == "s":
+        display_score(inventory)
+
     else:
-        print("This makes no sense.")
+        print("This makes no sense")
 
 
 def typewriter(message):

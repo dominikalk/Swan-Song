@@ -15,7 +15,7 @@ This text based game is going to be made within a group for a cardiff university
 - Tomos Jones
 - Thomas White
 - Kaviya Sundarapalan
-- --person 6--
+- Asad Islam
 - --person 7--
 - --person 8--
 
