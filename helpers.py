@@ -4,6 +4,7 @@ as it would clutter them. We might make more helper files if this one gets too l
 """
 
 from map import rooms
+from ascii import *
 import os
 os.system("color")
 
@@ -327,19 +328,14 @@ def color_code(tier):
 def print_tier(tier):
     if tier == 1:
         return tier_1_ascii()
-
-    if tier == 2:
+    elif tier == 2:
         return tier_2_ascii()
-    
-    if tier == 3:
+    elif tier == 3:
         return tier_3_ascii()
-     
-    if tier == 4:
+    elif tier == 4:
         return tier_4_ascii()
-    
-    if tier == 5:
+    elif tier == 5:
         return tier_5_ascii()
-        
     else:
         pass
 
