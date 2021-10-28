@@ -437,10 +437,19 @@ def main():
     print('\nGAME INTRO TEXT')
 
     # Main game loop
+    swat_alert = False
+
     while True:
         if(time_left <= 0):
             print('TODO: You ran out of time and SWAT stormed the bank!')
             # TODO: print user score and tier
+            break
+
+        if swat_alert == False and time_left >= 500:
+            print('''The SWAT team has arrived outside the bank and have
+                started setting up countermeasures. Start working on getting out!''')
+            print(swat_alert)
+            swat_alert = True
             break
 
         # Display game status (room description, inventory etc.)
