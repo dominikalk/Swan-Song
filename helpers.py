@@ -324,6 +324,26 @@ def color_code(tier):
         return "\033[97m"
 
 
+def print_tier(tier):
+    if tier == 1:
+        return tier_1_ascii()
+
+    if tier == 2:
+        return tier_2_ascii()
+    
+    if tier == 3:
+        return tier_3_ascii()
+     
+    if tier == 4:
+        return tier_4_ascii()
+    
+    if tier == 5:
+        return tier_5_ascii()
+        
+    else:
+        pass
+
+
 def display_score(item_list):
     total_value = calculate_value(item_list)
     tier = calculate_tier(total_value)
