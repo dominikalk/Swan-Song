@@ -111,7 +111,7 @@ room_depository = {
     'floor': 'the basement',
     "name": "the depository of the bank",
     "description": """The depository description""",
-    "items": [item_watches,item_bonds,item_artifacts,item_jewelry],
+    "items": [item_watches, item_bonds, item_artifacts, item_jewelry],
     "required_items": [item_depository_keys],
     "locked": True,
     "exits": {
@@ -155,7 +155,7 @@ room_armoury = {
     'floor': 'the basement',
     "name": "the armoury of the bank",
     "description": """The armoury description""",
-    "items": [item_bullet_proof_vest,item_dynamite,item_machine_gun,item_jackhammer,item_cutting_torch],
+    "items": [item_bullet_proof_vest, item_dynamite, item_machine_gun, item_jackhammer, item_cutting_torch],
     "required_items": [item_armoury_key],
     "locked": True,
     "exits": {
@@ -175,7 +175,7 @@ room_cargo = {
     'floor': 'the basement',
     "name": "the cargo loading bay of the bank",
     "description": """The cargo loading bay description""",
-    "items": [item_rope,item_toolbox,item_bolt_cutters,item_bleach,item_10_dollars],
+    "items": [item_rope, item_toolbox, item_bolt_cutters, item_bleach, item_10_dollars],
     "required_items": [],
     "locked": False,
     "exits": {
@@ -205,7 +205,7 @@ exit_van = {
     "name": "the armoured van",
     "description": """The armoured van description""",
     "items": [],
-    "required_items": [item_key_van],
+    "required_items": [item_van_keys],
     "locked": True,
     "exits": {}
 }
@@ -215,7 +215,7 @@ room_vault = {
     'floor': 'the basement',
     "name": "the vault of the bank",
     "description": """The vault description""",
-    "items": [item_1000k_dollars,item_gold_bricks],
+    "items": [item_1000k_dollars, item_gold_bricks],
     "required_items": [],
     "locked": True,
     "exits": {
@@ -276,7 +276,7 @@ room_lobby = {
     'floor': 'the ground floor',
     "name": "the lobby of the bank",
     "description": """The lobby description""",
-    "items": [item_newspaper,item_hostage_car_keys,item_map,item_sculpture],
+    "items": [item_newspaper, item_van_keys, item_map, item_sculpture],
     "required_items": [],
     "locked": False,
     "exits": {
@@ -300,7 +300,7 @@ room_tellers = {
     'floor': 'the ground floor',
     "name": "the tellers of the bank",
     "description": """The tellers description""",
-    "items": [item_10k_dollars,item_crystal],
+    "items": [item_10k_dollars, item_crystal],
     "required_items": [],
     "locked": False,
     "exits": {
@@ -320,7 +320,7 @@ room_offices = {
     'floor': 'the ground floor',
     "name": "the offices",
     "description": """The offices description""",
-    "items": [item_5k_dollars,item_opal_necklace],
+    "items": [item_5k_dollars, item_opal_necklace],
     "required_items": [],
     "locked": False,
     "exits": {
@@ -344,7 +344,7 @@ room_security = {
     'floor': 'the ground floor',
     "name": "the security room",
     "description": """The security description""",
-    "items": [item_iphone_13,item_ceo_office_keys,item_armoury_key],
+    "items": [item_iphone_13, item_ceo_office_keys, item_armoury_key],
     "required_items": [],
     "locked": False,
     "exits": {
@@ -372,7 +372,7 @@ room_trading = {
     'floor': 'the ground floor',
     "name": "the trading room",
     "description": """The trading room description""",
-    "items": [item_laptop,item_1k_dollars],
+    "items": [item_laptop, item_1k_dollars],
     "required_items": [],
     "locked": False,
     "exits": {
@@ -396,7 +396,7 @@ room_ceo = {
     'floor': 'the ground floor',
     "name": "the CEO's office",
     "description": """The CEO's office description""",
-    "items": [item_helicopter_key,item_100k_dollars,item_golden_watch,item_painting],
+    "items": [item_helicopter_key, item_100k_dollars, item_golden_watch, item_painting],
     "required_items": [item_ceo_office_keys],
     "locked": True,
     "exits": {
@@ -436,7 +436,7 @@ exit_helicopter = {
     "name": "the helicopter",
     "description": """The helicopter description""",
     "items": [],
-    "required_items": [item_key_helicopter],
+    "required_items": [item_helicopter_key],
     "locked": True,
     "exits": {}
 }

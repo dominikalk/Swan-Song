@@ -137,7 +137,20 @@ def print_room(room):
     print()
 
     # Display items in the room
-    print_room_items(room)
+    if len(room['exits']) != 0:
+        print_room_items(room)
+
+
+def print_item(items):
+    # Display items name
+    print()
+    print(items["name"].upper())
+    print()
+    # Display items description
+    print(items["description"])
+    print()
+    value = items["value"]
+    print(f"This item is worth: {format_price(value)}")
 
 
 def exit_leads_to(exits, direction):
@@ -302,11 +315,6 @@ def display_score(item_list):
     print(f"So far in the heist you have stolen ${total_value}.")
     print(
         f"If you escape with these stolen items, this would be a Tier {tier} robbery.")
-
-
-def display_map(current_room):
-    floor = current_room['floor']
-    print(map_design[floor])
 
 
 def print_helpers():
