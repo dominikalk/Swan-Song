@@ -484,9 +484,14 @@ Your final mission.
 On entering the bank you fire warning shots and quickly take control of the hostages. 
 The initial guards have all been neutralised, in a stream of crimson blood that flows 
 along the lobby floor you have moved the hostages into a secure location located within 
-the lobby in which you start.''')
+the lobby in which you start.
+
+You know that once you need to escape there are only 3 known ways out: the front, 
+the helicopter, and the armoured van. Once you commit to escaping you cannot go back.''')
 
     # Main game loop
+    swat_alert = False
+
     while True:
         if(time_left <= 0):
             print('You ran out of time.')
@@ -496,6 +501,11 @@ the lobby in which you start.''')
 
         # Display game status (room description, inventory etc.)
         print_room(current_room)
+
+        if swat_alert == False and time_used >= (5 * 60):
+            print('''The SWAT team has arrived outside the bank and have started setting up countermeasures. 
+Exiting out this way would be suicide without a weapon and personal protection.''')
+            swat_alert = True
 
         # Show the menu with possible actions and ask the player
         command = menu()
