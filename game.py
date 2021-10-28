@@ -360,6 +360,8 @@ def main_menu_options():
 
 # This is the entry point of our program
 def main():
+    
+    opening_animation()
     print_main_menu()
 
     while True:
