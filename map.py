@@ -155,7 +155,7 @@ room_armoury = {
     'floor': 'the basement',
     "name": "the armoury of the bank",
     "description": """The armoury description""",
-    "items": [item_bullet_proof_vest, item_dynamite, item_machine_gun],
+    "items": [item_bullet_proof_vest, item_dynamite, item_machine_gun, item_van_keys],
     "required_items": [item_armoury_keys],
     "locked": True,
     "exits": {
@@ -276,7 +276,7 @@ room_lobby = {
     'floor': 'the ground floor',
     "name": "the lobby of the bank",
     "description": """The lobby description""",
-    "items": [item_newspaper, item_van_keys, item_map, item_sculpture],
+    "items": [item_newspaper, item_map, item_sculpture],
     "required_items": [],
     "locked": False,
     "exits": {
