@@ -332,6 +332,32 @@ def execute_command(command):
     else:
         print("This makes no sense")
 
+def execute_disable(room):
+    global disabled_rooms
+
+    disabled_rooms = [] #global list for disabled rooms.
+    
+    if room == "server":
+        if room in disabled_rooms:
+            print("This room is already disabled.") #prevents players from gaining infinite time
+
+        else:
+            print("Server room has been disabled")
+            print("You have gained 2 minutes") # change to however much you want to add.
+            disabled_rooms.append(room)
+        
+    elif room == "electrical":
+        if room in disabled_rooms:
+            print("This room is already disabled.")
+        
+        else:
+            print("Electrical room has been disabled")
+            print("You have gained 2 minutes")
+            disabled_rooms.append(room)
+
+    else:
+        print("You cannot disable that. You must disable a room")
+
 
 def typewriter(message):
     for char in message:
