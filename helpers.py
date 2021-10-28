@@ -141,11 +141,11 @@ def print_room(room):
 
 
 def print_item(items):
-    # Display room name
+    # Display items name
     print()
     print(items["name"].upper())
     print()
-    # Display room description
+    # Display items description
     print(items["description"])
     print()
     value = items["value"]
