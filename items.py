@@ -68,19 +68,19 @@ item_rope = {
     "value": 15,
 }
 
-item_toolbox = {
-    "id": "toolbox",
-    "name": "a toolbox",
-    "description": """A sophisticated toolbox containing a vast range of tools such as a pair of pliers and a screwdriver. """,
-    "value": 20,
-}
+# item_toolbox = {
+#     "id": "toolbox",
+#     "name": "a toolbox",
+#     "description": """A sophisticated toolbox containing a vast range of tools such as a pair of pliers and a screwdriver. """,
+#     "value": 20,
+# }
 
-item_bolt_cutters = {
-    "id": "bolt-cutter",
-    "name": "a bolt cutter",
-    "description": """A set of bolt cutters, with the left handle being slightly rusted, closed with a strong looking clasp. """,
-    "value": 7,
-}
+# item_bolt_cutters = {
+#     "id": "bolt-cutter",
+#     "name": "a bolt cutter",
+#     "description": """A set of bolt cutters, with the left handle being slightly rusted, closed with a strong looking clasp. """,
+#     "value": 7,
+# }
 
 item_bleach = {
     "id": "bleach",
@@ -219,28 +219,28 @@ item_machine_gun = {
     "value": 85000,
 }
 
-item_jackhammer = {
-    "id": "jackhammer",
-    "name": "a jackhammer",
-    "description": """A industrial grade jackhammer used in the construction industry to mine out vast quantities of rock and concrete. """,
-    "value": 1600,
-}
+# item_jackhammer = {
+#     "id": "jackhammer",
+#     "name": "a jackhammer",
+#     "description": """A industrial grade jackhammer used in the construction industry to mine out vast quantities of rock and concrete. """,
+#     "value": 1600,
+# }
 
-item_cutting_torch = {
-    "id": "cutting-torch",
-    "name": "a cutting torch",
-    "description": """A plasma cutting torch used to effortlessly cut through metal for building purposes. """,
-    "value": 230,
-}
+# item_cutting_torch = {
+#     "id": "cutting-torch",
+#     "name": "a cutting torch",
+#     "description": """A plasma cutting torch used to effortlessly cut through metal for building purposes. """,
+#     "value": 230,
+# }
 
 ######################room_electrical####################
 
-item_electrical_generator = {
-    "id": "generator",
-    "name": "an electrical generator",
-    "description": """A sophisticated power grid with an auxiliary backup the generator has a control panel attached to it that controls the building power network. """,
-    "value": 1000,
-}
+# item_electrical_generator = {
+#     "id": "generator",
+#     "name": "an electrical generator",
+#     "description": """A sophisticated power grid with an auxiliary backup the generator has a control panel attached to it that controls the building power network. """,
+#     "value": 1000,
+# }
 
 #####################room_vault#############################
 
@@ -296,8 +296,8 @@ items = {
     "10k": item_10k_dollars,
     "crystal": item_crystal,
     "rope": item_rope,
-    "toolbox": item_toolbox,
-    "bolt-cutter": item_bolt_cutters,       #
+    # "toolbox": item_toolbox,
+    # "bolt-cutter": item_bolt_cutters,
     "bleach": item_bleach,
     "10-dollars": item_10_dollars,
     "cctv-footage": item_cctv_footage,
@@ -316,9 +316,9 @@ items = {
     "vest": item_bullet_proof_vest,
     "dynamite": item_dynamite,
     "gun": item_machine_gun,
-    "jackhammer": item_jackhammer,          #
-    "cutting-torch": item_cutting_torch,    #
-    "generator": item_electrical_generator,
+    # "jackhammer": item_jackhammer,
+    # "cutting-torch": item_cutting_torch,
+    # "generator": item_electrical_generator,
     "1million": item_1million_dollars,
     "gold": item_gold_bricks,
     "watches": item_watches,
