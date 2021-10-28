@@ -248,7 +248,7 @@ def execute_detonate(item_id):
         }
         exit_up = {
             'room': 'ceo',
-            'time': 35,
+            'time': 30,
         }
         rooms['ceo']['exits']['down'] = exit_down
         rooms['vault']['exits']['up'] = exit_up
