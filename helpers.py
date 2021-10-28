@@ -295,6 +295,7 @@ def calculate_value(item_list):
     return total_value
 
 
+# Total Value of all the items is $2,733,564
 def calculate_tier(total_value):
     if total_value >= 1000000:
         return int(1)
