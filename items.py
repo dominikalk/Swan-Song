@@ -297,7 +297,7 @@ items = {
     "crystal": item_crystal,
     "rope": item_rope,
     "toolbox": item_toolbox,
-    "bolt-cutter": item_bolt_cutters,
+    "bolt-cutter": item_bolt_cutters,       #
     "bleach": item_bleach,
     "10-dollars": item_10_dollars,
     "cctv-footage": item_cctv_footage,
@@ -316,8 +316,8 @@ items = {
     "vest": item_bullet_proof_vest,
     "dynamite": item_dynamite,
     "gun": item_machine_gun,
-    "jackhammer": item_jackhammer,
-    "cutting-torch": item_cutting_torch,
+    "jackhammer": item_jackhammer,          #
+    "cutting-torch": item_cutting_torch,    #
     "generator": item_electrical_generator,
     "1million": item_1million_dollars,
     "gold": item_gold_bricks,

@@ -156,7 +156,7 @@ room_armoury = {
     "name": "the armoury of the bank",
     "description": """The armoury description""",
     "items": [item_bullet_proof_vest, item_dynamite, item_machine_gun, item_jackhammer, item_cutting_torch],
-    "required_items": [item_armoury_key],
+    "required_items": [item_armoury_keys],
     "locked": True,
     "exits": {
         'south': {
@@ -344,7 +344,7 @@ room_security = {
     'floor': 'the ground floor',
     "name": "the security room",
     "description": """The security description""",
-    "items": [item_iphone_13, item_ceo_office_keys, item_armoury_key],
+    "items": [item_iphone_13, item_ceo_office_keys, item_armoury_keys],
     "required_items": [],
     "locked": False,
     "exits": {
@@ -396,7 +396,7 @@ room_ceo = {
     'floor': 'the ground floor',
     "name": "the CEO's office",
     "description": """The CEO's office description""",
-    "items": [item_helicopter_key, item_100k_dollars, item_golden_watch, item_painting],
+    "items": [item_helicopter_keys, item_100k_dollars, item_golden_watch, item_painting],
     "required_items": [item_ceo_office_keys],
     "locked": True,
     "exits": {
@@ -436,7 +436,7 @@ exit_helicopter = {
     "name": "the helicopter",
     "description": """The helicopter description""",
     "items": [],
-    "required_items": [item_helicopter_key],
+    "required_items": [item_helicopter_keys],
     "locked": True,
     "exits": {}
 }
