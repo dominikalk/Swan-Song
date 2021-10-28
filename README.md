@@ -16,7 +16,7 @@ This text based game is going to be made within a group for a cardiff university
 - Thomas White
 - Kaviya Sundarapalan
 - Asad Islam
-- --person 7--
+- Ben Sparrow
 - --person 8--
 
 ## Git global setup
