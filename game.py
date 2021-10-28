@@ -28,7 +28,7 @@ def menu(exits, room_items, inv_items):
     """
 
     # Display menu
-    print_menu(exits, room_items, inv_items)
+    # print_menu(exits, room_items, inv_items)
 
     # Read player's input
     user_input = input("> ")
@@ -317,7 +317,6 @@ def main():
 
         # Display game status (room description, inventory etc.)
         print_room(current_room)
-        print_inventory_items(inventory)
 
         # Show the menu with possible actions and ask the player
         command = menu(current_room["exits"], current_room["items"], inventory)
