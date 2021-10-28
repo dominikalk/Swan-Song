@@ -315,7 +315,7 @@ def typewriter(message):
         sys.stdout.write(char)  # print the msg
         sys.stdout.flush()  # display the msg
         if char != "\n":
-            time.sleep(0.001)
+            time.sleep(0.05)
         else:
             time.sleep(0.5)  # pulse when new line
 
