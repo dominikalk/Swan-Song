@@ -52,7 +52,6 @@ item_newspaper = {
 
     "value": 3,
 
-    "time": 15
 
 
 }
@@ -66,7 +65,7 @@ item_hostage_car_keys = {
 
     "value": 50,
 
-    "time": 10
+
 
 
 }
@@ -82,7 +81,7 @@ item_map = {
 
     "value": 30,
 
-    "time": 10 
+
 
 
 }
@@ -98,7 +97,7 @@ item_sculpture = {
 
     "value": 75000,
 
-    "time": 60
+
 
 }
 
@@ -116,7 +115,7 @@ item_10k_dollars = {
 
     "value": 10000,
 
-    "time": 40 
+
 
 
 }
@@ -130,7 +129,7 @@ item_crystal = {
 
     "value": 750,
 
-    "time": 10
+
 
 
 
@@ -151,7 +150,7 @@ item_rope = {
 
     "value": 15,
 
-    "time": 75
+
 
 
 }
@@ -166,7 +165,7 @@ item_toolbox = {
 
     "value": 20,
 
-    "time": 40
+
 
 
 }
@@ -180,7 +179,7 @@ item_bolt_cutters = {
 
     "value": 7,
 
-    "time": 40
+
 
 
 }
@@ -195,7 +194,7 @@ item_bleach = {
 
     "value": 10,
 
-    "time": 30
+
 }
 
 
@@ -208,7 +207,6 @@ item_10_dollars = {
 
     "value": 10,
 
-    "time": 3
 }
 
 
@@ -228,7 +226,7 @@ item_cctv_footage = {
 
     "value": 5,
 
-    "time": 5
+
 }
 
 
@@ -241,7 +239,7 @@ item_electrical_room_key = {
 
     "value": 7,
 
-    "time": 5
+
 }
 
 
@@ -258,7 +256,7 @@ item_laptop = {
 
     "value": 1000,
 
-    "time": 20
+
 }
 
 
@@ -271,7 +269,7 @@ item_1k_dollars = {
 
     "value": 1000,
 
-    "time": 45  
+ 
 }
 
 
@@ -289,7 +287,7 @@ item_depository_keys = {
 
     "value": 140,
 
-    "time": 50 
+
 }
 
 
@@ -302,7 +300,6 @@ item_5k_dollars = {
 
     "value": 5000,
 
-    "time": 75
 }
 
 
@@ -315,7 +312,7 @@ item_opal_necklace = {
 
     "value": 1750,
 
-    "time": 15
+
 }
 
 
@@ -332,7 +329,7 @@ item_security_id_card = {
 
     "value": 10,
 
-    "time": 5
+
 }
 
 
@@ -345,7 +342,6 @@ item_helicopter_key = {
 
     "value": 7,
 
-    "time": 5
 }
 
 
@@ -358,7 +354,7 @@ item_100k_dollars = {
 
     "value": 100,000,
 
-    "time": 90
+
 }
 
 
@@ -371,7 +367,7 @@ item_golden_watch = {
 
     "value": 1995,
 
-    "time": 15
+
 }
 
 
@@ -384,7 +380,6 @@ item_painting = {
 
     "value": 250000,
 
-    "time": 55
 }
 
 
@@ -403,7 +398,7 @@ item_armoury_key = {
 
     "value": 7,
 
-    "time": 5 
+
 }
 
 
@@ -416,7 +411,7 @@ item_ceo_office_keys = {
 
     "value": 10,
 
-    "time": 5
+
 }
 
 
@@ -429,7 +424,7 @@ item_iphone_13 = {
 
     "value": 1075,
 
-    "time": 15
+
 }
 
 #######################room_armoury###################
@@ -443,7 +438,7 @@ item_bullet_proof_vest = {
 
     "value": 350,
 
-    "time": 20 
+ 
 }
 
 
@@ -457,7 +452,7 @@ item_dynamite = {
 
     "value": 20000,
 
-    "time": 30 
+
 }
 
 
@@ -470,7 +465,6 @@ item_machine_gun = {
 
     "value": 85000,
 
-    "time": 30
 }
 
 
@@ -483,7 +477,7 @@ item_jackhammer = {
 
     "value": 1600,
 
-    "time": 70
+
 }
 
 item_cutting_torch = {
@@ -495,7 +489,7 @@ item_cutting_torch = {
 
     "value": 230,
 
-    "time": 30
+
 }
 
 
@@ -512,7 +506,7 @@ item_electrical_generator = {
 
     "value": 1000,
 
-    "time": 5
+
 }
 
 
@@ -530,7 +524,7 @@ item_1000k_dollars = {
 
     "value": 1000000,
 
-    "time": 120 
+
 }
 
 item_gold_bricks = {
@@ -542,7 +536,7 @@ item_gold_bricks = {
 
     "value": 1000000,
 
-    "time": 240
+
 }
 
 
@@ -560,7 +554,7 @@ item_watches = {
 
     "value": 35000,
 
-    "time": 100
+
 }
 
 
@@ -573,7 +567,7 @@ item_bonds = {
 
     "value": 45000,
 
-    "time": 60
+
 }
 
 
@@ -586,7 +580,7 @@ item_artifacts = {
 
     "value": 55000,
 
-    "time": 180
+
 }
 
 
@@ -599,7 +593,7 @@ item_jewelry = {
 
     "value": 42500,
 
-    "time": 150
+
 }
 
 
