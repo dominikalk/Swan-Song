@@ -3,7 +3,7 @@ This helpers folder will contain a lot of the subroutines that we dont want in o
 as it would clutter them. We might make more helper files if this one gets too large.
 """
 
-from map import rooms, map_design
+from map import rooms
 import os
 os.system("color")
 
@@ -336,7 +336,8 @@ def display_score(item_list):
 def print_helpers():
     print(
         '''
-The objective? Well that’s simple: steal as much as you can and escape before SWAT storm the bank. Do you have what it takes to get out?
+The objective? Well that’s simple: steal as much as you can and escape before SWAT storm the bank. 
+Do you have what it takes to get out?
 Possible commands:
 
 -   Go
