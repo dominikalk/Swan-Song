@@ -346,6 +346,7 @@ Possible commands:
 -   Unlock
 -   Plant
 -   Detonate
+-   Disable
 
 h, help: bring up this screen to help you
 c, commands: shows you a more in depth list of things you can do in a room.

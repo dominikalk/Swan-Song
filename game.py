@@ -22,6 +22,9 @@ bomb_plant_location = None
 
 game_ended = False
 
+# Room where their functions have already been disabled
+disabled_rooms = []
+
 
 def menu():
     """This function, given a dictionary of possible exits from a room, and a list
@@ -263,6 +266,41 @@ def execute_detonate(item_id):
     bomb_plant_location = None
 
 
+def execute_disable(room_id):
+    global disabled_rooms
+    global time_left
+
+    if not (room_id in rooms):
+        return print("You cannot disable that. You must disable a room.")
+
+    if room_id != current_room['id']:
+        return print("You cannot disable that room because you are not in it.")
+
+    room = rooms[room_id]
+
+    if room_id == "server":
+        if room in disabled_rooms:
+            # prevents players from gaining infinite time
+            print("This room is already disabled.")
+
+        else:
+            print("You disabled the server room and the CCTV cameras no longer works. This has confused SWAT who had tapped into the footage and you have gained an extra 5 minutes till they storm the bank.")
+            time_left += (5 * 60)
+            disabled_rooms.append(room)
+
+    elif room_id == "electrical":
+        if room in disabled_rooms:
+            print("This room is already disabled.")
+
+        else:
+            print("You disabled the electrical room and the lights in the lobby have turned off. SWAT can no longer look in easily so you have gained an extra 2 minutes till they storm the bank.")
+            time_left += (2 * 60)
+            disabled_rooms.append(room)
+
+    else:
+        print("You cannot disable that room.")
+
+
 def execute_command(command):
     """This function takes a command (a list of words as returned by
     normalise_input) and, depending on the type of action (the first word of
@@ -311,6 +349,12 @@ def execute_command(command):
             execute_detonate(command[1])
         else:
             print("Detonate what?")
+
+    elif command[0] == "disable":
+        if len(command) > 1:
+            execute_disable(command[1])
+        else:
+            print("Disable what?")
 
     elif command[0] == "help" or command[0] == "h":
         print_helpers()
