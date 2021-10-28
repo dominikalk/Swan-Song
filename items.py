@@ -17,28 +17,28 @@ item_<item name> = {
 
 item_newspaper = {
     "id": "newspaper",
-    "name": "Today's Paper",
+    "name": "today's paper",
     "description": """A large broadsheet newspaper with the breaking headline CEO flies into Manhattan bank this morning. It also has contained information about a transfer that is occurring at some point from the bank. """,
     "value": 3,
 }
 
 item_van_keys = {
     "id": "van-keys",
-    "name": "Armoured Van Keys",
+    "name": "the armoured van's keys",
     "description": """A set of keys to an armoured van that is used to transport large sums of money.""",
     "value": 50,
 }
 
 item_map = {
     "id": "map",
-    "name": "Map Of The Bank",
+    "name": "a map of the bank",
     "description": """A detailed map of the bank layout that was in possession of one of the staff members in the lobby. """,
     "value": 30,
 }
 
 item_sculpture = {
     "id": "sculpture",
-    "name": "Henry Moore’s Sculpture",
+    "name": "Henry Moore’s sculpture",
     "description": """A rare collectable that is worth 1000’s to the right collector, a highly sought-after artifact. """,
     "value": 75000,
 }
@@ -54,7 +54,7 @@ item_10k_dollars = {
 
 item_crystal = {
     "id": "crystal",
-    "name": "Crystal Stone",
+    "name": "a crystal stone",
     "description": """A crystal stone, this valuable gemstone might be worth significant sums to a gem collector or jeweller. """,
     "value": 750,
 }
@@ -63,28 +63,28 @@ item_crystal = {
 
 item_rope = {
     "id": "rope",
-    "name": "Rope",
+    "name": "rope",
     "description": """A long line of climbing grade rope used by the maintenance staff for repairs. """,
     "value": 15,
 }
 
 item_toolbox = {
     "id": "toolbox",
-    "name": "Toolbox",
+    "name": "a toolbox",
     "description": """A sophisticated toolbox containing a vast range of tools such as a pair of pliers and a screwdriver. """,
     "value": 20,
 }
 
 item_bolt_cutters = {
-    "id": "bolt-cutters",
-    "name": "Bolt Cutters",
+    "id": "bolt-cutter",
+    "name": "a bolt cutter",
     "description": """A set of bolt cutters, with the left handle being slightly rusted, closed with a strong looking clasp. """,
     "value": 7,
 }
 
 item_bleach = {
     "id": "bleach",
-    "name": "Bleach",
+    "name": "bleach",
     "description": """A large bottle of industrial grade bleach with the a sticker on the side the sticker reads ‘OFFICES ONLY’. """,
     "value": 10,
 }
@@ -100,7 +100,7 @@ item_10_dollars = {
 
 item_cctv_footage = {
     "id": "cctv-footage",
-    "name": "CCTV Camera Footage",
+    "name": "CCTV camera footage",
     "description": """A server unit that contains a sizable amount of CCTV footage that contains evidence of the heist. """,
     "value": 5,
 }
@@ -109,7 +109,7 @@ item_cctv_footage = {
 
 item_laptop = {
     "id": "laptop",
-    "name": "Laptop",
+    "name": "a laptop",
     "description": """A top of the range laptop used by one of the staff on the trading floor. """,
     "value": 1000,
 }
@@ -125,7 +125,7 @@ item_1k_dollars = {
 
 item_depository_keys = {
     "id": "depository-keys",
-    "name": "Depository keys",
+    "name": "the depository keys",
     "description": """A large collection of keys that seem to be for the depository boxes. """,
     "value": 140,
 }
@@ -139,7 +139,7 @@ item_5k_dollars = {
 
 item_opal_necklace = {
     "id": "necklace",
-    "name": "Opal necklace",
+    "name": "an opal necklace",
     "description": """A golden chain that holds a rare, large, black opal stone as it’s centre piece. """,
     "value": 1750,
 }
@@ -148,7 +148,7 @@ item_opal_necklace = {
 
 item_helicopter_key = {
     "id": "helicopter-key",
-    "name": "Helicopter Key",
+    "name": "the helicopter keys",
     "description": """A strange pair of keys that appear to be for some sort of aircraft they are contained within a leather pouch. """,
     "value": 7,
 }
@@ -162,13 +162,13 @@ item_100k_dollars = {
 
 item_golden_watch = {
     "id": "watch",
-    "name": "Golden Watch",
+    "name": "a golden watch",
     "description": """A golden watch with diamond encrusted into the rim of the watch face. """,
     "value": 1995,
 }
 item_painting = {
     "id": "painting",
-    "name": "Pablo Picasso's Painting",
+    "name": "Pablo Picasso's painting",
     "description": """A large complex painting with the artists mark of Picasso inscribed in the right hand corner of the painting. """,
     "value": 250000,
 }
@@ -177,21 +177,21 @@ item_painting = {
 
 item_armoury_key = {
     "id": "armoury-key",
-    "name": "Armoury Key",
+    "name": "the armoury keys",
     "description": """A large key with some text on it that reads ‘armoury’. """,
     "value": 7,
 }
 
 item_ceo_office_keys = {
     "id": "ceo-office-keys",
-    "name":  "CEO's Office Keys",
+    "name":  "the CEO's office keys",
     "description": """A set of keys that look to be used by the CEO for their office. """,
     "value": 10,
 }
 
 item_iphone_13 = {
     "id": "phone",
-    "name": "iPhone 13 pro max",
+    "name": "an iPhone 13 pro max",
     "description": """A state of the art flagship phone used by the CEO, it has a picture of a dog on the lock screen. """,
     "value": 1075,
 }
@@ -200,35 +200,35 @@ item_iphone_13 = {
 
 item_bullet_proof_vest = {
     "id": "vest",
-    "name": "Bullet Proof Vest",
+    "name": "a bullet proof vest",
     "description": """A large ballistic vest composed of Kevlar and metal plates, it is of military grade used by the guards for protection. """,
     "value": 350,
 }
 
 item_dynamite = {
     "id": "dynamite",
-    "name": "Dynamite",
+    "name": "dynamite",
     "description": """Several sticks of dynamite with a letter attached to it stating it is for transfer. """,
     "value": 20000,
 }
 
 item_machine_gun = {
     "id": "gun",
-    "name": "Machine Gun",
+    "name": "a machine gun",
     "description": """S military grade mp5 with a holographic sight with sling. """,
     "value": 85000,
 }
 
 item_jackhammer = {
     "id": "jackhammer",
-    "name": "Jackhammer",
+    "name": "a jackhammer",
     "description": """A industrial grade jackhammer used in the construction industry to mine out vast quantities of rock and concrete. """,
     "value": 1600,
 }
 
 item_cutting_torch = {
     "id": "cutting-torch",
-    "name": "Cutting Torch",
+    "name": "a cutting torch",
     "description": """A plasma cutting torch used to effortlessly cut through metal for building purposes. """,
     "value": 230,
 }
@@ -237,15 +237,15 @@ item_cutting_torch = {
 
 item_electrical_generator = {
     "id": "generator",
-    "name": "Electrical Generator",
+    "name": "an electrical generator",
     "description": """A sophisticated power grid with an auxiliary backup the generator has a control panel attached to it that controls the building power network. """,
     "value": 1000,
 }
 
 #####################room_vault#############################
 
-item_1000k_dollars = {
-    "id": "1000k",
+item_1million_dollars = {
+    "id": "1million",
     "name": "$1,000,000 Cash",
     "description": """Vast stack of cash all stacked all in bags ready for the transport. """,
     "value": 1000000,
@@ -253,7 +253,7 @@ item_1000k_dollars = {
 
 item_gold_bricks = {
     "id": "gold",
-    "name": "Gold Bricks",
+    "name": "gold bricks",
     "description": """Stacks of gold bullions all of them have different ID numbers engraved into them. """,
     "value": 1000000,
 }
@@ -262,28 +262,28 @@ item_gold_bricks = {
 
 item_watches = {
     "id": "watches",
-    "name": "Watches",
+    "name": "watches",
     "description": """A collection of highly valuable watches that would of significant value. """,
     "value": 35000,
 }
 
 item_bonds = {
     "id": "bonds",
-    "name":  "Bonds",
+    "name":  "bonds",
     "description": """A large volume of bonds worth a lot of money to investors. """,
     "value": 45000,
 }
 
 item_artifacts = {
     "id": "artifacts",
-    "name": "Artifacts",
+    "name": "artifacts",
     "description": """Rare artifacts of historic significant value is unknown. """,
     "value": 55000,
 }
 
 item_jewelry = {
     "id": "jewelry",
-    "name": "Jewelry",
+    "name": "jewelry",
     "description": """Significant volumes of jewelry likely belonging to wealthy bank clients that wanted it stored away. """,
     "value": 42500,
 }
@@ -319,7 +319,7 @@ items = {
     "jackhammer": item_jackhammer,
     "cutting-torch": item_cutting_torch,
     "generator": item_electrical_generator,
-    "1000k": item_1000k_dollars,
+    "1million": item_1million_dollars,
     "gold": item_gold_bricks,
     "watches": item_watches,
     "bonds": item_bonds,

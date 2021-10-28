@@ -215,7 +215,7 @@ room_vault = {
     'floor': 'the basement',
     "name": "the vault of the bank",
     "description": """The vault description""",
-    "items": [item_1000k_dollars, item_gold_bricks],
+    "items": [item_1million_dollars, item_gold_bricks],
     "required_items": [],
     "locked": True,
     "exits": {
