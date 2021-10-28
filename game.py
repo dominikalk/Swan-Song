@@ -311,17 +311,16 @@ def execute_command(command):
 
     elif command[0] == "map" or command[0] == "m":
         display_map(current_room)
-    
+
     elif command[0] == "inventory" or command[0] == "i":
         print_inventory_items(inventory)
 
     elif command[0] == "commands" or command[0] == "command" or command[0] == "a":
-        #add the function for actions here once created
+        # add the function for actions here once created
         pass
 
     elif command[0] == "scores" or command[0] == "score" or command[0] == "s":
-        #change to the function for score once created
-        pass
+        display_score(inventory)
 
     else:
         print("This makes no sense")
