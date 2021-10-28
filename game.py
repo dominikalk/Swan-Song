@@ -23,16 +23,13 @@ bomb_plant_location = None
 game_ended = False
 
 
-def menu(exits, room_items, inv_items):
+def menu():
     """This function, given a dictionary of possible exits from a room, and a list
     of items found in the room and carried by the player, prints the menu of
     actions using print_menu() function. It then prompts the player to type an
     action. The players's input is normalised using the normalise_input()
     function before being returned.
     """
-
-    # Display menu
-    # print_menu(exits, room_items, inv_items)
 
     # Read player's input
     user_input = input("> ")
@@ -356,7 +353,7 @@ def main():
         print_room(current_room)
 
         # Show the menu with possible actions and ask the player
-        command = menu(current_room["exits"], current_room["items"], inventory)
+        command = menu()
 
         # Execute the player's command
         execute_command(command)
