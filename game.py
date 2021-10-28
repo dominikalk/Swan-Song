@@ -8,6 +8,10 @@ from player import *
 from items import *
 from gameparser import *
 from helpers import *
+import sys
+import time
+import os
+os.system("color")
 
 # Time is measured in seconds
 time_used = 0
@@ -19,16 +23,13 @@ bomb_plant_location = None
 game_ended = False
 
 
-def menu(exits, room_items, inv_items):
+def menu():
     """This function, given a dictionary of possible exits from a room, and a list
     of items found in the room and carried by the player, prints the menu of
     actions using print_menu() function. It then prompts the player to type an
     action. The players's input is normalised using the normalise_input()
     function before being returned.
     """
-
-    # Display menu
-    print_menu(exits, room_items, inv_items)
 
     # Read player's input
     user_input = input("> ")
@@ -54,10 +55,23 @@ def execute_go(direction, isGo):
     if(not (direction in current_room['exits'])):
         return print(f"You cannot {'go there' if isGo else 'enter that'}.")
 
-    if rooms[current_room['exits'][direction]['room']]['locked']:
+    exit = current_room['exits'][direction]
+
+    can_exit = False
+
+    if current_room['id'] == 'vault' and direction == 'up' and not(item_rope in inventory):
+        return print("You can't go up because you don't have rope.")
+
+    if (current_room['id'] == 'ceo' and rooms[exit['room']]['id'] == 'vault') or (current_room['id'] == 'vault' and rooms[exit['room']]['id'] == 'ceo'):
+        can_exit = True
+
+    if current_room['locked'] and not can_exit:
+        return print("You are in a locked room and can't go out that way.")
+
+    if rooms[exit['room']]['locked'] and not can_exit:
         return print(f"You can't access that{' room' if isGo else ''} because it is locked.")
 
-    exit_time = current_room['exits'][direction]['time']
+    exit_time = exit['time']
     time_used += exit_time
     time_left -= exit_time
 
@@ -190,7 +204,7 @@ def execute_plant(item_id):
     time_left -= 30
 
     print(
-        f'The bomb is planted in {capitalise_sentence(current_room["name"])}.')
+        f'The bomb is planted in {capitalise_sentence(current_room["name"])}. Get somewhere safe!')
 
 
 def execute_detonate(item_id):
@@ -216,6 +230,19 @@ def execute_detonate(item_id):
             'time': 0,
         }
         rooms['armoury']['exits']['east'] = new_exit
+    # User only has one bomb so not possible to have duplicate exits
+    elif bomb_plant_location == rooms['ceo'] or bomb_plant_location == rooms['ceo']:
+        end_words = f"and opened up a hole in the floor {'down below' if bomb_plant_location == rooms['ceo'] else 'up above'}"
+        exit_down = {
+            'room': 'vault',
+            'time': 5,
+        }
+        exit_up = {
+            'room': 'ceo',
+            'time': 35,
+        }
+        rooms['ceo']['exits']['down'] = exit_down
+        rooms['vault']['exits']['up'] = exit_up
     else:
         end_words = 'and did nothing'
 
@@ -276,23 +303,71 @@ def execute_command(command):
         else:
             print("Detonate what?")
 
-    elif command[0] == "h" or command[0] == "help":
+    elif command[0] == "help" or command[0] == "h":
         print_helpers()
 
+    elif command[0] == "time" or command[0] == "t":
+        print_time(time_used, time_left)
+
+    elif command[0] == "map" or command[0] == "m":
+        display_map(current_room)
+
+    elif command[0] == "inventory" or command[0] == "i":
+        print_inventory_items(inventory)
+
+    elif command[0] == "commands" or command[0] == "command" or command[0] == "a":
+        # add the function for actions here once created
+        pass
+
+    elif command[0] == "scores" or command[0] == "score" or command[0] == "s":
+        display_score(inventory)
+
     else:
-        print("This makes no sense.")
+        print("This makes no sense")
+
+
+def typewriter(message):
+    for char in message:
+        sys.stdout.write(char)  # print the msg
+        sys.stdout.flush()  # display the msg
+        if char != "\n":
+            time.sleep(0.05)
+        else:
+            time.sleep(0.5)  # pulse when new line
+
+
+def print_main_menu():
+
+    print("""\
+
+  /$$$$$$                                           /$$$$$$                               
+ /$$__  $$                                         /$$__  $$                              
+| $$  \__/ /$$  /$$  /$$  /$$$$$$  /$$$$$$$       | $$  \__/  /$$$$$$  /$$$$$$$   /$$$$$$ 
+|  $$$$$$ | $$ | $$ | $$ |____  $$| $$__  $$      |  $$$$$$  /$$__  $$| $$__  $$ /$$__  $$
+ \____  $$| $$ | $$ | $$  /$$$$$$$| $$  \ $$       \____  $$| $$  \ $$| $$  \ $$| $$  \ $$
+ /$$  \ $$| $$ | $$ | $$ /$$__  $$| $$  | $$       /$$  \ $$| $$  | $$| $$  | $$| $$  | $$
+|  $$$$$$/|  $$$$$/$$$$/|  $$$$$$$| $$  | $$      |  $$$$$$/|  $$$$$$/| $$  | $$|  $$$$$$$
+ \______/  \_____/\___/  \_______/|__/  |__/       \______/  \______/ |__/  |__/ \____  $$
+                                                                                 /$$  \ $$
+                                                                                |  $$$$$$/
+                                                                                 \______/ 
+""")
+    message = "Welcome to Swan Song!\nThe objective? Well that’s simple: steal as much as you can and escape before SWAT storm the bank.\nDo you have what it takes to get out!\n"
+    typewriter(message)
+
+
+def main_menu_options():
+    print(
+        "\n\033[92mPlay (P)\n\033[94mLeader board (L)\n\033[93mHelp (H)\n\033[91mQuit (Q)\033[0m")
 
 
 # This is the entry point of our program
 def main():
-
-    # TODO: main menu screen
-    print('\nMAIN MENU SCREEN')
+    print_main_menu()
 
     while True:
-        # TODO: main menu options
-        print('\nMAIN MENU OPTIONS (Play (P), Help(H), Leader Board(L), Quit(Q))\n')
-        menu_input = str(input("> "))
+        main_menu_options()
+        menu_input = str(input("\n> "))
         if menu_input.lower().strip() == 'p':
             break
         elif menu_input.lower().strip() == 'h':
@@ -317,13 +392,30 @@ def main():
 
         # Display game status (room description, inventory etc.)
         print_room(current_room)
-        print_inventory_items(inventory)
 
         # Show the menu with possible actions and ask the player
-        command = menu(current_room["exits"], current_room["items"], inventory)
+        command = menu()
 
         # Execute the player's command
         execute_command(command)
+
+        # Stuck in vault
+        if current_room['id'] == 'vault' and current_room['locked'] and not(item_rope in inventory):
+            give_up = False
+            print("\nYou are stuck in the vault because it is locked and you don't have rope to go up to the CEO's office.")
+            while True:
+                print("Would you like to give up? (Y/N)\n")
+                give_up_input = str(input('> ')).lower().strip()
+                if give_up_input == 'y':
+                    give_up = True
+                    break
+                elif give_up_input == 'n':
+                    break
+                else:
+                    print('This makes no sence.')
+            if give_up:
+                # TODO: print user score and tier
+                break
 
         if game_ended:
             # TODO: print user score and tier

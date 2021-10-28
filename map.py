@@ -205,7 +205,7 @@ exit_van = {
     "name": "the armoured van",
     "description": """The armoured van description""",
     "items": [],
-    "required_items": [item_key_van],
+    "required_items": [item_van_keys],
     "locked": True,
     "exits": {}
 }
@@ -397,7 +397,7 @@ room_ceo = {
     "name": "the CEO's office",
     "description": """The CEO's office description""",
     "items": [],
-    "required_items": [item_key_ceo],
+    "required_items": [item_ceo_office_keys],
     "locked": True,
     "exits": {
         'south': {
@@ -436,7 +436,7 @@ exit_helicopter = {
     "name": "the helicopter",
     "description": """The helicopter description""",
     "items": [],
-    "required_items": [item_key_helicopter],
+    "required_items": [item_helicopter_key],
     "locked": True,
     "exits": {}
 }
