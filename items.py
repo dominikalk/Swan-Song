@@ -146,8 +146,8 @@ item_opal_necklace = {
 
 ##########room_ceo#######################
 
-item_helicopter_key = {
-    "id": "helicopter-key",
+item_helicopter_keys = {
+    "id": "helicopter-keys",
     "name": "the helicopter keys",
     "description": """A strange pair of keys that appear to be for some sort of aircraft they are contained within a leather pouch. """,
     "value": 7,
@@ -175,8 +175,8 @@ item_painting = {
 
 ####################room_security#########################
 
-item_armoury_key = {
-    "id": "armoury-key",
+item_armoury_keys = {
+    "id": "armoury-keys",
     "name": "the armoury keys",
     "description": """A large key with some text on it that reads ‘armoury’. """,
     "value": 7,
@@ -290,14 +290,14 @@ item_jewelry = {
 
 items = {
     "newspaper": item_newspaper,
-    "car-keys": item_van_keys,
+    "van-keys": item_van_keys,
     "map": item_map,
     "sculpture": item_sculpture,
     "10k": item_10k_dollars,
     "crystal": item_crystal,
     "rope": item_rope,
     "toolbox": item_toolbox,
-    "bolt-cutters": item_bolt_cutters,
+    "bolt-cutter": item_bolt_cutters,
     "bleach": item_bleach,
     "10-dollars": item_10_dollars,
     "cctv-footage": item_cctv_footage,
@@ -306,11 +306,11 @@ items = {
     "depository-keys": item_depository_keys,
     "5k": item_5k_dollars,
     "necklace": item_opal_necklace,
-    "helicopter-key": item_helicopter_key,
+    "helicopter-keys": item_helicopter_keys,
     "100k": item_100k_dollars,
     "watch": item_golden_watch,
     "painting": item_painting,
-    "armoury-key": item_armoury_key,
+    "armoury-keys": item_armoury_keys,
     "ceo-office-keys": item_ceo_office_keys,
     "phone": item_iphone_13,
     "vest": item_bullet_proof_vest,
