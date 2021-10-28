@@ -55,10 +55,23 @@ def execute_go(direction, isGo):
     if(not (direction in current_room['exits'])):
         return print(f"You cannot {'go there' if isGo else 'enter that'}.")
 
-    if rooms[current_room['exits'][direction]['room']]['locked']:
+    exit = current_room['exits'][direction]
+
+    can_exit = False
+
+    if current_room['id'] == 'vault' and direction == 'up' and not(item_rope in inventory):
+        return print("You can't go up because you don't have rope.")
+
+    if (current_room['id'] == 'ceo' and rooms[exit['room']]['id'] == 'vault') or (current_room['id'] == 'vault' and rooms[exit['room']]['id'] == 'ceo'):
+        can_exit = True
+
+    if current_room['locked'] and not can_exit:
+        return print("You are in a locked room and can't go out that way.")
+
+    if rooms[exit['room']]['locked'] and not can_exit:
         return print(f"You can't access that{' room' if isGo else ''} because it is locked.")
 
-    exit_time = current_room['exits'][direction]['time']
+    exit_time = exit['time']
     time_used += exit_time
     time_left -= exit_time
 
@@ -191,7 +204,7 @@ def execute_plant(item_id):
     time_left -= 30
 
     print(
-        f'The bomb is planted in {capitalise_sentence(current_room["name"])}.')
+        f'The bomb is planted in {capitalise_sentence(current_room["name"])}. Get somewhere safe!')
 
 
 def execute_detonate(item_id):
@@ -217,6 +230,19 @@ def execute_detonate(item_id):
             'time': 0,
         }
         rooms['armoury']['exits']['east'] = new_exit
+    # User only has one bomb so not possible to have duplicate exits
+    elif bomb_plant_location == rooms['ceo'] or bomb_plant_location == rooms['ceo']:
+        end_words = f"and opened up a hole in the floor {'down below' if bomb_plant_location == rooms['ceo'] else 'up above'}"
+        exit_down = {
+            'room': 'vault',
+            'time': 5,
+        }
+        exit_up = {
+            'room': 'ceo',
+            'time': 35,
+        }
+        rooms['ceo']['exits']['down'] = exit_down
+        rooms['vault']['exits']['up'] = exit_up
     else:
         end_words = 'and did nothing'
 
@@ -357,6 +383,24 @@ def main():
 
         # Execute the player's command
         execute_command(command)
+
+        # Stuck in vault
+        if current_room['id'] == 'vault' and current_room['locked'] and not(item_rope in inventory):
+            give_up = False
+            print("\nYou are stuck in the vault because it is locked and you don't have rope to go up to the CEO's office.")
+            while True:
+                print("Would you like to give up? (Y/N)\n")
+                give_up_input = str(input('> ')).lower().strip()
+                if give_up_input == 'y':
+                    give_up = True
+                    break
+                elif give_up_input == 'n':
+                    break
+                else:
+                    print('This makes no sence.')
+            if give_up:
+                # TODO: print user score and tier
+                break
 
         if game_ended:
             # TODO: print user score and tier

@@ -9,8 +9,8 @@ inventory = [
     item_key_ceo,
     item_bomb,
     item_key_van,
-    item_key_helicopter
+    item_key_helicopter,
 ]
 
 # Start game at the lobby
-current_room = rooms["lobby"]
+current_room = rooms["trading"]
