@@ -8,6 +8,10 @@ from player import *
 from items import *
 from gameparser import *
 from helpers import *
+import sys
+import time
+import os
+os.system("color")
 
 # Time is measured in seconds
 time_used = 0
@@ -19,16 +23,13 @@ bomb_plant_location = None
 game_ended = False
 
 
-def menu(exits, room_items, inv_items):
+def menu():
     """This function, given a dictionary of possible exits from a room, and a list
     of items found in the room and carried by the player, prints the menu of
     actions using print_menu() function. It then prompts the player to type an
     action. The players's input is normalised using the normalise_input()
     function before being returned.
     """
-
-    # Display menu
-    # print_menu(exits, room_items, inv_items)
 
     # Read player's input
     user_input = input("> ")
@@ -283,16 +284,49 @@ def execute_command(command):
         print("This makes no sense.")
 
 
+def typewriter(message):
+    for char in message:
+        sys.stdout.write(char)  # print the msg
+        sys.stdout.flush()  # display the msg
+        if char != "\n":
+            time.sleep(0.05)
+        else:
+            time.sleep(0.5)  # pulse when new line
+
+
+def print_main_menu():
+
+    print("""\
+
+  /$$$$$$                                           /$$$$$$                               
+ /$$__  $$                                         /$$__  $$                              
+| $$  \__/ /$$  /$$  /$$  /$$$$$$  /$$$$$$$       | $$  \__/  /$$$$$$  /$$$$$$$   /$$$$$$ 
+|  $$$$$$ | $$ | $$ | $$ |____  $$| $$__  $$      |  $$$$$$  /$$__  $$| $$__  $$ /$$__  $$
+ \____  $$| $$ | $$ | $$  /$$$$$$$| $$  \ $$       \____  $$| $$  \ $$| $$  \ $$| $$  \ $$
+ /$$  \ $$| $$ | $$ | $$ /$$__  $$| $$  | $$       /$$  \ $$| $$  | $$| $$  | $$| $$  | $$
+|  $$$$$$/|  $$$$$/$$$$/|  $$$$$$$| $$  | $$      |  $$$$$$/|  $$$$$$/| $$  | $$|  $$$$$$$
+ \______/  \_____/\___/  \_______/|__/  |__/       \______/  \______/ |__/  |__/ \____  $$
+                                                                                 /$$  \ $$
+                                                                                |  $$$$$$/
+                                                                                 \______/ 
+""")
+    message = "Welcome to Swan Song!\nThe objective? Well that’s simple: steal as much as you can and escape before SWAT storm the bank.\nDo you have what it takes to get out!\n"
+    typewriter(message)
+
+
+def main_menu_options():
+    print(
+        "\n\033[92mPlay (P)\n\033[94mLeader board (L)\n\033[93mHelp (H)\n\033[91mQuit (Q)\033[0m")
+
+
 # This is the entry point of our program
 def main():
 
-    # TODO: main menu screen
-    print('\nMAIN MENU SCREEN')
+    print_main_menu()
 
     while True:
-        # TODO: main menu options
-        print('\nMAIN MENU OPTIONS (Play (P), Help(H), Leader Board(L), Quit(Q))\n')
-        menu_input = str(input("> "))
+        main_menu_options()
+        menu_input = str(input("\n> "))
         if menu_input.lower().strip() == 'p':
             break
         elif menu_input.lower().strip() == 'h':
@@ -319,7 +353,7 @@ def main():
         print_room(current_room)
 
         # Show the menu with possible actions and ask the player
-        command = menu(current_room["exits"], current_room["items"], inventory)
+        command = menu()
 
         # Execute the player's command
         execute_command(command)
