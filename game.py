@@ -4,14 +4,15 @@
 This file contains the main game loop.
 """
 
+import os
+import time
+import sys
+from map import map_design
+from ascii import *
 from player import *
 from items import *
 from gameparser import *
 from helpers import *
-from map import map_design
-import sys
-import time
-import os
 os.system("color")
 
 # Time is measured in seconds
@@ -430,20 +431,7 @@ def typewriter(message):
 
 def print_main_menu():
 
-    print("""\
-
-  /$$$$$$                                           /$$$$$$                               
- /$$__  $$                                         /$$__  $$                              
-| $$  \__/ /$$  /$$  /$$  /$$$$$$  /$$$$$$$       | $$  \__/  /$$$$$$  /$$$$$$$   /$$$$$$ 
-|  $$$$$$ | $$ | $$ | $$ |____  $$| $$__  $$      |  $$$$$$  /$$__  $$| $$__  $$ /$$__  $$
- \____  $$| $$ | $$ | $$  /$$$$$$$| $$  \ $$       \____  $$| $$  \ $$| $$  \ $$| $$  \ $$
- /$$  \ $$| $$ | $$ | $$ /$$__  $$| $$  | $$       /$$  \ $$| $$  | $$| $$  | $$| $$  | $$
-|  $$$$$$/|  $$$$$/$$$$/|  $$$$$$$| $$  | $$      |  $$$$$$/|  $$$$$$/| $$  | $$|  $$$$$$$
- \______/  \_____/\___/  \_______/|__/  |__/       \______/  \______/ |__/  |__/ \____  $$
-                                                                                 /$$  \ $$
-                                                                                |  $$$$$$/
-                                                                                 \______/ 
-""")
+    print_title_ascii()
     message = "Welcome to Swan Song!\nThe objective? Well that’s simple: steal as much as you can and escape before SWAT storm the bank.\nDo you have what it takes to get out!\n"
     typewriter(message)
 
@@ -455,6 +443,8 @@ def main_menu_options():
 
 # This is the entry point of our program
 def main():
+
+    opening_animation()
     print_main_menu()
 
     while True:
@@ -494,7 +484,7 @@ the helicopter, and the armoured van. Once you commit to escaping you cannot go 
 
     while True:
         if(time_left <= 0):
-            print('You ran out of time.')
+            swat_ascii()
             print_ending('time')
             # TODO: print user score and tier
             break
