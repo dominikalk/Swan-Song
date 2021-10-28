@@ -1,19 +1,22 @@
-import os, time
+import os
+import time
+
 
 def opening_animation():
-    filenames = ["animation0.txt", "animation1.txt", "animation2.txt", "animation3.txt", "animation4.txt", "animation5.txt", "animation6.txt", "animation7.txt"]
+    filenames = ["animations/animation0.txt", "animations/animation1.txt", "animations/animation2.txt", "animations/animation3.txt",
+                 "animations/animation4.txt", "animations/animation5.txt", "animations/animation6.txt", "animations/animation7.txt"]
     frames = []
 
     # add frames into a list
     for name in filenames:
-        with open(name,"r", encoding="utf8") as f: # include charaters that isnt ascii
+        with open(name, "r", encoding="utf8") as f:  # include charaters that isnt ascii
             frames.append(f.readlines())
 
     # display frames one by one
     for frame in frames:
         print("".join(frame))
         time.sleep(0.7)
-        os.system("cls") # "clear" for linux
+        os.system("cls")  # "clear" for linux
 
 
 def print_title_ascii():
@@ -45,7 +48,7 @@ def tier_1_ascii():
    | $$   | $$| $$_____/| $$              | $$  
    | $$   | $$|  $$$$$$$| $$             /$$$$$$
    |__/   |__/ \_______/|__/            |______/
-   \x1b[0m                                                                                                                                                                                                       
+   \033[0m                                                                                                                                                                                                       
         """)
 
 
@@ -60,8 +63,9 @@ def tier_2_ascii():
    | $$   | $$| $$_____/| $$            | $$      
    | $$   | $$|  $$$$$$$| $$            | $$$$$$$$
    |__/   |__/ \_______/|__/            |________/                                     
-    \x1b[0m                                                  
+    \033[0m                                                  
             """)
+
 
 def tier_3_ascii():
     print("""\
@@ -74,50 +78,53 @@ def tier_3_ascii():
    | $$   | $$| $$_____/| $$             /$$  \ $$
    | $$   | $$|  $$$$$$$| $$            |  $$$$$$/
    |__/   |__/ \_______/|__/             \______/ 
-   \x1b[0m                                                
+   \033[0m                                                
         """)
+
 
 def tier_4_ascii():
     print("""\
         \033[37m
-     _______ _             _  _   
-    |__   __(_)           | || |  
-       | |   _  ___ _ __  | || |_ 
-       | |  | |/ _ \ '__| |__   _|
-       | |  | |  __/ |       | |  
-       |_|  |_|\___|_|       |_|  
-        \x1b[0m  
+ ______                _  _   
+|__   _|(_)           | || |  
+   | |   _  ___ _ __  | || |_ 
+   | |  | |/ _ \ '__| |__   _|
+   | |  | |  __/ |       | |  
+   |_|  |_|\___|_|       |_|  
+        \033[0m  
                                """)
+
 
 def tier_5_ascii():
     print("""\
         \033[91m
-     _____ _             ____  
+     _____               ____  
     |_   _(_) ___ _ __  | ___| 
       | | | |/ _ \ '__| |___ \ 
       | | | |  __/ |     ___) |
       |_| |_|\___|_|    |____/  
-        \x1b[0m                         
+        \033[0m                         
                                """)
+
 
 def swat_ascii():
     print("""\
-                   ____            ____            ____
-                  /....\          /....\          /....\\
-          .-.    |::::::|    .-. |::::::|    .-. |::::::|
-          | |    |::::::|    | | |::::::|    | | |::::::|
-          | |    (`:'':')    | | (`:'':')    | | (`:'':')
-          | |   _--|__|--__  | |.--|__|--__  | |_--|__|--__
-          | |  |   ________|_|_|_  ________|_|_|_  ________|_____
-          | | /    |            |  |            |  |            |
-          | |/  /  |            |  |            |  |            |
-          |_| |/|  |            |  |            |  |            |
-         (===)| |  |  S W A T   |  |  S W A T   |  |  S W A T   |
-         `==='  |`-|            |`-|            |`-|            |
-          | |   |`-|            |`-|            |`-|            |
-          |_|   |  |            |  |            |  |            |
-                |  |            |  |            |  |            |
-                |__|            |__|            |__|            |
-                /_ |            |_ |            |_ |            |
-               |___`-__________-'__`-__________-'__`-__________-'
+          ____            ____            ____
+         /....\          /....\          /....\\
+ .-.    |::::::|    .-. |::::::|    .-. |::::::|
+ | |    |::::::|    | | |::::::|    | | |::::::|
+ | |    (`:'':')    | | (`:'':')    | | (`:'':')
+ | |   _--|__|--__  | |.--|__|--__  | |_--|__|--__
+ | |  |   ________|_|_|_  ________|_|_|_  ________|_____
+ | | /    |            |  |            |  |            |
+ | |/  /  |            |  |            |  |            |
+ |_| |/|  |            |  |            |  |            |
+(===)| |  |  S W A T   |  |  S W A T   |  |  S W A T   |
+`==='  |`-|            |`-|            |`-|            |
+ | |   |`-|            |`-|            |`-|            |
+ |_|   |  |            |  |            |  |            |
+       |  |            |  |            |  |            |
+       |__|            |__|            |__|            |
+       /_ |            |_ |            |_ |            |
+      |___`-__________-'__`-__________-'__`-__________-'
         """)

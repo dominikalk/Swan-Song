@@ -3,7 +3,7 @@ This helpers folder will contain a lot of the subroutines that we dont want in o
 as it would clutter them. We might make more helper files if this one gets too large.
 """
 
-from map import rooms, map_design
+from map import rooms
 import os
 os.system("color")
 
@@ -295,6 +295,7 @@ def calculate_value(item_list):
     return total_value
 
 
+# Total Value of all the items is $2,733,564
 def calculate_tier(total_value):
     if total_value >= 1000000:
         return int(1)
@@ -335,7 +336,8 @@ def display_score(item_list):
 def print_helpers():
     print(
         '''
-The objective? Well that’s simple: steal as much as you can and escape before SWAT storm the bank. Do you have what it takes to get out?
+The objective? Well that’s simple: steal as much as you can and escape before SWAT storm the bank. 
+Do you have what it takes to get out?
 Possible commands:
 
 -   Go
@@ -345,6 +347,7 @@ Possible commands:
 -   Unlock
 -   Plant
 -   Detonate
+-   Disable
 
 h, help: bring up this screen to help you
 c, commands: shows you a more in depth list of things you can do in a room.
