@@ -155,7 +155,7 @@ room_armoury = {
     'floor': 'the basement',
     "name": "the armoury of the bank",
     "description": """The armoury description""",
-    "items": [item_bullet_proof_vest, item_dynamite, item_machine_gun],
+    "items": [item_bullet_proof_vest, item_dynamite, item_machine_gun, item_van_keys],
     "required_items": [item_armoury_keys],
     "locked": True,
     "exits": {
@@ -175,7 +175,7 @@ room_cargo = {
     'floor': 'the basement',
     "name": "the cargo loading bay of the bank",
     "description": """The cargo loading bay description""",
-    "items": [item_rope, item_bleach, item_10_dollars, item_van_keys],
+    "items": [item_rope, item_bleach, item_10_dollars],
     "required_items": [],
     "locked": False,
     "exits": {
