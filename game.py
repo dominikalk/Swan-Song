@@ -8,6 +8,7 @@ from player import *
 from items import *
 from gameparser import *
 from helpers import *
+from map import map_design
 import sys
 import time
 import os
@@ -24,6 +25,43 @@ game_ended = False
 
 # Room where their functions have already been disabled
 disabled_rooms = []
+
+
+def print_ending(key):
+    if key == 'van':
+        print(
+            '''You got in the van and the SWAT had just arrived at the bank. You rolled down the windows 
+and played your favorite music pretending to be a lawful citizen living nearby. You had 
+successfully escaped from the bank with all valuable goods in your van. ''')
+    elif key == 'helicopter':
+        print(
+            '''You have not flown with helicopters for years. However, once you get on it, memories fly back. 
+You checked everything on the helicopters and fastened your seat bet. You took a deep breath, 
+started the engine and took off! You had successfully escaped from the bank with all valuable goods.''')
+    elif key == 'sewage':
+        print(
+            '''You walked miles and miles in the sewage. There is a blink of light not far away. You had finally 
+come out from the sewage under an old bridge. You had successfully escaped from the bank with all valuable 
+goods in your backpack.''')
+    elif key == 'exit':
+        if time_used < (5 * 60):
+            print(
+                '''Escape with less than 5 mins''')
+        else:
+            if item_machine_gun in inventory and item_bullet_proof_vest in inventory:
+                print(
+                    '''The SWAT had already arrived at the front door of the bank. You wait and observe and look out for possible 
+break out points. Finally, after you had broken through the SWAT cordon with your bullet proof vest and 
+machine gun, you had successfully escaped from the bank with all valuable goods in your backpack.''')
+            else:
+                print(
+                    '''Failed escape from front''')
+    elif key == 'dynamite':
+        print('Dynamite')
+    elif key == 'stuck':
+        print('Stuck')
+    elif key == 'time':
+        print('Time')
 
 
 def menu():
@@ -90,7 +128,7 @@ def execute_go(direction, isGo):
     escape_rooms = [rooms['sewage'], rooms['exit'],
                     rooms['van'], rooms['helicopter']]
     if current_room in escape_rooms:
-        print_room(current_room)
+        print_ending(current_room['id'])
         game_ended = True
 
 
@@ -231,7 +269,8 @@ def execute_detonate(item_id):
 
     if current_room == bomb_plant_location:
         game_ended = True
-        return print('You detonated the dynamite in the same room as yourself and got blown up.')
+        print('You detonated the dynamite in the same room as yourself and got blown up.')
+        return print_ending('dynamite')
 
     end_words = ''
 
@@ -284,7 +323,7 @@ def execute_disable(room_id):
             print("This room is already disabled.")
 
         else:
-            print("You disabled the server room and the CCTV cameras no longer works. This has confused SWAT who had tapped into the footage and you have gained an extra 5 minutes till they storm the bank.")
+            print("You disabled the server room and the CCTV cameras no longer works. \nThis has confused SWAT who had tapped into the footage and you have gained an extra \n5 minutes till they storm the bank.")
             time_left += (5 * 60)
             disabled_rooms.append(room)
 
@@ -293,7 +332,7 @@ def execute_disable(room_id):
             print("This room is already disabled.")
 
         else:
-            print("You disabled the electrical room and the lights in the lobby have turned off. SWAT can no longer look in easily so you have gained an extra 2 minutes till they storm the bank.")
+            print("You disabled the electrical room and the lights in the lobby have turned off. \nSWAT can no longer look in easily so you have gained an extra 2 minutes \ntill they storm the bank.")
             time_left += (2 * 60)
             disabled_rooms.append(room)
 
@@ -433,13 +472,25 @@ def main():
         else:
             pass
 
-    # TODO: intro text
-    print('\nGAME INTRO TEXT')
+    print('''
+You were approached by a strange man covering his face under the guise of a dark mask. 
+He seemed to be using a voice changer when he approached you, saying he knew that you 
+had fallen on hard times after leaving the military as a 8 year combat pilot veteran 
+and that he could help you make large sums of cash in return for your military 
+expertise. After being abandoned by the country that you were sworn to protect, you 
+have no hard feelings about this mission. You feel that this is your swan song. 
+Your final mission.
+ 
+On entering the bank you fire warning shots and quickly take control of the hostages. 
+The initial guards have all been neutralised, in a stream of crimson blood that flows 
+along the lobby floor you have moved the hostages into a secure location located within 
+the lobby in which you start.''')
 
     # Main game loop
     while True:
         if(time_left <= 0):
-            print('TODO: You ran out of time and SWAT stormed the bank!')
+            print('You ran out of time.')
+            print_ending('time')
             # TODO: print user score and tier
             break
 
@@ -468,6 +519,7 @@ def main():
                     print('This makes no sence.')
             if give_up:
                 # TODO: print user score and tier
+                print_ending('stuck')
                 break
 
         if game_ended:
