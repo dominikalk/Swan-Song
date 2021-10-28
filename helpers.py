@@ -150,7 +150,7 @@ def print_item(items):
     print(items["description"])
     print()
     value = items["value"]
-    print(f"This item is worth: ${value}")
+    print(f"This item is worth: {format_price(value)}")
 
 
 def exit_leads_to(exits, direction):
