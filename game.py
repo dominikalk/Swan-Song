@@ -8,6 +8,7 @@ from player import *
 from items import *
 from gameparser import *
 from helpers import *
+from ascii import *
 import sys
 import time
 import os
@@ -347,20 +348,7 @@ def typewriter(message):
 
 def print_main_menu():
 
-    print("""\
-
-  /$$$$$$                                           /$$$$$$                               
- /$$__  $$                                         /$$__  $$                              
-| $$  \__/ /$$  /$$  /$$  /$$$$$$  /$$$$$$$       | $$  \__/  /$$$$$$  /$$$$$$$   /$$$$$$ 
-|  $$$$$$ | $$ | $$ | $$ |____  $$| $$__  $$      |  $$$$$$  /$$__  $$| $$__  $$ /$$__  $$
- \____  $$| $$ | $$ | $$  /$$$$$$$| $$  \ $$       \____  $$| $$  \ $$| $$  \ $$| $$  \ $$
- /$$  \ $$| $$ | $$ | $$ /$$__  $$| $$  | $$       /$$  \ $$| $$  | $$| $$  | $$| $$  | $$
-|  $$$$$$/|  $$$$$/$$$$/|  $$$$$$$| $$  | $$      |  $$$$$$/|  $$$$$$/| $$  | $$|  $$$$$$$
- \______/  \_____/\___/  \_______/|__/  |__/       \______/  \______/ |__/  |__/ \____  $$
-                                                                                 /$$  \ $$
-                                                                                |  $$$$$$/
-                                                                                 \______/ 
-""")
+    print_title_ascii()
     message = "Welcome to Swan Song!\nThe objective? Well that’s simple: steal as much as you can and escape before SWAT storm the bank.\nDo you have what it takes to get out!\n"
     typewriter(message)
 
@@ -395,8 +383,10 @@ def main():
     # Main game loop
     while True:
         if(time_left <= 0):
-            print('TODO: You ran out of time and SWAT stormed the bank!')
+            swat_ascii()
+            print('You ran out of time and SWAT stormed the bank!')
             # TODO: print user score and tier
+            print('Let\'s play again and see if you can rob faster next time!')
             break
 
         # Display game status (room description, inventory etc.)
