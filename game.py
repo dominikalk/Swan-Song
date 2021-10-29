@@ -30,28 +30,39 @@ disabled_rooms = []
 
 def print_ending(key):
     text = ''
+    win = False
     if key == 'van':
         text = '''With the armoured van that sits in the cargo hold and keys in your possession, you throw the loot in the back. Whilst disabling the tracker system, you turn on the engine and drive out. The police immediately open fire on your van, the bullets ricocheting, but with the armour plating they have no way of stopping you. As you drive off into the distance they try pursuing you but with your training you manage to evade them. '''
+        win = True
     elif key == 'helicopter':
         text = '''The CEO, having arrived earlier that day to oversee the transfer to the secure location, arrived on the helicopter that sits on the helipad. With your experience as a combat pilot, this is the perfect escape route and almost impossible to track with loads of room for loot. Using the keys you discovered, you hop in and make your escape as you fly over the police as they stand there staring up at you unable to do anything.'''
+        win = True
     elif key == 'sewage':
         text = '''On detonating the bomb in the armoury a huge hole has formed in the wall. On inspection you see that the hole leads directly into the sewer system. As you escape, you can hear the SWAT vehicles and officers above. You pass directly under the roadblock and search area. On escaping from the sewers on the other side of town, there is an unlocked van that you stash your loot into. You steal the van and make off to the safe house location.'''
+        win = True
     elif key == 'exit':
         if time_used < (5 * 60):
             text = '''You managed to get out before the cops were able to respond. You're going to get off scot free with whatever you managed to dash and grab.'''
+            win = True
         else:
             if item_machine_gun in inventory and item_bullet_proof_vest in inventory:
                 text = '''On picking up the submachine gun and the military grade body armour you kick open the glass doors and take up position behind one of the pillars. From your strategic position, you fire back. After a long stand off all of the police are dead. You quickly sprint with your spoils to one of the unmarked police cruisers and speed away. Within 5 hours you’re halfway across the state with the window rolled down as you sail off into the sunset.'''
+                win = True
             else:
                 text = '''You were shot on sight on leaving from the front exit with no protection and no way of returning fire. You were riddled with bullets ripping through your life as daylight could be seen from the other side.'''
+                win = False
     elif key == 'dynamite':
         text = '''On detonating the bomb in the armoury, you realise something the split second after you hit the trigger. You realise that you're still in the room and that the explosion will undoubtedly kill you. The explosion expands across the room, the fiery glare of the explosion is mesmerizing and your muscles relax as you accept the inevitable. The explosion engulfs you, killing you instantly. On the police storming the bank, they discover your seared corpse lying across the ground.'''
+        win = False
     elif key == 'stuck':
         text = '''On jumping down into the vault after the explosion you realise you have made a grave error in judgement: the vault door is more seeled than fort knox, but the ceiling is too high to be able to climb back out the way you came. You didn’t bring any way of getting out throughout the breakin so you’re stuck there until the SWAT inevitably storm the bank and arrest you. Due to your crimes you will never see the light of day.'''
+        win = False
     elif key == 'time':
         text = '''You can't stop exploring the bank to find that last little bit of loot. You become fixated on it. The police managed to formulate a plan and then SWAT stormed the bank overwhelming the entrances and clearing room by room. On finding you they shoot on sight killing you instantly. Your mission to get a quick score to live off for the rest of your life only resulted in you being wheeled out of the bank in a body bag.'''
+        win = False
 
     print(wrap(text))
+    print_ending_score(inventory, win)
 
 
 def menu():
@@ -259,7 +270,6 @@ def execute_detonate(item_id):
 
     if current_room == bomb_plant_location:
         game_ended = True
-        print('You detonated the dynamite in the same room as yourself and got blown up.')
         return print_ending('dynamite')
 
     end_words = ''
@@ -508,7 +518,6 @@ the helicopter, and the armoured van. Once you commit to escaping you cannot go 
         if(time_left <= 0):
             swat_ascii()
             print_ending('time')
-            print_ending_score(inventory, False)
             break
 
         # Display game status (room description, inventory etc.)
@@ -543,11 +552,9 @@ Exiting out this way would be suicide without a weapon and personal protection.'
                     print('This makes no sense.')
             if give_up:
                 print_ending('stuck')
-                print_ending_score(inventory, False)
                 break
 
         if game_ended:
-            print_ending_score(inventory, True)
             break
 
 
