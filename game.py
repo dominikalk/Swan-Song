@@ -17,7 +17,7 @@ os.system("color")
 
 # Time is measured in seconds
 time_used = 0
-time_left = 1800  # 30 minutes but overall time available may change due to negotiations
+time_left = 600  # 10 minutes but overall time available may change due to negotiations
 
 # Either the variable of the room it is planted in or None
 bomb_plant_location = None
@@ -29,40 +29,29 @@ disabled_rooms = []
 
 
 def print_ending(key):
+    text = ''
     if key == 'van':
-        print(
-            '''You got in the van and the SWAT had just arrived at the bank. You rolled down the windows 
-and played your favorite music pretending to be a lawful citizen living nearby. You had 
-successfully escaped from the bank with all valuable goods in your van. ''')
+        text = '''With the armoured van that sits in the cargo hold and keys in your possession, you throw the loot in the back. Whilst disabling the tracker system, you turn on the engine and drive out. The police immediately open fire on your van, the bullets ricocheting, but with the armour plating they have no way of stopping you. As you drive off into the distance they try pursuing you but with your training you manage to evade them. '''
     elif key == 'helicopter':
-        print(
-            '''You have not flown with helicopters for years. However, once you get on it, memories fly back. 
-You checked everything on the helicopters and fastened your seat bet. You took a deep breath, 
-started the engine and took off! You had successfully escaped from the bank with all valuable goods.''')
+        text = '''The CEO, having arrived earlier that day to oversee the transfer to the secure location, arrived on the helicopter that sits on the helipad. With your experience as a combat pilot, this is the perfect escape route and almost impossible to track with loads of room for loot. Using the keys you discovered, you hop in and make your escape as you fly over the police as they stand there staring up at you unable to do anything.'''
     elif key == 'sewage':
-        print(
-            '''You walked miles and miles in the sewage. There is a blink of light not far away. You had finally 
-come out from the sewage under an old bridge. You had successfully escaped from the bank with all valuable 
-goods in your backpack.''')
+        text = '''On detonating the bomb in the armoury a huge hole has formed in the wall. On inspection you see that the hole leads directly into the sewer system. As you escape, you can hear the SWAT vehicles and officers above. You pass directly under the roadblock and search area. On escaping from the sewers on the other side of town, there is an unlocked van that you stash your loot into. You steal the van and make off to the safe house location.'''
     elif key == 'exit':
         if time_used < (5 * 60):
-            print(
-                '''Escape with less than 5 mins''')
+            text = '''You managed to get out before the cops were able to respond. You're going to get off scot free with whatever you managed to dash and grab.'''
         else:
             if item_machine_gun in inventory and item_bullet_proof_vest in inventory:
-                print(
-                    '''The SWAT had already arrived at the front door of the bank. You wait and observe and look out for possible 
-break out points. Finally, after you had broken through the SWAT cordon with your bullet proof vest and 
-machine gun, you had successfully escaped from the bank with all valuable goods in your backpack.''')
+                text = '''On picking up the submachine gun and the military grade body armour you kick open the glass doors and take up position behind one of the pillars. From your strategic position, you fire back. After a long stand off all of the police are dead. You quickly sprint with your spoils to one of the unmarked police cruisers and speed away. Within 5 hours you’re halfway across the state with the window rolled down as you sail off into the sunset.'''
             else:
-                print(
-                    '''Failed escape from front''')
+                text = '''You were shot on sight on leaving from the front exit with no protection and no way of returning fire. You were riddled with bullets ripping through your life as daylight could be seen from the other side.'''
     elif key == 'dynamite':
-        print('Dynamite')
+        text = '''On detonating the bomb in the armoury, you realise something the split second after you hit the trigger. You realise that you're still in the room and that the explosion will undoubtedly kill you. The explosion expands across the room, the fiery glare of the explosion is mesmerizing and your muscles relax as you accept the inevitable. The explosion engulfs you, killing you instantly. On the police storming the bank, they discover your seared corpse lying across the ground.'''
     elif key == 'stuck':
-        print('Stuck')
+        text = '''On jumping down into the vault after the explosion you realise you have made a grave error in judgement: the vault door is more seeled than fort knox, but the ceiling is too high to be able to climb back out the way you came. You didn’t bring any way of getting out throughout the break in so you’re stuck there until the SWAT inevitably storm the bank and arrest you. Due to your crimes you will never see the light of day.'''
     elif key == 'time':
-        print('Time')
+        text = '''You can't stop exploring the bank to find that last little bit of loot. You become fixated on it. The police managed to formulate a plan and then SWAT stormed the bank overwhelming the entrances and clearing room by room. On finding you they shoot on sight killing you instantly. Your mission to get a quick score to live off for the rest of your life only resulted in you being wheeled out of the bank in a body bag.'''
+
+    print(wrap(text))
 
 
 def menu():
@@ -324,8 +313,8 @@ def execute_disable(room_id):
             print("This room is already disabled.")
 
         else:
-            print("You disabled the server room and the CCTV cameras no longer works. \nThis has confused SWAT who had tapped into the footage and you have gained an extra \n5 minutes till they storm the bank.")
-            time_left += (5 * 60)
+            print("You disabled the server room and the CCTV cameras no longer works. \nThis has confused SWAT who had tapped into the footage and you have gained an extra \n3 minutes till they storm the bank.")
+            time_left += (3 * 60)
             disabled_rooms.append(room)
 
     elif room_id == "electrical":
@@ -333,8 +322,8 @@ def execute_disable(room_id):
             print("This room is already disabled.")
 
         else:
-            print("You disabled the electrical room and the lights in the lobby have turned off. \nSWAT can no longer look in easily so you have gained an extra 2 minutes \ntill they storm the bank.")
-            time_left += (2 * 60)
+            print("You disabled the electrical room and the lights in the lobby have turned off. \nSWAT can no longer look in easily so you have gained an extra minute \ntill they storm the bank.")
+            time_left += 60
             disabled_rooms.append(room)
 
     else:
@@ -408,15 +397,51 @@ def execute_command(command):
     elif command[0] == "inventory" or command[0] == "i":
         print_inventory_items(inventory)
 
-    elif command[0] == "commands" or command[0] == "command" or command[0] == "a":
-        # add the function for actions here once created
-        pass
+    elif command[0] == "commands" or command[0] == "command" or command[0] == "c":
+        print_menu(current_room['exits'], current_room['items'])
 
     elif command[0] == "scores" or command[0] == "score" or command[0] == "s":
         display_score(inventory)
 
     else:
         print("This makes no sense")
+
+
+def print_menu(exits, room_items):
+    """This function displays the menu of available actions to the player."""
+    print("You can:")
+    # Iterate over available exits
+    for direction in exits:
+        # Print the exit name and where it leads to
+
+        room = rooms[exits[direction]['room']]
+        if room['locked'] and not (room['id'] == 'vault' and current_room['id'] == 'ceo'):
+            print("UNLOCK " + room['id'].upper() +
+                  " to unlock " + room['name'])
+        else:
+            print_exit(direction, exit_leads_to(exits, direction))
+
+    # Iterate over available take actions
+    for item in room_items:
+        # Print the exit name and where it leads to
+        print(f'TAKE {item["id"].upper()} to take {item["name"]}.')
+
+    if item_dynamite in inventory:
+        print('PLANT DYNAMITE to plant the dynamite')
+
+    if bomb_plant_location != None:
+        print('DETONATE DYNAMITE to detonate the dynamite')
+
+    if current_room['id'] == 'electrical' and not (current_room in disabled_rooms):
+        print('DISABLE ELECTRICAL to disable the lights in the lobby')
+
+    if current_room['id'] == 'server' and not (current_room in disabled_rooms):
+        print('DISABLE SERVER to disable the CCTV cameras')
+
+    # # Iterate over available drop actions
+    # for item in inv_items:
+    #     # Print the exit name and where it leads to
+    #     print(f'DROP {item["id"].upper()} to drop {item["name"]}.')
 
 
 def typewriter(message):
