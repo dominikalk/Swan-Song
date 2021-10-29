@@ -47,7 +47,7 @@ def print_ending(key):
     elif key == 'dynamite':
         text = '''On detonating the bomb in the armoury, you realise something the split second after you hit the trigger. You realise that you're still in the room and that the explosion will undoubtedly kill you. The explosion expands across the room, the fiery glare of the explosion is mesmerizing and your muscles relax as you accept the inevitable. The explosion engulfs you, killing you instantly. On the police storming the bank, they discover your seared corpse lying across the ground.'''
     elif key == 'stuck':
-        text = '''On jumping down into the vault after the explosion you realise you have made a grave error in judgement: the vault door is more seeled than fort knox, but the ceiling is too high to be able to climb back out the way you came. You didn’t bring any way of getting out throughout the break in so you’re stuck there until the SWAT inevitably storm the bank and arrest you. Due to your crimes you will never see the light of day.'''
+        text = '''On jumping down into the vault after the explosion you realise you have made a grave error in judgement: the vault door is more seeled than fort knox, but the ceiling is too high to be able to climb back out the way you came. You didn’t bring any way of getting out throughout the breakin so you’re stuck there until the SWAT inevitably storm the bank and arrest you. Due to your crimes you will never see the light of day.'''
     elif key == 'time':
         text = '''You can't stop exploring the bank to find that last little bit of loot. You become fixated on it. The police managed to formulate a plan and then SWAT stormed the bank overwhelming the entrances and clearing room by room. On finding you they shoot on sight killing you instantly. Your mission to get a quick score to live off for the rest of your life only resulted in you being wheeled out of the bank in a body bag.'''
 
@@ -463,7 +463,7 @@ def print_main_menu():
 
 def main_menu_options():
     print(
-        "\n\033[92mPlay (P)\n\033[96mLeader board (L)\n\033[93mHelp (H)\n\033[91mQuit (Q)\033[0m")
+        "\n\033[92mPlay (P)\n\033[93mHelp (H)\n\033[91mQuit (Q)\033[0m")
 
 
 # This is the entry point of our program
@@ -479,13 +479,10 @@ def main():
             break
         elif menu_input.lower().strip() == 'h':
             print_helpers()
-        elif menu_input.lower().strip() == 'l':
-            # TODO: leaderboard screen
-            print('\nLEADER BOARD SCREEN')
         elif menu_input.lower().strip() == 'q':
             return
         else:
-            pass
+            print('Invalid Input: Try again.')
 
     print('''
 You were approached by a strange man covering his face under the guise of a dark mask. 
@@ -501,7 +498,7 @@ The initial guards have all been neutralised, in a stream of crimson blood that 
 along the lobby floor you have moved the hostages into a secure location located within 
 the lobby in which you start.
 
-You know that once you need to escape there are only 3 known ways out: the front, 
+You know that once you need to escape there are only 3 known ways out: the front exit, 
 the helicopter, and the armoured van. Once you commit to escaping you cannot go back.''')
 
     # Main game loop
@@ -526,6 +523,8 @@ Exiting out this way would be suicide without a weapon and personal protection.'
         command = menu()
 
         # Execute the player's command
+        print(
+            '-----------------------------------------------------------------------------------------')
         execute_command(command)
 
         # Stuck in vault

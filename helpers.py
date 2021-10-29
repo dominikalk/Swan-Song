@@ -51,6 +51,22 @@ def list_of_items(items):
         return f'{items[0]["name"]} ({items[0]["id"].upper()})'
 
 
+def print_list_of_exits(exits):
+    list_of_exits = []
+    for i in exits:
+        list_of_exits.append(
+            f'{i.upper()} ({capitalise_sentence(rooms[exits[i]["room"]]["name"])})')
+        item_num = len(list_of_exits)
+    if item_num > 2:
+        list_of_exits.insert(-1, ' and')
+        print(wrap("There are exits " +
+              ', '.join(list_of_exits[:-2]) + ' '.join(list_of_exits[-2:]) + ".") + "\n")
+    elif item_num == 2:
+        print(wrap("There are exits " + " and ".join(list_of_exits) + ".") + "\n")
+    else:
+        print("There is an exit " f'{list_of_exits[0]}).\n')
+
+
 def print_room_items(room):
     """This function takes a room as an input and nicely displays a list of items
     found in this room (followed by a blank line). If there are no items in
@@ -143,6 +159,8 @@ def print_room(room):
     # Display items in the room
     if len(room['exits']) != 0:
         print_room_items(room)
+
+    print_list_of_exits(room['exits'])
 
 
 def print_item(items):
@@ -311,9 +329,9 @@ def print_ending_score(item_list, win):
         print_tier(tier)
         print(f"You stole a total sum of {format_price(score)}")
         print(
-            'Play again to try to get more money and a better tier. Can you get to Tier 1?')
+            f'Play again to try to get more money and a better tier. Can you get to Tier 1{" again" if tier == 1 else ""}?')
     else:
-        print(f"You stole a total sum of {format_price(score)}")
+        print(f"\nYou stole a total sum of {format_price(score)}")
         print(
             f'If you had escaped with your money this would have been a {color}TIER {tier} ROBBERY\033[0m.')
         print(

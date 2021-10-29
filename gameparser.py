@@ -13,7 +13,7 @@ skip_words = ['a', 'about', 'all', 'an', 'another', 'any', 'around', 'at',
               'of', 'off', 'oh', 'on', 'please', 'small', 'some', 'soon',
               'that', 'the', 'then', 'this', 'those', 'through', 'till', 'to',
               'towards', 'until', 'us', 'want', 'we', 'what', 'when', 'why',
-              'wish', 'with', 'would', 'armoured']
+              'wish', 'with', 'would', 'armoured', 'room', 'bank', 'loading', 'bay', 'armoured']
 # Added armoured for the armoured van so the output of 'armoured van' is just 'van'
 
 
