@@ -541,7 +541,7 @@ Exiting out this way would be suicide without a weapon and personal protection.'
                 elif give_up_input == 'n':
                     break
                 else:
-                    print('This makes no sence.')
+                    print('This makes no sense.')
             if give_up:
                 print_ending('stuck')
                 print_ending_score(inventory, False)
