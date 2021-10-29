@@ -64,7 +64,7 @@ def print_list_of_exits(exits):
     elif item_num == 2:
         print(wrap("There are exits " + " and ".join(list_of_exits) + ".") + "\n")
     else:
-        print("There is an exit " f'{list_of_exits[0]}).\n')
+        print("There is an exit " f'{list_of_exits[0]}.\n')
 
 
 def print_room_items(room):
