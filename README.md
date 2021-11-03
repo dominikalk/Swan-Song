@@ -4,9 +4,9 @@ This text based game is going to be made within a group for a cardiff university
 
 ## Usefull Links
 
-- Gitlab Repo: https://git.cardiff.ac.uk/c21024669/group-text-based-game
-- Trello Board: https://trello.com/b/oODRO4D9/group-text-based-game
-- Google Docs: https://drive.google.com/drive/folders/10ENkLxJvdivKkXBA-LqvMskeYTrJpZDZ?ths=true
+- Gitlab Repo: ##
+- Trello Board: ##
+- Google Docs: ##
 
 ## Contributors
 
@@ -17,7 +17,6 @@ This text based game is going to be made within a group for a cardiff university
 - Kaviya Sundarapalan
 - Asad Islam
 - Ben Sparrow
-- --person 8--
 
 ## Git global setup
 
