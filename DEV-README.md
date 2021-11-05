@@ -1,4 +1,4 @@
-# Group Text Based Game
+# Swan Song
 
 ![Team5_Thumbnail](https://user-images.githubusercontent.com/55254805/140578702-fc1aa8d6-9394-4aa7-bd73-114caa878f76.png)
 
